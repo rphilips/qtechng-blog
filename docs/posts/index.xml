@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>QtechNG: Ontwikkelen voor Brocade on QtechNG Blog</title>
-    <link>https://rphilips.github.io/qtechng-blog/</link>
-    <description>Recent content in QtechNG: Ontwikkelen voor Brocade on QtechNG Blog</description>
+    <title>Articles on QtechNG Blog</title>
+    <link>https://rphilips.github.io/qtechng-blog/posts/</link>
+    <description>Recent content in Articles on QtechNG Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>nl-be</language>
-    <lastBuildDate>Fri, 14 Apr 2017 11:25:05 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 02 Mar 2017 12:00:00 -0500</lastBuildDate>
     
-	<atom:link href="https://rphilips.github.io/qtechng-blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://rphilips.github.io/qtechng-blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

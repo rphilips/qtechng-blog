@@ -3,4 +3,3 @@ publishDir: docs
 languageCode: nl-be
 title: QtechNG Blog
 theme: ananke
-publishdir: rphilips.github.io

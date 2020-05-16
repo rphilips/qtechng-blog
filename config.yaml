@@ -1,0 +1,6 @@
+baseURL: https://rphilips.github.io/qtechng-blog/
+publishDir: docs
+languageCode: nl-be
+title: QtechNG Blog
+theme: ananke
+publishdir: rphilips.github.io

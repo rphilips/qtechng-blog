@@ -6,4 +6,4 @@ read;
 echo You typed ${REPLY}
 git commit -m "$REPLY"
 
-git push master -u origin
+git push -u origin 

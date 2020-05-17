@@ -11,5 +11,17 @@
 	<atom:link href="https://rphilips.github.io/qtechng-blog/post/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Brocade</title>
+      <link>https://rphilips.github.io/qtechng-blog/post/brocade/</link>
+      <pubDate>Sun, 17 May 2020 11:10:47 +0200</pubDate>
+      
+      <guid>https://rphilips.github.io/qtechng-blog/post/brocade/</guid>
+      <description>Deze blogbijdrage gaat over Brocade.
+Ik ga niet uitleggen wat de functionaliteit is die de Brocade software aanbiedt: daarvoor kan je veel beter terecht op de Wikipedia pagina.
+Deze tekst gaat over de software zelf: wat designprincipe zijn, hoeveel software er is en hoe deze wordt beheerd.
+Het belangrijkste principe is wel dat Brocade een werk van lange adem is. De wereld van (wetenschappelijke) bibliotheken en archieven verandert razendsnel. Dit gaat samen met de aard van informatieverschaffing maar evengoed met het veranderend statuut en aanzien van wetenschapsbeoefenaars.</description>
+    </item>
+    
   </channel>
 </rss>

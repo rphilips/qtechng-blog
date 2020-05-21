@@ -1,7 +1,7 @@
 ---
 title: "Projecten"
 featured_image: "/images/project.svg"
-date: 2020-05-19T08:59:12+02:00
+date: 2020-05-21T08:59:12+02:00
 ---
 
 ## Projecten: een stand van zaken

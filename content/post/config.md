@@ -45,7 +45,7 @@ Hou er mee rekening dat deze specificaties steeds komen als *glob patterns* (met
 
 
 
-## Overzicht avn de attributen
+## Overzicht van de attributen
 
 Let er op: alle attributen zijn in *lowercase*
 

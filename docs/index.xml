@@ -6,10 +6,21 @@
     <description>Recent content in QtechNG: Ontwikkelen voor Brocade on QtechNG Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>nl-nl</language>
-    <lastBuildDate>Sun, 17 May 2020 13:23:43 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 19 May 2020 08:59:12 +0200</lastBuildDate>
     
 	<atom:link href="https://rphilips.github.io/qtechng-blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Projecten</title>
+      <link>https://rphilips.github.io/qtechng-blog/post/project/</link>
+      <pubDate>Tue, 19 May 2020 08:59:12 +0200</pubDate>
+      
+      <guid>https://rphilips.github.io/qtechng-blog/post/project/</guid>
+      <description>Projecten: een stand van zaken Brocade 5.00 telt meer dan 14000 bestanden.
+Om beheer mogelijk te maken, moet hier structuur worden aangebracht. Het voornaamste structuurelement is het project. Een project staat voor een deelverzameling van deze bestanden, fysiek ondergebracht in een directory.
+Van oudsher kent Brocade een thematische opsplitsing: zo werden bestanden rondom het bestellen van dingen gegroepeerd in projecten met namen als: /requests/impala, /requests/repository, /requests/virlib. Deze werden dan aangevuld met minder voor de hand liggende projecten zoals /requests/admin, /requests/gateway, &amp;hellip;</description>
+    </item>
     
     <item>
       <title>[mlq]tech(ng)?</title>

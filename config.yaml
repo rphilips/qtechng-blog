@@ -8,6 +8,7 @@ SectionPagesMenu: main
 Paginate: 5
 background_color_class: bg-black
 recent_posts_number: 2
-
+pygmentsCodefences: true
+pygmentsStyle: pygments
 
 

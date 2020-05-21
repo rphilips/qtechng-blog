@@ -47,7 +47,7 @@ In een latere blog post gaan we dit uitvoerig bespreken.
 
 ## QtechNG: brocade.json
 
-Elk project moet in zijn root-directory het bestand `brocade.json` bevatten. Dit bestand vervangt de vroegere `install.cfg`. 
+Elk project moet in zijn root-directory het bestand `brocade.json` bevatten. Dit bestand vervangt het vroegere `install.cfg`. 
 Er werd een andere naam gekozen omdat het dan voor bijvoorbeeld Visual Studio Code onmiddellijk duidelijk was hoe dergelijke bestanden moesten worden bewerkt.
 
 In tegenstelling tot `install.cfg`, is `brocade.json` verplicht! Het aantal mogelijkheden is ook drastisch uitgebreid.

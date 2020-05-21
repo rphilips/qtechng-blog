@@ -30,14 +30,14 @@ In die kleine 20 jaar dat `qtech` in gebruik was, ben ik ongeveer de enige die d
 
 In `qtechng` wordt de definitie van een project aangescherpt. 
 
-## Projecten kunnen directories bevatten
+## QtechNG: projecten kunnen directories bevatten
 
 Moderne software projecten komen in een directory tree. Node, Go, Hugo, reStructuredText ... noem maar op: ze kennen allemaal het concept van project en ze zijn in boom-vorm. 
 Dikwijls gaat de ondersteunende software hier ook handig op inspelen.
 
 Als dergelijke projecten een plaats moeten krijgen binnen `qtechng`, dan moet deze boomstructuur ook kunnen.
 
-## Projecten kunnen kind-projecten bevatten
+## QtechNG: projecten kunnen kind-projecten bevatten
 
 `qtechng` gaat nog verder: projecten kunnen ook kind-projecten bevatten. 
 

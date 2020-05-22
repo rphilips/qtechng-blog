@@ -12,6 +12,17 @@
     
     
     <item>
+      <title>Registry</title>
+      <link>https://rphilips.github.io/qtechng-blog/post/registry/</link>
+      <pubDate>Fri, 22 May 2020 13:18:57 +0200</pubDate>
+      
+      <guid>https://rphilips.github.io/qtechng-blog/post/registry/</guid>
+      <description>Brocade is verregaand geparametriseerd: meta-informatie bepaalt de specifieke functionaliteit en het uitzicht. Het minitieus parametriseren van een complex systeem kan enkel in een getrapt systeem en met verschillende technologieeen.
+  Sommige meta-informatie wordt handmatig verzameld en zijn intrinsiek verbonden met de doelstellingen van een bibliotheeksysteem: catalografische beschrijvingen, gebruikersbeschrijvingen
+  Om deze meta-informatie adequaat te beschrijven heb je instrumenten nodig. Er mee rekening houdend dat niet alle Brocade installaties volgens dezelfde procedures en richtlijnen werken, is er weer meta-informatie nodig om deze instrumenten scherp te stellen naar een specifieke situatie toe.</description>
+    </item>
+    
+    <item>
       <title>Version</title>
       <link>https://rphilips.github.io/qtechng-blog/post/version/</link>
       <pubDate>Fri, 22 May 2020 10:00:23 +0200</pubDate>

@@ -5,9 +5,9 @@ title: QtechNG Blog
 theme: ananke
 DefaultContentLanguage: nl
 SectionPagesMenu: main
-Paginate: 5
+Paginate: 10
 background_color_class: bg-black
-recent_posts_number: 2
+recent_posts_number: 4
 pygmentsCodefences: true
 pygmentsStyle: pygments
 

@@ -105,9 +105,9 @@ zijn `registry.json` bestanden die voldoen aan het [registry schema](https://dev
 
 Sleutels in de registry zijn *niet* evenwaardig:
 
-    - sommige sleutels zijn *berekenbaar* en worden enkel opgenomen omdat het berekenen ervan te omslachtig is of te veel tijd zou nemen. Een voorbeeld hiervan is `os-sep` (separator van directories en bestandsnamen)
+- sommige sleutels zijn *berekenbaar* en worden enkel opgenomen omdat het berekenen ervan te omslachtig is of te veel tijd zou nemen. Een voorbeeld hiervan is `os-sep` (separator van directories en bestandsnamen)
 
-    - sommigen zijn afhankelijk van andere sleutels: vb. `xml-catalog-dir` is afhankelijk van `web-base-dir`.
+- sommigen zijn afhankelijk van andere sleutels: vb. `xml-catalog-dir` is afhankelijk van `web-base-dir`.
 
 
 Een ontwikkelaar die een nieuwe registry waarde nodig heeft, volgt de volgende stappen:
@@ -116,9 +116,9 @@ Een ontwikkelaar die een nieuwe registry waarde nodig heeft, volgt de volgende s
 
 - Is de nieuwe registry waarde in te stellen door de system administrator, definieer dan de registry waarde in `/core/brocade/release.py`. De ontwikkelaar kan 2 strategieën volgen:
 
-      * is er een goede default waarde, neem dan deze
+  - is er een goede default waarde, neem dan deze
       
-      * kies anders een waarde die de installatie van het project doet falen
+  - kies anders een waarde die de installatie van het project doet falen
 
   De ontwikkelaar documenteert deze registry waarde in het project `/doc/registry`.
 

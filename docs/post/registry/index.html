@@ -39,7 +39,7 @@
   Om deze meta-informatie adequaat te beschrijven heb je instrumenten nodig. Er mee rekening houdend dat niet alle Brocade installaties volgens dezelfde procedures en richtlijnen werken, is er weer meta-informatie nodig om deze instrumenten scherp te stellen naar een specifieke situatie toe.">
 <meta itemprop="datePublished" content="2020-05-22T13:18:57&#43;02:00" />
 <meta itemprop="dateModified" content="2020-05-22T13:18:57&#43;02:00" />
-<meta itemprop="wordCount" content="1127">
+<meta itemprop="wordCount" content="1123">
 
 
 
@@ -235,10 +235,14 @@
 <p>zijn <code>registry.json</code> bestanden die voldoen aan het <a href="https://dev.anet.be/brocade/schema/registry.schema.json" title="Registry">registry schema</a></p>
 <h2 id="samenstellen-van-de-registry">Samenstellen van de registry</h2>
 <p>Sleutels in de registry zijn <em>niet</em> evenwaardig:</p>
-<pre><code>- sommige sleutels zijn *berekenbaar* en worden enkel opgenomen omdat het berekenen ervan te omslachtig is of te veel tijd zou nemen. Een voorbeeld hiervan is `os-sep` (separator van directories en bestandsnamen)
-
-- sommigen zijn afhankelijk van andere sleutels: vb. `xml-catalog-dir` is afhankelijk van `web-base-dir`.
-</code></pre>
+<ul>
+<li>
+<p>sommige sleutels zijn <em>berekenbaar</em> en worden enkel opgenomen omdat het berekenen ervan te omslachtig is of te veel tijd zou nemen. Een voorbeeld hiervan is <code>os-sep</code> (separator van directories en bestandsnamen)</p>
+</li>
+<li>
+<p>sommigen zijn afhankelijk van andere sleutels: vb. <code>xml-catalog-dir</code> is afhankelijk van <code>web-base-dir</code>.</p>
+</li>
+</ul>
 <p>Een ontwikkelaar die een nieuwe registry waarde nodig heeft, volgt de volgende stappen:</p>
 <ul>
 <li>
@@ -246,10 +250,14 @@
 </li>
 <li>
 <p>Is de nieuwe registry waarde in te stellen door de system administrator, definieer dan de registry waarde in <code>/core/brocade/release.py</code>. De ontwikkelaar kan 2 strategieën volgen:</p>
-<pre><code>* is er een goede default waarde, neem dan deze
-  
-* kies anders een waarde die de installatie van het project doet falen
-</code></pre>
+<ul>
+<li>
+<p>is er een goede default waarde, neem dan deze</p>
+</li>
+<li>
+<p>kies anders een waarde die de installatie van het project doet falen</p>
+</li>
+</ul>
 <p>De ontwikkelaar documenteert deze registry waarde in het project <code>/doc/registry</code>.</p>
 </li>
 </ul>

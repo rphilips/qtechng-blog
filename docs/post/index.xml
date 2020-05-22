@@ -12,6 +12,17 @@
     
     
     <item>
+      <title>Version</title>
+      <link>https://rphilips.github.io/qtechng-blog/post/version/</link>
+      <pubDate>Fri, 22 May 2020 10:00:23 +0200</pubDate>
+      
+      <guid>https://rphilips.github.io/qtechng-blog/post/version/</guid>
+      <description>Voor software projecten die lang bestaan in de versie aanduiding belangrijk.
+De communicatie rond de mogelijkheden van een software, worden gevoerd rond deze versie aanduiding. Release notes zijn bijvoorbeeld gecentreerd rondom een versie.
+Niet zelden vinden versie aanduidingen hun weg naar contacten. Dat kan verschillende vormen aannemen: verplichtingen die gelden tot een versie (dit impliceert meteen dat er een zekere ordening bestaat in de versie aanduidingen), of het aantal releases die worden opgeleverd in een gegeven tijdspanne.</description>
+    </item>
+    
+    <item>
       <title>Configuratie bestand</title>
       <link>https://rphilips.github.io/qtechng-blog/post/config/</link>
       <pubDate>Thu, 21 May 2020 10:30:43 +0200</pubDate>

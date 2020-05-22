@@ -39,7 +39,7 @@ Dit bestand is een JSON bestand dat gestructureerd is volgens het schema qtechng
 Dit heeft zo zijn voordelen: Visual Studio Code kan gebruik maken van deze specificatie om te helpen bij het editeren.">
 <meta itemprop="datePublished" content="2020-05-21T10:30:43&#43;02:00" />
 <meta itemprop="dateModified" content="2020-05-21T10:30:43&#43;02:00" />
-<meta itemprop="wordCount" content="1435">
+<meta itemprop="wordCount" content="1656">
 
 
 
@@ -144,221 +144,6 @@ Dit heeft zo zijn voordelen: Visual Studio Code kan gebruik maken van deze speci
 <p>Specificatie en afhandeling van de bestanden in het project.</p>
 </li>
 </ul>
-<h2 id="richtlijnen-voor-installatie">Richtlijnen voor installatie</h2>
-<p>De attributen &ldquo;passive&rdquo;, &ldquo;mumps&rdquo;, &ldquo;groups&rdquo;, &ldquo;names&rdquo;, &ldquo;roles&rdquo;, &ldquo;versionlower&rdquo;, &ldquo;versionupper&rdquo; helpen uit te maken of het project moet worden geïnstalleerd. Deze waarden worden vergeleken met registry waarden op de actuele server.</p>
-<p>&ldquo;py3&rdquo;, &ldquo;core&rdquo;, &ldquo;priority&rdquo; hebben geen impact of het project moet worden geïnstalleerd, maar beïnvloeden wel het installatieproces.</p>
-<p>Meteen een gouden regel voor de installatie van kind-projecten: een kind-project kan enkel worden geïnstalleerd als <em>ALL</em> ouder-projecten ook zijn geïnstalleerd.</p>
-<p>Dit betekent nog dat &ldquo;core&rdquo; weinig zin heeft voor een kind-project. &ldquo;priority&rdquo; is relatief onder de kind-projecten van dezelfde ouder.</p>
-<h2 id="specificatie-en-afhandeling-van-de-bestanden">Specificatie en afhandeling van de bestanden</h2>
-<p>In <code>QtechNG</code> ken het <em>speciaal</em> statuut van bestanden worden weggenomen. Bij voorbeeld kan worden vastgelegd dat <code>helloworld.d</code> geen bestand is met macro&rsquo;s (maar vb. een programma in <code>dlang</code>).</p>
-<p>Zeer handig is ook de specificatie van wat <em>binary</em> is.</p>
-<p>Hou er mee rekening dat deze specificaties steeds komen als <em>glob patterns</em> (met forward slashes) tegenover het relatieve path binnen het project.</p>
-<h2 id="overzicht-van-de-attributen">Overzicht van de attributen</h2>
-<p>Let er op: alle attributen zijn in <em>lowercase</em></p>
-<h3 id="binary">binary</h3>
-<ul>
-<li>type: <em>array</em></li>
-<li>description: De bestanden uit het project waarbij de relatieve <code>qtechpath</code> overeenkomt met 1 van de elementen van de array, worden als <code>binary</code> bestand beschouwd. Er gebeurt geen r4/i4/m4/l4 substitutie. Deze waarde wordt <em>NIET</em> overgenomen in kind-projecten.</li>
-<li>default: []</li>
-<li>uniqueItems: True</li>
-<li>items:
-<ul>
-<li>type: string</li>
-<li>description: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
-<li>enum: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
-</ul>
-</li>
-</ul>
-<h3 id="core">core</h3>
-<ul>
-<li>type: <em>boolean</em></li>
-<li>description: Indien <code>true</code>, dan wordt dit project geïnstalleerd samen met andere core projecten. Deze waarde specificeren binnen kind-projecten heeft geen effect. Indien <code>true</code>, dan zijn alle kind-projecten, core projecten.</li>
-<li>default: false</li>
-</ul>
-<h3 id="emptydirs">emptydirs</h3>
-<ul>
-<li>type: <em>array</em></li>
-<li>description: De bestanden uit het project waarbij de relatieve <code>qtechpath</code> overeenkomen met 1 van de elementen van de array, wordt als directories beschouwd. Deze worden op werkstations aangemaakt, ook als ze geen bestanden bevatten. Deze waarde wordt <em>NIET</em> overgenomen in kind-projecten.</li>
-<li>default: []</li>
-<li>uniqueItems: True</li>
-<li>items:
-<ul>
-<li>type: string</li>
-<li>description: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
-<li>enum: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
-</ul>
-</li>
-</ul>
-<h3 id="groups">groups</h3>
-<ul>
-<li>type: <em>array</em></li>
-<li>description: Dit project wordt enkel geïnstalleerd als 1 van de array elementen overeenkomt met de registry waarde <code>system-group</code>. Bij niet-installatie, worden ook de kind-projecten <em>niet</em> geïnstalleerd.</li>
-<li>default: [&quot;*&quot;]</li>
-<li>uniqueItems: True</li>
-<li>items:
-<ul>
-<li>type: string</li>
-<li>description: Een wildcard voorstelling voor de registry waarde <code>system-group</code>.</li>
-<li>enum: Een wildcard voorstelling voor de registry waarde <code>system-group</code>.</li>
-</ul>
-</li>
-</ul>
-<h3 id="i4binary">i4binary</h3>
-<ul>
-<li>type: <em>array</em></li>
-<li>description: De bestanden uit het project waarbij de relatieve <code>qtechpath</code> overeenkomen met 1 van de elementen van de array, wordt als <code>i4binary</code> bestand beschouwd. Er gebeurt geen i4 substitutie. Deze waarde wordt <em>NIET</em> overgenomen in kind-projecten.</li>
-<li>default: []</li>
-<li>uniqueItems: True</li>
-<li>items:
-<ul>
-<li>type: string</li>
-<li>description: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
-<li>enum: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
-</ul>
-</li>
-</ul>
-<h3 id="l4binary">l4binary</h3>
-<ul>
-<li>type: <em>array</em></li>
-<li>description: De bestanden uit het project waarbij de relatieve <code>qtechpath</code> overeenkomen met 1 van de elementen van de array, wordt als <code>l4binary</code> bestand beschouwd. Er gebeurt geen l4 substitutie. Deze waarde wordt <em>NIET</em> overgenomen in kind-projecten.</li>
-<li>default: []</li>
-<li>uniqueItems: True</li>
-<li>items:
-<ul>
-<li>type: string</li>
-<li>description: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
-<li>enum: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
-</ul>
-</li>
-</ul>
-<h3 id="m4binary">m4binary</h3>
-<ul>
-<li>type: <em>array</em></li>
-<li>description: De bestanden uit het project waarbij de relatieve <code>qtechpath</code> overeenkomen met 1 van de elementen van de array, wordt als <code>m4binary</code> bestand beschouwd. Er gebeurt geen m4 substitutie. Deze waarde wordt <em>NIET</em> overgenomen in kind-projecten.</li>
-<li>default: []</li>
-<li>uniqueItems: True</li>
-<li>items:
-<ul>
-<li>type: string</li>
-<li>description: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
-<li>enum: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
-</ul>
-</li>
-</ul>
-<h3 id="mumps">mumps</h3>
-<ul>
-<li>type: <em>array</em></li>
-<li>description: Dit project wordt enkel geïnstalleerd als de registry waarde <code>m-os-type</code> in <code>mumps</code> voorkomt. Bij niet-installatie, worden ook de kind-projecten <em>niet</em> geïnstalleerd.</li>
-<li>default: [&ldquo;gtm&rdquo;, &ldquo;cache&rdquo;, &ldquo;&quot;]</li>
-<li>uniqueItems: True</li>
-<li>items:
-<ul>
-<li>type: string</li>
-<li>description: Identifier voor de M versie op het target systeem.</li>
-<li>enum: [&lsquo;gtm&rsquo;, &lsquo;cache&rsquo;, &lsquo;']</li>
-</ul>
-</li>
-</ul>
-<h3 id="names">names</h3>
-<ul>
-<li>type: <em>array</em></li>
-<li>description: Dit project wordt enkel geïnstalleerd als 1 van de array elementen overeenkomt met de registry waarde <code>system-name</code>. Bij niet-installatie, worden ook de kind-projecten <em>niet</em> geïnstalleerd.</li>
-<li>default: [&quot;*&quot;]</li>
-<li>uniqueItems: True</li>
-<li>items:
-<ul>
-<li>type: string</li>
-<li>description: Een wildcard voorstelling voor de registry waarde <code>system-name</code>.</li>
-<li>enum: Een wildcard voorstelling voor de registry waarde <code>system-name</code>.</li>
-</ul>
-</li>
-</ul>
-<h3 id="notbrocade">notbrocade</h3>
-<ul>
-<li>type: <em>array</em></li>
-<li>description: De bestanden uit het project waarbij de relatieve <code>qtechpath</code> overeenkomt met 1 van de elementen van de array, worden niet als een <code>*.[bdilmx]</code> file beschouwd. Deze waarde wordt <em>NIET</em> overgenomen in de kind-projecten.</li>
-<li>default: []</li>
-<li>uniqueItems: True</li>
-<li>items:
-<ul>
-<li>type: string</li>
-<li>description: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
-<li>enum: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
-</ul>
-</li>
-</ul>
-<h3 id="notconfig">notconfig</h3>
-<ul>
-<li>type: <em>array</em></li>
-<li>description: De bestanden uit het project waarbij de relatieve <code>qtechpath</code> overeenkomt met 1 van de elementen van de array, worden niet als een Brocade configuratie file (brocade.json) beschouwd. Deze waarde wordt <em>NIET</em> overgenomen in de kind-projecten.</li>
-<li>default: []</li>
-<li>uniqueItems: True</li>
-<li>items:
-<ul>
-<li>type: string</li>
-<li>description: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
-<li>enum: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
-</ul>
-</li>
-</ul>
-<h3 id="passive">passive</h3>
-<ul>
-<li>type: <em>boolean</em></li>
-<li>description: De waarde <code>true</code> zorgt ervoor dat het project <em>niet</em> wordt geïnstalleerd. Bij niet-installatie, worden ook de kind-projecten <em>niet</em> geïnstalleerd.</li>
-<li>default: false</li>
-</ul>
-<h3 id="priority">priority</h3>
-<ul>
-<li>type: <em>number</em></li>
-<li>description: Geeft binnen de 2 groepen, core en niet-core, wat de volgorde is van installatie: hoge prioriteit wordt eerder geïnstalleerd. Kind-projecten worden altijd geïnstalleerd binnen hun ouder (in volgorde van prioriteit)</li>
-<li>default: 10000</li>
-</ul>
-<h3 id="py3">py3</h3>
-<ul>
-<li>type: <em>boolean</em></li>
-<li>description: Indien <code>true</code>, dan worden install.py/check.py/local.py/release.py met <code>python3</code> uitgevoerd, zoniet met python2. Deze waarde wordt <em>NIET</em> overgenomen in kind-projecten.</li>
-<li>default: false</li>
-</ul>
-<h3 id="r4binary">r4binary</h3>
-<ul>
-<li>type: <em>array</em></li>
-<li>description: De bestanden uit het project waarbij de relatieve <code>qtechpath</code> overeenkomt met 1 van de elementen van de array, worden als <code>r4binary</code> bestand beschouwd. Er gebeurt geen r4 substitutie. Deze waarde wordt <em>NIET</em> overgenomen in kind-projecten.</li>
-<li>default: []</li>
-<li>uniqueItems: True</li>
-<li>items:
-<ul>
-<li>type: string</li>
-<li>description: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
-<li>enum: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
-</ul>
-</li>
-</ul>
-<h3 id="roles">roles</h3>
-<ul>
-<li>type: <em>array</em></li>
-<li>description: Dit project wordt enkel geïnstalleerd als <em>alle</em> rollen uit de registry waarde <code>system-roles</code> overeenkomen met minstens 1 element van de array. Bij niet-installatie, worden ook de kind-projecten <em>niet</em> geïnstalleerd.</li>
-<li>default: [&quot;*&quot;]</li>
-<li>uniqueItems: True</li>
-<li>items:
-<ul>
-<li>type: string</li>
-<li>description: Een wildcard voorstelling voor de registry waarde <code>system-roles</code>.</li>
-<li>enum: Een wildcard voorstelling voor de registry waarde <code>system-roles</code>.</li>
-</ul>
-</li>
-</ul>
-<h3 id="versionlower">versionlower</h3>
-<ul>
-<li>type: <em>string</em></li>
-<li>description: Dit project wordt enkel geïnstalleerd als de registry waarde <code>brocade-release</code> lexicografisch kleiner is dan deze waarde. Bij niet-installatie, worden ook de kind-projecten <em>niet</em> geïnstalleerd.</li>
-<li>default: &ldquo;~&rdquo;</li>
-</ul>
-<h3 id="versionupper">versionupper</h3>
-<ul>
-<li>type: <em>string</em></li>
-<li>description: Dit project wordt enkel geïnstalleerd als de registry waarde <code>brocade-release</code> lexicografisch groter is dan deze waarde. Bij niet-installatie, worden ook de kind-projecten <em>niet</em> geïnstalleerd.</li>
-<li>default: &quot;&rdquo;</li>
-</ul>
 <h2 id="voorbeeld">Voorbeeld</h2>
 <p>Het volgende voorbeeld toont een eenvoudig <code>brocade.json</code> bestand.</p>
 <p>Let op het <code>$schema</code> attribuut: het vertelt de editor welk schema er van toepassing is.
@@ -374,8 +159,263 @@ In Visual Studio Code is er meteen uitgebreide documentatie en ondersteuning van
             <span style="color:#ba2121">&#34;*.zip&#34;</span>
         ]
     }
-
-</code></pre></div><ul class="pa0">
+</code></pre></div><h2 id="richtlijnen-voor-installatie">Richtlijnen voor installatie</h2>
+<p>De attributen &ldquo;passive&rdquo;, &ldquo;mumps&rdquo;, &ldquo;groups&rdquo;, &ldquo;names&rdquo;, &ldquo;roles&rdquo;, &ldquo;versionlower&rdquo;, &ldquo;versionupper&rdquo; helpen uit te maken of het project moet worden geïnstalleerd. Deze waarden worden vergeleken met registry waarden op de actuele server.</p>
+<p>&ldquo;py3&rdquo;, &ldquo;core&rdquo;, &ldquo;priority&rdquo; hebben geen impact of het project moet worden geïnstalleerd, maar beïnvloeden wel het installatieproces.</p>
+<p>Meteen een gouden regel voor de installatie van kind-projecten: een kind-project kan enkel worden geïnstalleerd als <em>ALL</em> ouder-projecten ook zijn geïnstalleerd.</p>
+<p>Dit betekent nog dat &ldquo;core&rdquo; weinig zin heeft voor een kind-project. &ldquo;priority&rdquo; is relatief onder de kind-projecten van dezelfde ouder.</p>
+<h2 id="specificatie-en-afhandeling-van-de-bestanden">Specificatie en afhandeling van de bestanden</h2>
+<p>In <code>QtechNG</code> ken het <em>speciaal</em> statuut van bestanden worden weggenomen. Bij voorbeeld kan worden vastgelegd dat <code>helloworld.d</code> geen bestand is met macro&rsquo;s (maar vb. een programma in <code>dlang</code>).</p>
+<p>Zeer handig is ook de specificatie van wat <em>binary</em> is.</p>
+<p>Hou er mee rekening dat deze specificaties steeds komen als <em>glob patterns</em> (met forward slashes) tegenover het relatieve path binnen het project.</p>
+<h2 id="overzicht-van-de-attributen">Overzicht van de attributen</h2>
+<p>Let er op: alle attributen zijn in <em>lowercase</em></p>
+<h3 id="binary">binary</h3>
+<ul>
+<li><code>type</code>: <em>array</em></li>
+<li><code>description</code>: De bestanden uit het project waarbij de relatieve <code>qtechpath</code> overeenkomt met 1 van de elementen van de array, worden als <code>binary</code> bestand beschouwd. Er gebeurt geen r4/i4/m4/l4 substitutie. Deze waarde wordt <em>NIET</em> overgenomen in kind-projecten.</li>
+<li><code>default</code>: []</li>
+<li><code>uniqueItems</code>: True</li>
+<li><code>items</code>:
+<ul>
+<li>type: string</li>
+<li>description: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
+</ul>
+</li>
+</ul>
+<h3 id="core">core</h3>
+<ul>
+<li><code>type</code>: <em>boolean</em></li>
+<li><code>description</code>: Indien <code>true</code>, dan wordt dit project geïnstalleerd samen met andere core projecten. Deze waarde specificeren binnen kind-projecten heeft geen effect. Indien <code>true</code>, dan zijn alle kind-projecten, core projecten.</li>
+<li><code>default</code>: false</li>
+</ul>
+<h3 id="emptydirs">emptydirs</h3>
+<ul>
+<li><code>type</code>: <em>array</em></li>
+<li><code>description</code>: De bestanden uit het project waarbij de relatieve <code>qtechpath</code> overeenkomen met 1 van de elementen van de array, wordt als directories beschouwd. Deze worden op werkstations aangemaakt, ook als ze geen bestanden bevatten. Deze waarde wordt <em>NIET</em> overgenomen in kind-projecten.</li>
+<li><code>default</code>: []</li>
+<li><code>uniqueItems</code>: True</li>
+<li><code>items</code>:
+<ul>
+<li>type: string</li>
+<li>description: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
+</ul>
+</li>
+</ul>
+<h3 id="groups">groups</h3>
+<ul>
+<li><code>type</code>: <em>array</em></li>
+<li><code>description</code>: Dit project wordt enkel geïnstalleerd als 1 van de array elementen overeenkomt met de registry waarde <code>system-group</code>. Bij niet-installatie, worden ook de kind-projecten <em>niet</em> geïnstalleerd.</li>
+<li><code>default</code>: [&quot;*&quot;]</li>
+<li><code>uniqueItems</code>: True</li>
+<li><code>items</code>:
+<ul>
+<li>type: string</li>
+<li>description: Een wildcard voorstelling voor de registry waarde <code>system-group</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="i4binary">i4binary</h3>
+<ul>
+<li><code>type</code>: <em>array</em></li>
+<li><code>description</code>: De bestanden uit het project waarbij de relatieve <code>qtechpath</code> overeenkomen met 1 van de elementen van de array, wordt als <code>i4binary</code> bestand beschouwd. Er gebeurt geen i4 substitutie. Deze waarde wordt <em>NIET</em> overgenomen in kind-projecten.</li>
+<li><code>default</code>: []</li>
+<li><code>uniqueItems</code>: True</li>
+<li><code>items</code>:
+<ul>
+<li>type: string</li>
+<li>description: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
+</ul>
+</li>
+</ul>
+<h3 id="i4noterror">i4noterror</h3>
+<ul>
+<li><code>type</code>: <em>array</em></li>
+<li><code>description</code>: <em>qtechng</em> gaat een fout genereren indien een i4 waarde voorkomt in een bestand terwijl deze i4 waarde niet gedfinieerd is. Dit <em>i4noterror</em> laat toe om uitzonderingen hierop te specificeren: voeg een koppel toe aan de array met als eerste element de bewuste i4 waarde en als tweede element een wildcard dat matcht aan het bestand.</li>
+<li><code>default</code>: []</li>
+<li><code>uniqueItems</code>: True</li>
+<li><code>items</code>:
+<ul>
+<li>type: array</li>
+<li>description: Een array met twee elementen: het eerste element is een i4-string, het tweede element is een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
+</ul>
+</li>
+</ul>
+<h3 id="l4binary">l4binary</h3>
+<ul>
+<li><code>type</code>: <em>array</em></li>
+<li><code>description</code>: De bestanden uit het project waarbij de relatieve <code>qtechpath</code> overeenkomen met 1 van de elementen van de array, wordt als <code>l4binary</code> bestand beschouwd. Er gebeurt geen l4 substitutie. Deze waarde wordt <em>NIET</em> overgenomen in kind-projecten.</li>
+<li><code>default</code>: []</li>
+<li><code>uniqueItems</code>: True</li>
+<li><code>items</code>:
+<ul>
+<li>type: string</li>
+<li>description: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
+</ul>
+</li>
+</ul>
+<h3 id="l4noterror">l4noterror</h3>
+<ul>
+<li><code>type</code>: <em>array</em></li>
+<li><code>description</code>: <em>qtechng</em> gaat een fout genereren indien een l4 waarde voorkomt in een bestand terwijl deze l4 waarde niet gedfinieerd is. Dit <em>l4noterror</em> laat toe om uitzonderingen hierop te specificeren: voeg een koppel toe aan de array met als eerste element de bewuste l4 waarde en als tweede element een wildcard dat matcht aan het bestand.</li>
+<li><code>default</code>: []</li>
+<li><code>uniqueItems</code>: True</li>
+<li><code>items</code>:
+<ul>
+<li>type: array</li>
+<li>description: Een array met twee elementen: het eerste element is een l4-string, het tweede element is een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
+</ul>
+</li>
+</ul>
+<h3 id="m4binary">m4binary</h3>
+<ul>
+<li><code>type</code>: <em>array</em></li>
+<li><code>description</code>: De bestanden uit het project waarbij de relatieve <code>qtechpath</code> overeenkomen met 1 van de elementen van de array, wordt als <code>m4binary</code> bestand beschouwd. Er gebeurt geen m4 substitutie. Deze waarde wordt <em>NIET</em> overgenomen in kind-projecten.</li>
+<li><code>default</code>: []</li>
+<li><code>uniqueItems</code>: True</li>
+<li><code>items</code>:
+<ul>
+<li>type: string</li>
+<li>description: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
+</ul>
+</li>
+</ul>
+<h3 id="m4noterror">m4noterror</h3>
+<ul>
+<li><code>type</code>: <em>array</em></li>
+<li><code>description</code>: <em>qtechng</em> gaat een fout genereren indien een m4 waarde voorkomt in een bestand terwijl deze m4 waarde niet gedfinieerd is. Dit <em>m4noterror</em> laat toe om uitzonderingen hierop te specificeren: voeg een koppel toe aan de array met als eerste element de bewuste m4 waarde en als tweede element een wildcard dat matcht aan het bestand.</li>
+<li><code>default</code>: []</li>
+<li><code>uniqueItems</code>: True</li>
+<li><code>items</code>:
+<ul>
+<li>type: array</li>
+<li>description: Een array met twee elementen: het eerste element is een m4-string, het tweede element is een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
+</ul>
+</li>
+</ul>
+<h3 id="mumps">mumps</h3>
+<ul>
+<li><code>type</code>: <em>array</em></li>
+<li><code>description</code>: Dit project wordt enkel geïnstalleerd als de registry waarde <code>m-os-type</code> in <code>mumps</code> voorkomt. Bij niet-installatie, worden ook de kind-projecten <em>niet</em> geïnstalleerd.</li>
+<li><code>default</code>: [&ldquo;gtm&rdquo;, &ldquo;cache&rdquo;, &ldquo;&quot;]</li>
+<li><code>uniqueItems</code>: True</li>
+<li><code>items</code>:
+<ul>
+<li>type: string</li>
+<li>description: Identifier voor de M versie op het target systeem.</li>
+<li>enum: [&lsquo;gtm&rsquo;, &lsquo;cache&rsquo;, &lsquo;']</li>
+</ul>
+</li>
+</ul>
+<h3 id="names">names</h3>
+<ul>
+<li><code>type</code>: <em>array</em></li>
+<li><code>description</code>: Dit project wordt enkel geïnstalleerd als 1 van de array elementen overeenkomt met de registry waarde <code>system-name</code>. Bij niet-installatie, worden ook de kind-projecten <em>niet</em> geïnstalleerd.</li>
+<li><code>default</code>: [&quot;*&quot;]</li>
+<li><code>uniqueItems</code>: True</li>
+<li><code>items</code>:
+<ul>
+<li>type: string</li>
+<li>description: Een wildcard voorstelling voor de registry waarde <code>system-name</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="notbrocade">notbrocade</h3>
+<ul>
+<li><code>type</code>: <em>array</em></li>
+<li><code>description</code>: De bestanden uit het project waarbij de relatieve <code>qtechpath</code> overeenkomt met 1 van de elementen van de array, worden niet als een <code>*.[bdilmx]</code> file beschouwd. Deze waarde wordt <em>NIET</em> overgenomen in de kind-projecten.</li>
+<li><code>default</code>: []</li>
+<li><code>uniqueItems</code>: True</li>
+<li><code>items</code>:
+<ul>
+<li>type: string</li>
+<li>description: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
+</ul>
+</li>
+</ul>
+<h3 id="notconfig">notconfig</h3>
+<ul>
+<li><code>type</code>: <em>array</em></li>
+<li><code>description</code>: De bestanden uit het project waarbij de relatieve <code>qtechpath</code> overeenkomt met 1 van de elementen van de array, worden niet als een Brocade configuratie file (brocade.json) beschouwd. Deze waarde wordt <em>NIET</em> overgenomen in de kind-projecten.</li>
+<li><code>default</code>: []</li>
+<li><code>uniqueItems</code>: True</li>
+<li><code>items</code>:
+<ul>
+<li>type: string</li>
+<li>description: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
+</ul>
+</li>
+</ul>
+<h3 id="passive">passive</h3>
+<ul>
+<li><code>type</code>: <em>boolean</em></li>
+<li><code>description</code>: De waarde <code>true</code> zorgt ervoor dat het project <em>niet</em> wordt geïnstalleerd. Bij niet-installatie, worden ook de kind-projecten <em>niet</em> geïnstalleerd.</li>
+<li><code>default</code>: false</li>
+</ul>
+<h3 id="priority">priority</h3>
+<ul>
+<li><code>type</code>: <em>number</em></li>
+<li><code>description</code>: Geeft binnen de 2 groepen, core en niet-core, wat de volgorde is van installatie: hoge prioriteit wordt eerder geïnstalleerd. Kind-projecten worden altijd geïnstalleerd binnen hun ouder (in volgorde van prioriteit)</li>
+<li><code>default</code>: 10000</li>
+</ul>
+<h3 id="py3">py3</h3>
+<ul>
+<li><code>type</code>: <em>boolean</em></li>
+<li><code>description</code>: Indien <code>true</code>, dan worden install.py/check.py/local.py/release.py met <code>python3</code> uitgevoerd, zoniet met python2. Deze waarde wordt <em>NIET</em> overgenomen in kind-projecten.</li>
+<li><code>default</code>: false</li>
+</ul>
+<h3 id="r4binary">r4binary</h3>
+<ul>
+<li><code>type</code>: <em>array</em></li>
+<li><code>description</code>: De bestanden uit het project waarbij de relatieve <code>qtechpath</code> overeenkomt met 1 van de elementen van de array, worden als <code>r4binary</code> bestand beschouwd. Er gebeurt geen r4 substitutie. Deze waarde wordt <em>NIET</em> overgenomen in kind-projecten.</li>
+<li><code>default</code>: []</li>
+<li><code>uniqueItems</code>: True</li>
+<li><code>items</code>:
+<ul>
+<li>type: string</li>
+<li>description: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
+</ul>
+</li>
+</ul>
+<h3 id="r4noterror">r4noterror</h3>
+<ul>
+<li><code>type</code>: <em>array</em></li>
+<li><code>description</code>: <em>qtechng</em> gaat een fout genereren indien een r4 waarde voorkomt in een bestand terwijl deze r4 waarde niet gedfinieerd is. Dit <em>r4noterror</em> laat toe om uitzonderingen hierop te specificeren: voeg een koppel toe aan de array met als eerste element de bewuste r4 waarde en als tweede element een wildcard dat matcht aan het bestand.</li>
+<li><code>default</code>: []</li>
+<li><code>uniqueItems</code>: True</li>
+<li><code>items</code>:
+<ul>
+<li>type: array</li>
+<li>description: Een array met twee elementen: het eerste element is een r4-string, het tweede element is een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
+</ul>
+</li>
+</ul>
+<h3 id="roles">roles</h3>
+<ul>
+<li><code>type</code>: <em>array</em></li>
+<li><code>description</code>: Dit project wordt enkel geïnstalleerd als <em>alle</em> rollen uit de registry waarde <code>system-roles</code> overeenkomen met minstens 1 element van de array. Bij niet-installatie, worden ook de kind-projecten <em>niet</em> geïnstalleerd.</li>
+<li><code>default</code>: [&quot;*&quot;]</li>
+<li><code>uniqueItems</code>: True</li>
+<li><code>items</code>:
+<ul>
+<li>type: string</li>
+<li>description: Een wildcard voorstelling voor de registry waarde <code>system-roles</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="versionlower">versionlower</h3>
+<ul>
+<li><code>type</code>: <em>string</em></li>
+<li><code>description</code>: Dit project wordt enkel geïnstalleerd als de registry waarde <code>brocade-release</code> lexicografisch kleiner is dan deze waarde. Bij niet-installatie, worden ook de kind-projecten <em>niet</em> geïnstalleerd.</li>
+<li><code>default</code>: &ldquo;~&rdquo;</li>
+</ul>
+<h3 id="versionupper">versionupper</h3>
+<ul>
+<li><code>type</code>: <em>string</em></li>
+<li><code>description</code>: Dit project wordt enkel geïnstalleerd als de registry waarde <code>brocade-release</code> lexicografisch groter is dan deze waarde. Bij niet-installatie, worden ook de kind-projecten <em>niet</em> geïnstalleerd.</li>
+<li><code>default</code>: &quot;&rdquo;</li>
+</ul>
+<ul class="pa0">
   
 </ul>
 <div class="mt6 instapaper_ignoref">

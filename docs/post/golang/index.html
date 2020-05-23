@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="nl-nl">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Golang en QtechNG | QtechNG Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.69.0-DEV" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/qtechng-blog/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Golang en QtechNG" />
+<meta property="og:description" content="Elke nieuwe versie van qtechng werd gemaakt met een nieuwe technologie: Awk, Makefiles, C, Perl en Python passeerden de revue.
+De Python versie - zowel de commandline interface (CLI) als de GUI - deden het heel erg goed.
+Er moet dan wel een heel goede reden zijn om dit succesverhaal te stoppen en te opteren voor een andere oplossing.
+Mijns inziens zijn er diverse redenenen.
+Opstarttijd Een eerste reden ligt in de opstarttijd van de huidige CLI." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rphilips.github.io/qtechng-blog/post/golang/" />
+<meta property="article:published_time" content="2020-05-23T14:43:35+02:00" />
+<meta property="article:modified_time" content="2020-05-23T14:43:35+02:00" />
+<meta itemprop="name" content="Golang en QtechNG">
+<meta itemprop="description" content="Elke nieuwe versie van qtechng werd gemaakt met een nieuwe technologie: Awk, Makefiles, C, Perl en Python passeerden de revue.
+De Python versie - zowel de commandline interface (CLI) als de GUI - deden het heel erg goed.
+Er moet dan wel een heel goede reden zijn om dit succesverhaal te stoppen en te opteren voor een andere oplossing.
+Mijns inziens zijn er diverse redenenen.
+Opstarttijd Een eerste reden ligt in de opstarttijd van de huidige CLI.">
+<meta itemprop="datePublished" content="2020-05-23T14:43:35&#43;02:00" />
+<meta itemprop="dateModified" content="2020-05-23T14:43:35&#43;02:00" />
+<meta itemprop="wordCount" content="898">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Golang en QtechNG"/>
+<meta name="twitter:description" content="Elke nieuwe versie van qtechng werd gemaakt met een nieuwe technologie: Awk, Makefiles, C, Perl en Python passeerden de revue.
+De Python versie - zowel de commandline interface (CLI) als de GUI - deden het heel erg goed.
+Er moet dan wel een heel goede reden zijn om dit succesverhaal te stoppen en te opteren voor een andere oplossing.
+Mijns inziens zijn er diverse redenenen.
+Opstarttijd Een eerste reden ligt in de opstarttijd van de huidige CLI."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  
+  <header class="cover bg-top" style="background-image: url('https://rphilips.github.io/qtechng-blog/images/golang.svg');">
+    <div class="pb3-m pb6-l bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://rphilips.github.io/qtechng-blog/" class="f3 fw2 hover-white no-underline white-90 dib">
+      QtechNG Blog
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/qtechng-blog/post/" title="Artikelen page">
+              Artikelen
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Golang en QtechNG</h1>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        ARTIKELEN
+      </aside>
+      
+
+
+      <h1 class="f1 athelas mt3 mb1">Golang en QtechNG</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-05-23T14:43:35&#43;02:00">May 23, 2020</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Elke nieuwe versie van <code>qtechng</code> werd gemaakt met een nieuwe technologie: Awk, Makefiles, C, Perl en Python passeerden de revue.</p>
+<p>De Python versie - zowel de commandline interface (CLI) als de GUI - deden het heel erg goed.</p>
+<p>Er moet dan wel een heel goede reden zijn om dit succesverhaal te stoppen en te opteren voor een andere oplossing.</p>
+<p>Mijns inziens zijn er diverse redenenen.</p>
+<h2 id="opstarttijd">Opstarttijd</h2>
+<p>Een eerste reden ligt in de opstarttijd van de huidige <code>CLI</code>. Nu zal je zeggen, veel last heb ik daar nog niet van ondervonden!</p>
+<p>Dat klopt, maar dat komt omdat de huidige Python toepassingen niet zo dikwijls worden opgestart: de GUI wordt meestal slechts 1x opgestart en maakt dan intern gebruikt van de beschikbare API&rsquo;s. De nieuwe - op Visual Studio Code gebaseerde - oplossing start wel degelijk de API zelf op en er is een merkbare vertraging. Daar komt bij dat de huidige <code>CLI</code> in <code>Python2</code> werd vervaardigd. <code>Python3</code> heeft een merkbare tragere opstart. Brocade&rsquo;s nieuwe toolcat framewerk gaat daar ook niet veel aan helpen!</p>
+<p>Go code komt in één enkel executable en heeft een veel beter opstarttijd: er komt geen interpreter aan te pas en er hoeven ook niet meerder source bestanden worden opgestart (naargelang de setup van de Python installatie kunnen dat 10-tallen scripts zijn). Deze vraag naar betere opstart dan Python3 kan leveren, komt niet alleen uit <code>qtechng</code>: ook projecten als Mercurial en Firefox noteren het probleem.</p>
+<p>Je zou kunnen argumenteren dat we de techniek van <code>wxqtech</code> kunnen imiteren en maar moeten gebruik maken van de <code>API</code>. Dat is toch heel wat moeilijker: bijvoorbeeld Visual Studio Code is zelf niet geprogrammeerd in <code>Python</code>. Bijgevolg moeten er tussenoplossing gezocht worden in een client/server model. Dit gaat de bedrijfszekerheid, laat staan de installeerbaarheid, niet ten goede komen.</p>
+<p>Daarmee komen we aan een de volgende reden.</p>
+<h2 id="installeerbaarheid">Installeerbaarheid</h2>
+<p><code>qtechng</code> is een instrument dat niet alleen voor ontwikkelaars moet werken.</p>
+<p>Om de een check-out met de huidige <code>qtech</code> te kunnen doen met eerste de juiste versie van <code>Python</code> worden geïnstalleerd. Vervolgens moet een SSH cliënt worden opgezet. Met <code>scp</code> (of een gelijkaardige software) moeten dan handmatig een 5-tal Brocade projecten worden getransfereerd vanop de goede plaats. Deze moeten dan zorgvuldig worden geïnstalleerd en, als de passende environment variabelen zijn gezet, kunnen we aan de slag.</p>
+<p>Zelfs ontwikkelaars verliezen hierbij gemakkelijk hun weg.</p>
+<p>Met <code>go</code> is het mogelijk om een executable in het <code>PATH</code> te plaatsen en men kan aan de slag.</p>
+<p>De mogelijkheid om fout te gaan is gewoon vele malen kleiner: gedaan met reeds geïnstalleerde <em>systeem pythons</em>, oude versie van python, niet goed afgestelde systeem registry, dubbel python versies, afstellen van <code>PYTHONPATH</code> zodat zowel <code>python2</code> als <code>python3</code> kunnen werken.</p>
+<h2 id="ingebouwde-ssh">Ingebouwde SSH</h2>
+<p>Er bestaan effectief SSH libraries in Python, deze zijn echter weinig efficiënt en werken moeilijk samen met een bestaande SSH infrastructuur (zoals aanwezige private/public keys en <code>ssh-agents</code>). In <code>qtech</code> zag ik me genoodzaakt om beroep te doen op de <code>ssh</code> en <code>scp</code> clients van het platform wat opnieuw vertragingen meebracht.</p>
+<p><code>Go</code> komt met een state-of-the-art implementatie van het <code>SSH</code> protocol: de communicatie gaat merkbaar sneller en bovendien kan deze perfect samenwerken met de gegeven SSH infrastructuur.</p>
+<p>De implementatie speelt perfect in op het standaard reader/writer mechanisme van de programmeertaal.</p>
+<h2 id="cli-framewerk">CLI framewerk</h2>
+<p>Met <a href="https://github.com/spf13/cobra" title="Cobra">Cobra</a> beschikt <code>Go</code> over het perfect framewerk om POSIX-compliant toepassingen te maken met alles er op en er aan:</p>
+<ul>
+<li>Commando&rsquo;s en sub-commando&rsquo;s</li>
+<li>Interactieve design met Viper</li>
+<li>Automatische help en documentatie (o.a in <code>reStucturedText</code>)</li>
+<li><code>Bash autocomplete</code> ondersteuning</li>
+</ul>
+<p>Eens de <code>CLI</code> aangemaakt, is de executable onafhankelijk van Cobra of Viper</p>
+<h2 id="snelheid-van-uitvoering">Snelheid van uitvoering</h2>
+<p>Een executable, gebaseerd op Go, werkt snel: daar is de compilatie verantwoordelijk voor.</p>
+<p>Echter er zijn ook andere redenen: de ingebouwde Go libraries zijn exceptioneel. Google heeft kosten nog moeite gespaard om kwaliteit te leveren.</p>
+<p>Toch ligt de voornaamste reden in de snelheidswinst in de mogelijkheden om, op gemakkelijke wijze, softwarecomponenten <em>concurrent</em> uit te voeren. Zeker in <code>I/O</code> gevoelige toepassing als <code>qtechng</code> kan hier grote winsten worden geboekt: eerste testen tonen 20-voudige snelheidswinst aan ten opzichte van de <code>Python</code> versie.</p>
+<p>Deze snelheidswinst is niet alleen van belang bij interactieve operaties maar is ook van groot belang bij operaties zoals <a href="https://en.wikipedia.org/wiki/Continuous_integration" title="CI">Continuous Integration</a>, zeg maar de <code>sweep</code>.</p>
+<p>Ook het installatie proces van een nieuwe Brocade release zou op deze wijze drastisch kunnen worden herleid. Dit is zeker van belang als we van plan zijn meerdere, tussentijdse, releases te gaan voeren.</p>
+<h2 id="descriptieve-software-componenten">Descriptieve software componenten</h2>
+<p>Deze snelheidswinst hoeft echter niet helemaal te gaan naar snelheid van uitvoering: een gedeelte kan ook besteed worden om bepaalde componenten van <code>qtechng</code> eerder descriptief aan te pakken dan manueel - en dus (meestal) sneller - te implementeren.</p>
+<p>Ik geef twee voorbeelden om dit in het licht te zetten.</p>
+<p>De configuratie bestanden <code>brocade.json</code> is duidelijk veel complexer (en ook veel krachtiger) dan in vorige versie. Door de structuur rigoureus te beschrijven via een <code>JSON schema</code> kan validatie en implementatie software ook automatisch worden gegenereerd. Go leent zich heel goed tot dergelijke operaties.</p>
+<p>Een ander voorbeeld is bijvoorbeeld de macro structuur. Macro&rsquo;s zijn heel erg belangrijk voor <code>qtechng</code>: het zijn de API&rsquo;s waarrond alles draait. In <code>qtechng</code> winnen macro&rsquo;s in belangrijke mate aan kracht. In plaats van een handmatige parser te schrijven kan nu de kracht van een <a href="https://en.wikipedia.org/wiki/Parsing_expression_grammar" title="PEG-parser">PEG-parser</a> worden aangewend. Ja, deze parsers geven minder efficiënte code, maar ze geven meteen ook een rigoureuze definitie van het macro systeem. Iets waar Brocade al langer nood aan heeft.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://rphilips.github.io/qtechng-blog/" >
+    &copy;  QtechNG Blog 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/qtechng-blog/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

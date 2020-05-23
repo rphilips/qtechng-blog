@@ -39,7 +39,7 @@ Dit bestand is een JSON bestand dat gestructureerd is volgens het schema qtechng
 Dit heeft zo zijn voordelen: Visual Studio Code kan gebruik maken van deze specificatie om te helpen bij het editeren.">
 <meta itemprop="datePublished" content="2020-05-21T10:30:43&#43;02:00" />
 <meta itemprop="dateModified" content="2020-05-21T10:30:43&#43;02:00" />
-<meta itemprop="wordCount" content="1656">
+<meta itemprop="wordCount" content="1234">
 
 
 
@@ -215,84 +215,6 @@ In Visual Studio Code is er meteen uitgebreide documentatie en ondersteuning van
 </ul>
 </li>
 </ul>
-<h3 id="i4binary">i4binary</h3>
-<ul>
-<li><code>type</code>: <em>array</em></li>
-<li><code>description</code>: De bestanden uit het project waarbij de relatieve <code>qtechpath</code> overeenkomen met 1 van de elementen van de array, wordt als <code>i4binary</code> bestand beschouwd. Er gebeurt geen i4 substitutie. Deze waarde wordt <em>NIET</em> overgenomen in kind-projecten.</li>
-<li><code>default</code>: []</li>
-<li><code>uniqueItems</code>: True</li>
-<li><code>items</code>:
-<ul>
-<li>type: string</li>
-<li>description: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
-</ul>
-</li>
-</ul>
-<h3 id="i4noterror">i4noterror</h3>
-<ul>
-<li><code>type</code>: <em>array</em></li>
-<li><code>description</code>: <em>qtechng</em> gaat een fout genereren indien een i4 waarde voorkomt in een bestand terwijl deze i4 waarde niet gedfinieerd is. Dit <em>i4noterror</em> laat toe om uitzonderingen hierop te specificeren: voeg een koppel toe aan de array met als eerste element de bewuste i4 waarde en als tweede element een wildcard dat matcht aan het bestand.</li>
-<li><code>default</code>: []</li>
-<li><code>uniqueItems</code>: True</li>
-<li><code>items</code>:
-<ul>
-<li>type: array</li>
-<li>description: Een array met twee elementen: het eerste element is een i4-string, het tweede element is een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
-</ul>
-</li>
-</ul>
-<h3 id="l4binary">l4binary</h3>
-<ul>
-<li><code>type</code>: <em>array</em></li>
-<li><code>description</code>: De bestanden uit het project waarbij de relatieve <code>qtechpath</code> overeenkomen met 1 van de elementen van de array, wordt als <code>l4binary</code> bestand beschouwd. Er gebeurt geen l4 substitutie. Deze waarde wordt <em>NIET</em> overgenomen in kind-projecten.</li>
-<li><code>default</code>: []</li>
-<li><code>uniqueItems</code>: True</li>
-<li><code>items</code>:
-<ul>
-<li>type: string</li>
-<li>description: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
-</ul>
-</li>
-</ul>
-<h3 id="l4noterror">l4noterror</h3>
-<ul>
-<li><code>type</code>: <em>array</em></li>
-<li><code>description</code>: <em>qtechng</em> gaat een fout genereren indien een l4 waarde voorkomt in een bestand terwijl deze l4 waarde niet gedfinieerd is. Dit <em>l4noterror</em> laat toe om uitzonderingen hierop te specificeren: voeg een koppel toe aan de array met als eerste element de bewuste l4 waarde en als tweede element een wildcard dat matcht aan het bestand.</li>
-<li><code>default</code>: []</li>
-<li><code>uniqueItems</code>: True</li>
-<li><code>items</code>:
-<ul>
-<li>type: array</li>
-<li>description: Een array met twee elementen: het eerste element is een l4-string, het tweede element is een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
-</ul>
-</li>
-</ul>
-<h3 id="m4binary">m4binary</h3>
-<ul>
-<li><code>type</code>: <em>array</em></li>
-<li><code>description</code>: De bestanden uit het project waarbij de relatieve <code>qtechpath</code> overeenkomen met 1 van de elementen van de array, wordt als <code>m4binary</code> bestand beschouwd. Er gebeurt geen m4 substitutie. Deze waarde wordt <em>NIET</em> overgenomen in kind-projecten.</li>
-<li><code>default</code>: []</li>
-<li><code>uniqueItems</code>: True</li>
-<li><code>items</code>:
-<ul>
-<li>type: string</li>
-<li>description: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
-</ul>
-</li>
-</ul>
-<h3 id="m4noterror">m4noterror</h3>
-<ul>
-<li><code>type</code>: <em>array</em></li>
-<li><code>description</code>: <em>qtechng</em> gaat een fout genereren indien een m4 waarde voorkomt in een bestand terwijl deze m4 waarde niet gedfinieerd is. Dit <em>m4noterror</em> laat toe om uitzonderingen hierop te specificeren: voeg een koppel toe aan de array met als eerste element de bewuste m4 waarde en als tweede element een wildcard dat matcht aan het bestand.</li>
-<li><code>default</code>: []</li>
-<li><code>uniqueItems</code>: True</li>
-<li><code>items</code>:
-<ul>
-<li>type: array</li>
-<li>description: Een array met twee elementen: het eerste element is een m4-string, het tweede element is een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
-</ul>
-</li>
-</ul>
 <h3 id="mumps">mumps</h3>
 <ul>
 <li><code>type</code>: <em>array</em></li>
@@ -317,6 +239,19 @@ In Visual Studio Code is er meteen uitgebreide documentatie en ondersteuning van
 <ul>
 <li>type: string</li>
 <li>description: Een wildcard voorstelling voor de registry waarde <code>system-name</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="noobjectreplacing">noobjectreplacing</h3>
+<ul>
+<li><code>type</code>: <em>array</em></li>
+<li><code>description</code>: De objecten, gedefinieerd in de eerste elementen, worden <em>NIET</em> vervangen in de bestanden die overeenkomen met het tweede element. Deze waarde wordt <em>NIET</em> overgenomen in kind-projecten.</li>
+<li><code>default</code>: []</li>
+<li><code>uniqueItems</code>: True</li>
+<li><code>items</code>:
+<ul>
+<li>type: string</li>
+<li>description: Een array met twee elementen: het eerste element is een [riml]4-object, het tweede element is een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
 </ul>
 </li>
 </ul>
@@ -346,6 +281,32 @@ In Visual Studio Code is er meteen uitgebreide documentatie en ondersteuning van
 </ul>
 </li>
 </ul>
+<h3 id="notunique">notunique</h3>
+<ul>
+<li><code>type</code>: <em>array</em></li>
+<li><code>description</code>: De bestanden uit het project waarbij de relatieve <code>qtechpath</code> overeenkomen met 1 van de elementen van de array, hoeven geen unieke basename te hebben. Deze waarde wordt <em>NIET</em> overgenomen in kind-projecten.</li>
+<li><code>default</code>: []</li>
+<li><code>uniqueItems</code>: True</li>
+<li><code>items</code>:
+<ul>
+<li>type: string</li>
+<li>description: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
+</ul>
+</li>
+</ul>
+<h3 id="objectnoterror">objectnoterror</h3>
+<ul>
+<li><code>type</code>: <em>array</em></li>
+<li><code>description</code>: <em>qtechng</em> gaat een fout genereren indien een object referentie voorkomt in een bestand terwijl het object niet gedefinieerd is. Dit attribuut laat toe om uitzonderingen hierop te specificeren: voeg een koppel toe aan de array met als eerste element de bewuste object referentie en als tweede element een wildcard dat matcht aan het bestand. Deze waarde wordt <em>NIET</em> overgenomen in kind-projecten.</li>
+<li><code>default</code>: []</li>
+<li><code>uniqueItems</code>: True</li>
+<li><code>items</code>:
+<ul>
+<li>type: array</li>
+<li>description: Een array met twee elementen: het eerste element is een r4-string, het tweede element is een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
+</ul>
+</li>
+</ul>
 <h3 id="passive">passive</h3>
 <ul>
 <li><code>type</code>: <em>boolean</em></li>
@@ -363,32 +324,6 @@ In Visual Studio Code is er meteen uitgebreide documentatie en ondersteuning van
 <li><code>type</code>: <em>boolean</em></li>
 <li><code>description</code>: Indien <code>true</code>, dan worden install.py/check.py/local.py/release.py met <code>python3</code> uitgevoerd, zoniet met python2. Deze waarde wordt <em>NIET</em> overgenomen in kind-projecten.</li>
 <li><code>default</code>: false</li>
-</ul>
-<h3 id="r4binary">r4binary</h3>
-<ul>
-<li><code>type</code>: <em>array</em></li>
-<li><code>description</code>: De bestanden uit het project waarbij de relatieve <code>qtechpath</code> overeenkomt met 1 van de elementen van de array, worden als <code>r4binary</code> bestand beschouwd. Er gebeurt geen r4 substitutie. Deze waarde wordt <em>NIET</em> overgenomen in kind-projecten.</li>
-<li><code>default</code>: []</li>
-<li><code>uniqueItems</code>: True</li>
-<li><code>items</code>:
-<ul>
-<li>type: string</li>
-<li>description: Een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
-</ul>
-</li>
-</ul>
-<h3 id="r4noterror">r4noterror</h3>
-<ul>
-<li><code>type</code>: <em>array</em></li>
-<li><code>description</code>: <em>qtechng</em> gaat een fout genereren indien een r4 waarde voorkomt in een bestand terwijl deze r4 waarde niet gedfinieerd is. Dit <em>r4noterror</em> laat toe om uitzonderingen hierop te specificeren: voeg een koppel toe aan de array met als eerste element de bewuste r4 waarde en als tweede element een wildcard dat matcht aan het bestand.</li>
-<li><code>default</code>: []</li>
-<li><code>uniqueItems</code>: True</li>
-<li><code>items</code>:
-<ul>
-<li>type: array</li>
-<li>description: Een array met twee elementen: het eerste element is een r4-string, het tweede element is een wildcard voorstelling op de relatieve <code>qtechpath</code> naam van bestanden (dit is relatief ten opzichte van het project).</li>
-</ul>
-</li>
 </ul>
 <h3 id="roles">roles</h3>
 <ul>

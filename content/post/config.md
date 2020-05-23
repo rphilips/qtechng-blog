@@ -70,7 +70,6 @@ Hou er mee rekening dat deze specificaties steeds komen als *glob patterns* (met
 
 Let er op: alle attributen zijn in *lowercase*
 
-
 ### binary
 - `type`: *array*
 - `description`: De bestanden uit het project waarbij de relatieve `qtechpath` overeenkomt met 1 van de elementen van de array, worden als `binary` bestand beschouwd. Er gebeurt geen r4/i4/m4/l4 substitutie. Deze waarde wordt *NIET* overgenomen in kind-projecten.
@@ -103,60 +102,6 @@ Let er op: alle attributen zijn in *lowercase*
   - type: string
   - description: Een wildcard voorstelling voor de registry waarde `system-group`.
 
-### i4binary
-- `type`: *array*
-- `description`: De bestanden uit het project waarbij de relatieve `qtechpath` overeenkomen met 1 van de elementen van de array, wordt als `i4binary` bestand beschouwd. Er gebeurt geen i4 substitutie. Deze waarde wordt *NIET* overgenomen in kind-projecten.
-- `default`: []
-- `uniqueItems`: True
-- `items`:
-  - type: string
-  - description: Een wildcard voorstelling op de relatieve `qtechpath` naam van bestanden (dit is relatief ten opzichte van het project).
-
-### i4noterror
-- `type`: *array*
-- `description`: *qtechng* gaat een fout genereren indien een i4 waarde voorkomt in een bestand terwijl deze i4 waarde niet gedfinieerd is. Dit *i4noterror* laat toe om uitzonderingen hierop te specificeren: voeg een koppel toe aan de array met als eerste element de bewuste i4 waarde en als tweede element een wildcard dat matcht aan het bestand.
-- `default`: []
-- `uniqueItems`: True
-- `items`:
-  - type: array
-  - description: Een array met twee elementen: het eerste element is een i4-string, het tweede element is een wildcard voorstelling op de relatieve `qtechpath` naam van bestanden (dit is relatief ten opzichte van het project).
-
-### l4binary
-- `type`: *array*
-- `description`: De bestanden uit het project waarbij de relatieve `qtechpath` overeenkomen met 1 van de elementen van de array, wordt als `l4binary` bestand beschouwd. Er gebeurt geen l4 substitutie. Deze waarde wordt *NIET* overgenomen in kind-projecten.
-- `default`: []
-- `uniqueItems`: True
-- `items`:
-  - type: string
-  - description: Een wildcard voorstelling op de relatieve `qtechpath` naam van bestanden (dit is relatief ten opzichte van het project).
-
-### l4noterror
-- `type`: *array*
-- `description`: *qtechng* gaat een fout genereren indien een l4 waarde voorkomt in een bestand terwijl deze l4 waarde niet gedfinieerd is. Dit *l4noterror* laat toe om uitzonderingen hierop te specificeren: voeg een koppel toe aan de array met als eerste element de bewuste l4 waarde en als tweede element een wildcard dat matcht aan het bestand.
-- `default`: []
-- `uniqueItems`: True
-- `items`:
-  - type: array
-  - description: Een array met twee elementen: het eerste element is een l4-string, het tweede element is een wildcard voorstelling op de relatieve `qtechpath` naam van bestanden (dit is relatief ten opzichte van het project).
-
-### m4binary
-- `type`: *array*
-- `description`: De bestanden uit het project waarbij de relatieve `qtechpath` overeenkomen met 1 van de elementen van de array, wordt als `m4binary` bestand beschouwd. Er gebeurt geen m4 substitutie. Deze waarde wordt *NIET* overgenomen in kind-projecten.
-- `default`: []
-- `uniqueItems`: True
-- `items`:
-  - type: string
-  - description: Een wildcard voorstelling op de relatieve `qtechpath` naam van bestanden (dit is relatief ten opzichte van het project).
-
-### m4noterror
-- `type`: *array*
-- `description`: *qtechng* gaat een fout genereren indien een m4 waarde voorkomt in een bestand terwijl deze m4 waarde niet gedfinieerd is. Dit *m4noterror* laat toe om uitzonderingen hierop te specificeren: voeg een koppel toe aan de array met als eerste element de bewuste m4 waarde en als tweede element een wildcard dat matcht aan het bestand.
-- `default`: []
-- `uniqueItems`: True
-- `items`:
-  - type: array
-  - description: Een array met twee elementen: het eerste element is een m4-string, het tweede element is een wildcard voorstelling op de relatieve `qtechpath` naam van bestanden (dit is relatief ten opzichte van het project).
-
 ### mumps
 - `type`: *array*
 - `description`: Dit project wordt enkel geïnstalleerd als de registry waarde `m-os-type` in `mumps` voorkomt. Bij niet-installatie, worden ook de kind-projecten *niet* geïnstalleerd.
@@ -176,6 +121,15 @@ Let er op: alle attributen zijn in *lowercase*
   - type: string
   - description: Een wildcard voorstelling voor de registry waarde `system-name`.
 
+### noobjectreplacing
+- `type`: *array*
+- `description`: De objecten, gedefinieerd in de eerste elementen, worden *NIET* vervangen in de bestanden die overeenkomen met het tweede element. Deze waarde wordt *NIET* overgenomen in kind-projecten.
+- `default`: []
+- `uniqueItems`: True
+- `items`:
+  - type: string
+  - description: Een array met twee elementen: het eerste element is een [riml]4-object, het tweede element is een wildcard voorstelling op de relatieve `qtechpath` naam van bestanden (dit is relatief ten opzichte van het project).
+
 ### notbrocade
 - `type`: *array*
 - `description`: De bestanden uit het project waarbij de relatieve `qtechpath` overeenkomt met 1 van de elementen van de array, worden niet als een `*.[bdilmx]` file beschouwd. Deze waarde wordt *NIET* overgenomen in de kind-projecten.
@@ -194,6 +148,24 @@ Let er op: alle attributen zijn in *lowercase*
   - type: string
   - description: Een wildcard voorstelling op de relatieve `qtechpath` naam van bestanden (dit is relatief ten opzichte van het project).
 
+### notunique
+- `type`: *array*
+- `description`: De bestanden uit het project waarbij de relatieve `qtechpath` overeenkomen met 1 van de elementen van de array, hoeven geen unieke basename te hebben. Deze waarde wordt *NIET* overgenomen in kind-projecten.
+- `default`: []
+- `uniqueItems`: True
+- `items`:
+  - type: string
+  - description: Een wildcard voorstelling op de relatieve `qtechpath` naam van bestanden (dit is relatief ten opzichte van het project).
+
+### objectnoterror
+- `type`: *array*
+- `description`: *qtechng* gaat een fout genereren indien een object referentie voorkomt in een bestand terwijl het object niet gedefinieerd is. Dit attribuut laat toe om uitzonderingen hierop te specificeren: voeg een koppel toe aan de array met als eerste element de bewuste object referentie en als tweede element een wildcard dat matcht aan het bestand. Deze waarde wordt *NIET* overgenomen in kind-projecten.
+- `default`: []
+- `uniqueItems`: True
+- `items`:
+  - type: array
+  - description: Een array met twee elementen: het eerste element is een r4-string, het tweede element is een wildcard voorstelling op de relatieve `qtechpath` naam van bestanden (dit is relatief ten opzichte van het project).
+
 ### passive
 - `type`: *boolean*
 - `description`: De waarde `true` zorgt ervoor dat het project *niet* wordt geïnstalleerd. Bij niet-installatie, worden ook de kind-projecten *niet* geïnstalleerd.
@@ -208,24 +180,6 @@ Let er op: alle attributen zijn in *lowercase*
 - `type`: *boolean*
 - `description`: Indien `true`, dan worden install.py/check.py/local.py/release.py met `python3` uitgevoerd, zoniet met python2. Deze waarde wordt *NIET* overgenomen in kind-projecten.
 - `default`: false
-
-### r4binary
-- `type`: *array*
-- `description`: De bestanden uit het project waarbij de relatieve `qtechpath` overeenkomt met 1 van de elementen van de array, worden als `r4binary` bestand beschouwd. Er gebeurt geen r4 substitutie. Deze waarde wordt *NIET* overgenomen in kind-projecten.
-- `default`: []
-- `uniqueItems`: True
-- `items`:
-  - type: string
-  - description: Een wildcard voorstelling op de relatieve `qtechpath` naam van bestanden (dit is relatief ten opzichte van het project).
-
-### r4noterror
-- `type`: *array*
-- `description`: *qtechng* gaat een fout genereren indien een r4 waarde voorkomt in een bestand terwijl deze r4 waarde niet gedfinieerd is. Dit *r4noterror* laat toe om uitzonderingen hierop te specificeren: voeg een koppel toe aan de array met als eerste element de bewuste r4 waarde en als tweede element een wildcard dat matcht aan het bestand.
-- `default`: []
-- `uniqueItems`: True
-- `items`:
-  - type: array
-  - description: Een array met twee elementen: het eerste element is een r4-string, het tweede element is een wildcard voorstelling op de relatieve `qtechpath` naam van bestanden (dit is relatief ten opzichte van het project).
 
 ### roles
 - `type`: *array*
@@ -245,3 +199,5 @@ Let er op: alle attributen zijn in *lowercase*
 - `type`: *string*
 - `description`: Dit project wordt enkel geïnstalleerd als de registry waarde `brocade-release` lexicografisch groter is dan deze waarde. Bij niet-installatie, worden ook de kind-projecten *niet* geïnstalleerd.
 - `default`: ""
+
+

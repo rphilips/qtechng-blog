@@ -12,6 +12,19 @@
     
     
     <item>
+      <title>Golang en QtechNG</title>
+      <link>https://rphilips.github.io/qtechng-blog/post/golang/</link>
+      <pubDate>Sat, 23 May 2020 14:43:35 +0200</pubDate>
+      
+      <guid>https://rphilips.github.io/qtechng-blog/post/golang/</guid>
+      <description>Elke nieuwe versie van qtechng werd gemaakt met een nieuwe technologie: Awk, Makefiles, C, Perl en Python passeerden de revue.
+De Python versie - zowel de commandline interface (CLI) als de GUI - deden het heel erg goed.
+Er moet dan wel een heel goede reden zijn om dit succesverhaal te stoppen en te opteren voor een andere oplossing.
+Mijns inziens zijn er diverse redenenen.
+Opstarttijd Een eerste reden ligt in de opstarttijd van de huidige CLI.</description>
+    </item>
+    
+    <item>
       <title>Registry</title>
       <link>https://rphilips.github.io/qtechng-blog/post/registry/</link>
       <pubDate>Fri, 22 May 2020 13:18:57 +0200</pubDate>

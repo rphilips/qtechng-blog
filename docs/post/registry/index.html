@@ -174,22 +174,22 @@
 <p>De registry is opgeslagen in een file op het filesysteem van de server. De structuur is een eenvoudige key/value store, verwoord in een JSON object. De <code>key</code> is wat in de Brocade software wordt gebruikt en welke in runtime of bij installatie door de onderliggende software wordt omgezet in de <code>value</code>.</p>
 <p>De plaats waar de registry wordt bewaard komt uit een environment variabele <code>BROCADE_REGISTRY</code>. De systemadministrator stelt deze environment variabele (en de bijhorende locatie) ter beschikking van elk Brocade process (interactieve shells, Web interface, SSH).</p>
 <p>Beste praktijk (op een <code>UN*X</code> systeem):</p>
-<div class="highlight"><pre style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">   <span style="color:#008000">export</span> <span style="color:#19177c">BASE</span><span style="color:#666">=</span>/library/database
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">   <span style="color:#cb4b16">export</span> <span style="color:#268bd2">BASE</span>=/library/database
 
-   <span style="color:#008000">export</span> <span style="color:#19177c">BROCADE_REGISTRY</span><span style="color:#666">=</span><span style="color:#19177c">$BASE</span>/registry/registry.json
-   touch <span style="color:#19177c">$BROCADE_REGISTRY</span>
+   <span style="color:#cb4b16">export</span> <span style="color:#268bd2">BROCADE_REGISTRY</span>=<span style="color:#268bd2">$BASE</span>/registry/registry.json
+   touch <span style="color:#268bd2">$BROCADE_REGISTRY</span>
 
-   chmod --reference<span style="color:#666">=</span><span style="color:#19177c">$BASE</span> <span style="color:#19177c">$BASE</span>/registry
-   chown --reference<span style="color:#666">=</span><span style="color:#19177c">$BASE</span> <span style="color:#19177c">$BASE</span>/registry/registry.json
-   chmod <span style="color:#19177c">u</span><span style="color:#666">=</span>rw,g<span style="color:#666">=</span>r,o<span style="color:#666">=</span> <span style="color:#19177c">$BASE</span>/registry/registry.json
+   chmod --reference=<span style="color:#268bd2">$BASE</span> <span style="color:#268bd2">$BASE</span>/registry
+   chown --reference=<span style="color:#268bd2">$BASE</span> <span style="color:#268bd2">$BASE</span>/registry/registry.json
+   chmod <span style="color:#268bd2">u</span>=rw,g=r,o= <span style="color:#268bd2">$BASE</span>/registry/registry.json
    
-   touch <span style="color:#19177c">$BASE</span>/registry/localregistry.json
-   chown --reference<span style="color:#666">=</span><span style="color:#19177c">$BASE</span>/registry/registry.json <span style="color:#19177c">$BASE</span>/registry/localregistry.json
-   chmod --reference<span style="color:#666">=</span><span style="color:#19177c">$BASE</span>/registry/registry.json <span style="color:#19177c">$BASE</span>/registry/localregistry.json
+   touch <span style="color:#268bd2">$BASE</span>/registry/localregistry.json
+   chown --reference=<span style="color:#268bd2">$BASE</span>/registry/registry.json <span style="color:#268bd2">$BASE</span>/registry/localregistry.json
+   chmod --reference=<span style="color:#268bd2">$BASE</span>/registry/registry.json <span style="color:#268bd2">$BASE</span>/registry/localregistry.json
    
-   touch <span style="color:#19177c">$BASE</span>/registry/saltregistry.json
-   chown --reference<span style="color:#666">=</span><span style="color:#19177c">$BASE</span>/registry/registry.json <span style="color:#19177c">$BASE</span>/registry/saltregistry.json
-   chmod --reference<span style="color:#666">=</span><span style="color:#19177c">$BASE</span>/registry/registry.json <span style="color:#19177c">$BASE</span>/registry/saltregistry.json
+   touch <span style="color:#268bd2">$BASE</span>/registry/saltregistry.json
+   chown --reference=<span style="color:#268bd2">$BASE</span>/registry/registry.json <span style="color:#268bd2">$BASE</span>/registry/saltregistry.json
+   chmod --reference=<span style="color:#268bd2">$BASE</span>/registry/registry.json <span style="color:#268bd2">$BASE</span>/registry/saltregistry.json
 </code></pre></div><p>Er zijn verschillende manieren hoe en sleutel/waarde paar kan worden toegevoegd aan de <code>registry</code>:</p>
 <ul>
 <li>Door middel van de <em>ansible installatie</em>: de systemadministrator weet immers het beste waar bepaalde bestanden thuis horen.</li>

@@ -3,12 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://rphilips.github.io/qtechng-blog/post/golang/</loc>
-    <lastmod>2020-05-23T14:43:35+02:00</lastmod>
+    <loc>https://rphilips.github.io/qtechng-blog/post/cobra/</loc>
+    <lastmod>2020-05-24T11:03:36+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://rphilips.github.io/qtechng-blog/</loc>
+    <lastmod>2020-05-24T11:03:36+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rphilips.github.io/qtechng-blog/post/golang/</loc>
     <lastmod>2020-05-23T14:43:35+02:00</lastmod>
   </url>
   

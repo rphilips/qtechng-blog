@@ -84,15 +84,6 @@ Let er op: alle attributen zijn in *lowercase*
 - `description`: Indien `true`, dan wordt dit project geïnstalleerd samen met andere core projecten. Deze waarde specificeren binnen kind-projecten heeft geen effect. Indien `true`, dan zijn alle kind-projecten, core projecten.
 - `default`: false
 
-### emptydirs
-- `type`: *array*
-- `description`: De bestanden uit het project waarbij de relatieve `qtechpath` overeenkomen met 1 van de elementen van de array, wordt als directories beschouwd. Deze worden op werkstations aangemaakt, ook als ze geen bestanden bevatten. Deze waarde wordt *NIET* overgenomen in kind-projecten.
-- `default`: []
-- `uniqueItems`: True
-- `items`:
-  - type: string
-  - description: Een wildcard voorstelling op de relatieve `qtechpath` naam van bestanden (dit is relatief ten opzichte van het project).
-
 ### groups
 - `type`: *array*
 - `description`: Dit project wordt enkel geïnstalleerd als 1 van de array elementen overeenkomt met de registry waarde `system-group`. Bij niet-installatie, worden ook de kind-projecten *niet* geïnstalleerd.
@@ -121,15 +112,6 @@ Let er op: alle attributen zijn in *lowercase*
   - type: string
   - description: Een wildcard voorstelling voor de registry waarde `system-name`.
 
-### noobjectreplacing
-- `type`: *array*
-- `description`: De objecten, gedefinieerd in de eerste elementen, worden *NIET* vervangen in de bestanden die overeenkomen met het tweede element. Deze waarde wordt *NIET* overgenomen in kind-projecten.
-- `default`: []
-- `uniqueItems`: True
-- `items`:
-  - type: string
-  - description: Een array met twee elementen: het eerste element is een [riml]4-object, het tweede element is een wildcard voorstelling op de relatieve `qtechpath` naam van bestanden (dit is relatief ten opzichte van het project).
-
 ### notbrocade
 - `type`: *array*
 - `description`: De bestanden uit het project waarbij de relatieve `qtechpath` overeenkomt met 1 van de elementen van de array, worden niet als een `*.[bdilmx]` file beschouwd. Deze waarde wordt *NIET* overgenomen in de kind-projecten.
@@ -148,23 +130,10 @@ Let er op: alle attributen zijn in *lowercase*
   - type: string
   - description: Een wildcard voorstelling op de relatieve `qtechpath` naam van bestanden (dit is relatief ten opzichte van het project).
 
-### notunique
-- `type`: *array*
-- `description`: De bestanden uit het project waarbij de relatieve `qtechpath` overeenkomen met 1 van de elementen van de array, hoeven geen unieke basename te hebben. Deze waarde wordt *NIET* overgenomen in kind-projecten.
-- `default`: []
-- `uniqueItems`: True
-- `items`:
-  - type: string
-  - description: Een wildcard voorstelling op de relatieve `qtechpath` naam van bestanden (dit is relatief ten opzichte van het project).
-
-### objectnoterror
-- `type`: *array*
-- `description`: *qtechng* gaat een fout genereren indien een object referentie voorkomt in een bestand terwijl het object niet gedefinieerd is. Dit attribuut laat toe om uitzonderingen hierop te specificeren: voeg een koppel toe aan de array met als eerste element de bewuste object referentie en als tweede element een wildcard dat matcht aan het bestand. Deze waarde wordt *NIET* overgenomen in kind-projecten.
-- `default`: []
-- `uniqueItems`: True
-- `items`:
-  - type: array
-  - description: Een array met twee elementen: het eerste element is een r4-string, het tweede element is een wildcard voorstelling op de relatieve `qtechpath` naam van bestanden (dit is relatief ten opzichte van het project).
+### objectsnotreplaced
+- `type`: *object*
+- `description`: De objecten, gedefinieerd als sleutel (met prefixen i4, l4, m4, r4), worden *NIET* vervangen in de bestanden die. Deze waarde wordt *NIET* overgenomen in kind-projecten.
+- `default`: {}
 
 ### passive
 - `type`: *boolean*
@@ -172,7 +141,7 @@ Let er op: alle attributen zijn in *lowercase*
 - `default`: false
 
 ### priority
-- `type`: *number*
+- `type`: *integer*
 - `description`: Geeft binnen de 2 groepen, core en niet-core, wat de volgorde is van installatie: hoge prioriteit wordt eerder geïnstalleerd. Kind-projecten worden altijd geïnstalleerd binnen hun ouder (in volgorde van prioriteit)
 - `default`: 10000
 
@@ -199,5 +168,3 @@ Let er op: alle attributen zijn in *lowercase*
 - `type`: *string*
 - `description`: Dit project wordt enkel geïnstalleerd als de registry waarde `brocade-release` lexicografisch groter is dan deze waarde. Bij niet-installatie, worden ook de kind-projecten *niet* geïnstalleerd.
 - `default`: ""
-
-

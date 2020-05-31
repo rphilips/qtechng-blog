@@ -194,19 +194,19 @@ Use <span style="color:#2aa198">&#34;Qq [command] --help&#34;</span> <span style
 Qq project list /take/*
 </code></pre></div><p>Het programmeren zelf is descriptief. Om bijvoorbeeld <code>Qq project create</code> te maken is het voldoende om in de code de volgende beschrijving te plaatsen:</p>
 <div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#859900">var</span> <span style="color:#268bd2">projectListCmd</span> = &amp;<span style="color:#268bd2">cobra</span>.<span style="color:#268bd2">Command</span>{
-	<span style="color:#268bd2">Use</span>:     <span style="color:#2aa198">&#34;list&#34;</span>,
-	<span style="color:#268bd2">Short</span>:   <span style="color:#2aa198">&#34;List projects&#34;</span>,
-	<span style="color:#268bd2">Long</span>:    <span style="color:#2aa198">`Command lists all project matching a given pattern`</span>,
-	<span style="color:#268bd2">Args</span>:    <span style="color:#268bd2">cobra</span>.<span style="color:#268bd2">MaximumNArgs</span>(<span style="color:#2aa198;font-weight:bold">1</span>),
-	<span style="color:#268bd2">Example</span>: <span style="color:#2aa198">&#34;Qq project list /stdlib/t*&#34;</span>,
-	<span style="color:#268bd2">RunE</span>:    <span style="color:#268bd2">projectList</span>,
-	<span style="color:#268bd2">PreRun</span>:  <span style="color:#859900">func</span>(<span style="color:#268bd2">cmd</span> *<span style="color:#268bd2">cobra</span>.<span style="color:#268bd2">Command</span>, <span style="color:#268bd2">args</span> []<span style="color:#859900;font-weight:bold">string</span>) { <span style="color:#268bd2">preSSH</span>(<span style="color:#268bd2">cmd</span>) },
-	<span style="color:#268bd2">Annotations</span>: <span style="color:#859900">map</span>[<span style="color:#859900;font-weight:bold">string</span>]<span style="color:#859900;font-weight:bold">string</span>{
-		<span style="color:#2aa198">&#34;remote-allowed&#34;</span>:    <span style="color:#2aa198">&#34;yes&#34;</span>,
-		<span style="color:#2aa198">&#34;always-remote-onW&#34;</span>: <span style="color:#2aa198">&#34;yes&#34;</span>,
-		<span style="color:#2aa198">&#34;fill-version&#34;</span>:      <span style="color:#2aa198">&#34;yes&#34;</span>,
-		<span style="color:#2aa198">&#34;with-QtechType&#34;</span>:    <span style="color:#2aa198">&#34;BW&#34;</span>,
-	},
+    <span style="color:#268bd2">Use</span>:     <span style="color:#2aa198">&#34;list&#34;</span>,
+    <span style="color:#268bd2">Short</span>:   <span style="color:#2aa198">&#34;List projects&#34;</span>,
+    <span style="color:#268bd2">Long</span>:    <span style="color:#2aa198">`Command lists all project matching a given pattern`</span>,
+    <span style="color:#268bd2">Args</span>:    <span style="color:#268bd2">cobra</span>.<span style="color:#268bd2">MaximumNArgs</span>(<span style="color:#2aa198;font-weight:bold">1</span>),
+    <span style="color:#268bd2">Example</span>: <span style="color:#2aa198">&#34;Qq project list /stdlib/t*&#34;</span>,
+    <span style="color:#268bd2">RunE</span>:    <span style="color:#268bd2">projectList</span>,
+    <span style="color:#268bd2">PreRun</span>:  <span style="color:#859900">func</span>(<span style="color:#268bd2">cmd</span> *<span style="color:#268bd2">cobra</span>.<span style="color:#268bd2">Command</span>, <span style="color:#268bd2">args</span> []<span style="color:#859900;font-weight:bold">string</span>) { <span style="color:#268bd2">preSSH</span>(<span style="color:#268bd2">cmd</span>) },
+    <span style="color:#268bd2">Annotations</span>: <span style="color:#859900">map</span>[<span style="color:#859900;font-weight:bold">string</span>]<span style="color:#859900;font-weight:bold">string</span>{
+        <span style="color:#2aa198">&#34;remote-allowed&#34;</span>:    <span style="color:#2aa198">&#34;yes&#34;</span>,
+        <span style="color:#2aa198">&#34;always-remote-onW&#34;</span>: <span style="color:#2aa198">&#34;yes&#34;</span>,
+        <span style="color:#2aa198">&#34;fill-version&#34;</span>:      <span style="color:#2aa198">&#34;yes&#34;</span>,
+        <span style="color:#2aa198">&#34;with-QtechType&#34;</span>:    <span style="color:#2aa198">&#34;BW&#34;</span>,
+    },
 }
 </code></pre></div><p>De <code>PreRun</code> en de <code>Annotations</code> zijn nog wat verwarrend maar daarover later meer!</p>
 <ul class="pa0">

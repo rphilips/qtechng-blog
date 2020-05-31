@@ -6,11 +6,11 @@ featured_image: "/images/toolkit.svg"
 
 mtech/ltech/qtech/qtechng is het **beheersinstrument** van de Brocade software.
 
-Al heel snel bleek dat we een adequaat instrument nodig hadden om de bibliotheeksoftware te beheren. Dit was al zo in het begin van de jaren '90 toen we nog automatiseerden met Vubis. 
+Al heel snel bleek dat we een adequaat instrument nodig hadden om de bibliotheeksoftware te beheren. Dit was al zo in het begin van de jaren '90 toen we nog automatiseerden met Vubis.
 
 Ook in die dagen hadden we al heel wat software die eigen was aan de Universiteit Antwerpen en de bibliotheken die toen deel uitmaakten van Vubis Antwerpen: er was natuurlijk het Impala project met VirLib, Agrippa (onze archiefsoftware). Ook de deelname aan Europese projecten legden eisen op aan de software die nog moeilijk handmatig konden worden ingevuld.
 
-# Taken opgenomen door qtech
+## Taken opgenomen door qtech
 
 Beheersen van software betekent in onze context verschillende dingen:
 
@@ -20,25 +20,23 @@ Beheersen van software betekent in onze context verschillende dingen:
 - Eenvoudige ontplooiing op diverse servers
 - Administratieve en beheersmatige informatie verschaffen
 
+### Hulp tijdens het ontwikkelproces
 
-## Hulp tijdens het ontwikkelproces
-
-Het staat ontwikkelaars vrij om hun ontwikkeltools te kiezen. Er zijn ondertussen verschillende programmer's editors de revue gepasseerd: Crisp, Brief, Emacs, XEmacs, Textadept, Sublime Text, Visual Studio Code. Maar ook meer geavanceerde instrumenten zoals Eclipse en Netbeans werden (kort) gebruikt in het ontwikkelproces. 
+Het staat ontwikkelaars vrij om hun ontwikkeltools te kiezen. Er zijn ondertussen verschillende programmer's editors de revue gepasseerd: Crisp, Brief, Emacs, XEmacs, Textadept, Sublime Text, Visual Studio Code. Maar ook meer geavanceerde instrumenten zoals Eclipse en Netbeans werden (kort) gebruikt in het ontwikkelproces.
 
 De verscheidenheid aan technologieën, de diverse OS waarop ontwikkelaars werken samen met hun persoonlijkheid zorgt ervoor dat er geopteerd wordt voor eerder eenvoudige tools waarvan hun functionaliteit dan wordt aangevuld met behulp van extensies. Visual Studio Code is daar een goed voorbeeld van. 10 speciaal ontworpen extensies zorgen ervoor dat de Brocade specifieke bestanden snel kunnen worden opgespoord en bewerkt.
 
-
-## Integriteit van het code repository
+### Integriteit van het code repository
 
 Qtech moet ervoor zorgen dat de integriteit en de eenheid van de software duidelijk is: zowel voor ontwikkelaars als voor het management. De software is *niet* OpenSource en zorgt voor een belangrijke bron van inkomsten voor de Universiteit Antwerpen en haar bibliotheek.
 
-## Samenwerking mogelijk maken
+### Samenwerking mogelijk maken
 
 Er werken diverse mensen samen aan het software repository. Het zijn niet allemaal ontwikkelaar en ze spelen allemaal een belangrijke rol bij de uitbouw van Brocade: aanpassen van verwoordingen, opbouw van de menustructuur, vertalingen, design van webpagina's ...
 
 Deze diverse groep moet vlot kunnen werken aan de source en niet gehinderd worden door afspraken en handelingen die ver buiten hun expertise terrein liggen.
 
-## Eenvoudige ontplooiing op diverse servers
+### Eenvoudige ontplooiing op diverse servers
 
 Installatie van major releases en bugfixes moeten gemakkelijk kunnen worden doorgetrokken naar de diverse productieservers, demo- en opleidingsservers.
 
@@ -46,17 +44,15 @@ Deze acties moeten zowel interactief als 'scheduled' kunnen plaatsvinden.
 
 Installaties en updates komen soms ook met contractuele verplichtingen en moeten dus ook kunnen worden hard gemaakt in de vorm van 1 bestand (bijvoorbeeld gedeponeerd bij een notaris)
 
-
-## Administratieve en beheersmatige informatie verschaffen
+### Administratieve en beheersmatige informatie verschaffen
 
 Er is geregeld noodzaak om te weten hoeveel aanpassingen er zijn aangebracht en door wie.
 
 Dit gaat soms verder dan wat een versie controle systeem standaard kan aanleveren.
 
+## Een stukje geschiedenis
 
-# Een stukje geschiedenis
-
-De eerste versie van de software heette *mtech*. 
+De eerste versie van de software heette *mtech*.
 
 Deze software werd geschreven in *C* en construeerde een [Makefile](https://en.wikipedia.org/wiki/Make_(software) "Makefile"). De functionaliteit was beperkt en richtte zich tot ontwikkeling op [SCO UNIX](https://en.wikipedia.org/wiki/Santa_Cruz_Operation "SCO UNIX"). De enige bestandstypes die werden ondersteund waren Mumps files.
 

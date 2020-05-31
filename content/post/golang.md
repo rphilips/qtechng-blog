@@ -26,7 +26,7 @@ Daarmee komen we aan een de volgende reden.
 
 ## Installeerbaarheid
 
-`qtechng` is een instrument dat niet alleen voor ontwikkelaars moet werken. 
+`qtechng` is een instrument dat niet alleen voor ontwikkelaars moet werken.
 
 Om de een check-out met de huidige `qtech` te kunnen doen met eerste de juiste versie van `Python` worden geïnstalleerd. Vervolgens moet een SSH cliënt worden opgezet. Met `scp` (of een gelijkaardige software) moeten dan handmatig een 5-tal Brocade projecten worden getransfereerd vanop de goede plaats. Deze moeten dan zorgvuldig worden geïnstalleerd en, als de passende environment variabelen zijn gezet, kunnen we aan de slag.
 
@@ -63,7 +63,7 @@ Echter er zijn ook andere redenen: de ingebouwde Go libraries zijn exceptioneel.
 
 Toch ligt de voornaamste reden in de snelheidswinst in de mogelijkheden om, op gemakkelijke wijze, softwarecomponenten *concurrent* uit te voeren. Zeker in `I/O` gevoelige toepassing als `qtechng` kan hier grote winsten worden geboekt: eerste testen tonen 20-voudige snelheidswinst aan ten opzichte van de `Python` versie.
 
-Deze snelheidswinst is niet alleen van belang bij interactieve operaties maar is ook van groot belang bij operaties zoals [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration "CI"), zeg maar de `sweep`. 
+Deze snelheidswinst is niet alleen van belang bij interactieve operaties maar is ook van groot belang bij operaties zoals [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration "CI"), zeg maar de `sweep`.
 
 Ook het installatie proces van een nieuwe Brocade release zou op deze wijze drastisch kunnen worden herleid. Dit is zeker van belang als we van plan zijn meerdere, tussentijdse, releases te gaan voeren.
 
@@ -76,10 +76,3 @@ Ik geef twee voorbeelden om dit in het licht te zetten.
 De configuratie bestanden `brocade.json` is duidelijk veel complexer (en ook veel krachtiger) dan in vorige versie. Door de structuur rigoureus te beschrijven via een `JSON schema` kan validatie en implementatie software ook automatisch worden gegenereerd. Go leent zich heel goed tot dergelijke operaties.
 
 Een ander voorbeeld is bijvoorbeeld de macro structuur. Macro's zijn heel erg belangrijk voor `qtechng`: het zijn de API's waarrond alles draait. In `qtechng` winnen macro's in belangrijke mate aan kracht. In plaats van een handmatige parser te schrijven kan nu de kracht van een [PEG-parser](https://en.wikipedia.org/wiki/Parsing_expression_grammar "PEG-parser") worden aangewend. Ja, deze parsers geven minder efficiënte code, maar ze geven meteen ook een rigoureuze definitie van het macro systeem. Iets waar Brocade al langer nood aan heeft.
-
-
-
-
-
-
-

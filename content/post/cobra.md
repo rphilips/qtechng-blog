@@ -32,7 +32,6 @@ Cobra is zeker een goede kandidaat om er `qtechng` mee te vervaardigen.
 
 Ik heb ondertussen verschillende CLI's gemaakt met `Cobra`. Een goed voorbeeld is `Qq`. `Qq` is een voorloper van `qtechng`.
 
-
 ```bash
 
 /home/rphilips/Desktop$ Qq
@@ -88,29 +87,20 @@ Het programmeren zelf is descriptief. Om bijvoorbeeld `Qq project create` te mak
 
 ```go
 var projectListCmd = &cobra.Command{
-	Use:     "list",
-	Short:   "List projects",
-	Long:    `Command lists all project matching a given pattern`,
-	Args:    cobra.MaximumNArgs(1),
-	Example: "Qq project list /stdlib/t*",
-	RunE:    projectList,
-	PreRun:  func(cmd *cobra.Command, args []string) { preSSH(cmd) },
-	Annotations: map[string]string{
-		"remote-allowed":    "yes",
-		"always-remote-onW": "yes",
-		"fill-version":      "yes",
-		"with-QtechType":    "BW",
-	},
+    Use:     "list",
+    Short:   "List projects",
+    Long:    `Command lists all project matching a given pattern`,
+    Args:    cobra.MaximumNArgs(1),
+    Example: "Qq project list /stdlib/t*",
+    RunE:    projectList,
+    PreRun:  func(cmd *cobra.Command, args []string) { preSSH(cmd) },
+    Annotations: map[string]string{
+        "remote-allowed":    "yes",
+        "always-remote-onW": "yes",
+        "fill-version":      "yes",
+        "with-QtechType":    "BW",
+    },
 }
 ```
+
 De `PreRun` en de `Annotations` zijn nog wat verwarrend maar daarover later meer!
-
-
-
-
-
-
-
-
-
-

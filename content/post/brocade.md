@@ -23,7 +23,7 @@ De Brocade software is opgesplitst in **projecten**. Hoewel iedereen aan dergeli
 Release 5.00 van Brocade telt **1208** projecten. Deze projecten bevatten samen **14036** bestanden. De source code - zonder afgeleide producten - bedraagt **462M**.
 
 Een overzicht van de voornaamste soorten bestanden: (enkel de bestandstypes waarvan er meer dan 100 bestaan, worden opgenomen)
- 
+
 | #     | Extensie |
 |-------|--------------|
 |   116 | .svg|
@@ -45,8 +45,4 @@ Een overzicht van de voornaamste soorten bestanden: (enkel de bestandstypes waar
 |  2714 | .py|
 |  3116 | .m|
 
-
 In een latere blog bijdrage ga ik zeker dieper ingaan op deze bestandstypes en hoe projecten worden beheerd.
-
-
-.

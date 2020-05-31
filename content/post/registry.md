@@ -21,7 +21,6 @@ Bij het opzetten van deze environment variabele moet je ermee rekening houden da
 - in *SSH* sessies
 - in *SHELL* sessies
 
-
 Deze doorgedreven visie op meta-informatie - *een bibliotheeksysteem is het beschrijven van meta-informatie met een paar aanvullende services* - biedt zo zijn voordelen:
 
 - een eenvoudige richtlijn om bibliotheek software te construeren: laat de software passen in dit getrapt model
@@ -33,7 +32,6 @@ Deze doorgedreven visie op meta-informatie - *een bibliotheeksysteem is het besc
 - onafhankelijkheid van de hardware
 
 - onafhankelijkheid van het operating system
-
 
 ## Structuur van de registry
 
@@ -52,16 +50,15 @@ Beste praktijk (op een `UN*X` systeem):
    chmod --reference=$BASE $BASE/registry
    chown --reference=$BASE $BASE/registry/registry.json
    chmod u=rw,g=r,o= $BASE/registry/registry.json
-   
+
    touch $BASE/registry/localregistry.json
    chown --reference=$BASE/registry/registry.json $BASE/registry/localregistry.json
    chmod --reference=$BASE/registry/registry.json $BASE/registry/localregistry.json
-   
+
    touch $BASE/registry/saltregistry.json
    chown --reference=$BASE/registry/registry.json $BASE/registry/saltregistry.json
    chmod --reference=$BASE/registry/registry.json $BASE/registry/saltregistry.json
 ```
-
 
 Er zijn verschillende manieren hoe en sleutel/waarde paar kan worden toegevoegd aan de `registry`:
 
@@ -91,15 +88,13 @@ Er zijn een aantal (niet-bindende) afspraken:
 
 - sommige waarden zijn commando's uit te voeren in de shell:
   - beperk dit zoveel mogelijk
-  - laat `PATH` zijn werk doen  
-  - gebruik *nooit* wildcards 
+  - laat `PATH` zijn werk doen
+  - gebruik *nooit* wildcards
   - zorg ervoor dat deze commando's geconstrueerd zijn volgens de richtlijnen van de *Bourne shell* (POSIX)
-
 
 ## Schema
 
 zijn `registry.json` bestanden die voldoen aan het [registry schema](https://dev.anet.be/brocade/schema/registry.schema.json "Registry")
-
 
 ## Samenstellen van de registry
 
@@ -109,7 +104,6 @@ Sleutels in de registry zijn *niet* evenwaardig:
 
 - sommigen zijn afhankelijk van andere sleutels: vb. `xml-catalog-dir` is afhankelijk van `web-base-dir`.
 
-
 Een ontwikkelaar die een nieuwe registry waarde nodig heeft, volgt de volgende stappen:
 
 - Is de nieuwe registry waarde afhankelijk van een reeds bestaande registry waarde, definieer dan in de projectfile `release.py` de nieuwe registry waarde
@@ -117,11 +111,10 @@ Een ontwikkelaar die een nieuwe registry waarde nodig heeft, volgt de volgende s
 - Is de nieuwe registry waarde in te stellen door de system administrator, definieer dan de registry waarde in `/core/brocade/release.py`. De ontwikkelaar kan 2 strategieën volgen:
 
   - is er een goede default waarde, neem dan deze
-      
+
   - kies anders een waarde die de installatie van het project doet falen
 
   De ontwikkelaar documenteert deze registry waarde in het project `/doc/registry`.
-
 
 ## Gebruik van de registry
 
@@ -141,7 +134,6 @@ Het installatieproces gaat dan deze constructie vervangen door de waarde in de r
 
 Deze techniek is soms de enige om aan parametrisering te doen. Toch is deze niet aan te raden: in situaties (|M|, |Py2|, |Py3|) waar zonder performantie verlies andere oplossingen bestaan, zijn deze te verkiezen.
 
-
 ## Documentatie van de registry
 
 De registry waarden worden gedocumenteerd in project `/doc/registry`.
@@ -157,9 +149,7 @@ Hanteer daarbij de volgende afspraken:
 
 De *documentatie* van de registry waarden die niet langer worden gebruikt in de software, moeten handmatig worden geschrapt in het project `/doc/registry`.
 
-
 Maak het onderscheid tussen registry waarden die niet gedefinieerd zijn maar die *toch* worden gebruikt in de software. De documentatie van deze registry waarden moet vanzelfsprekend blijven bestaan.
-
 
 ## QtechNG
 

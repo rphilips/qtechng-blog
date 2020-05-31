@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="nl-nl">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Vbox | QtechNG Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.69.0-DEV" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/qtechng-blog/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Vbox" />
+<meta property="og:description" content="Een virtuele machine of Docker ?
+qtechng werkt essentieel steeds met 2 servers waarbij de ene machine de ontwikkelmachine (dev.anet.be: qtechtype == &lsquo;B&rsquo;) is en de andere ofwel je werkstation (qtechtype == &lsquo;W&rsquo;) ofwel een productiemachine (qtechtype == &lsquo;P&rsquo;).
+Dat betekent dat je voor de ontwikkeling van qtechng ook moet kunnen beschikken over 2 machines. De aangewezen oplossing hiervoor is om op je werkstation ofwel een virtual machine ofwel een docker container op te zetten." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rphilips.github.io/qtechng-blog/post/vbox/" />
+<meta property="article:published_time" content="2020-05-27T11:51:32+02:00" />
+<meta property="article:modified_time" content="2020-05-27T11:51:32+02:00" />
+<meta itemprop="name" content="Vbox">
+<meta itemprop="description" content="Een virtuele machine of Docker ?
+qtechng werkt essentieel steeds met 2 servers waarbij de ene machine de ontwikkelmachine (dev.anet.be: qtechtype == &lsquo;B&rsquo;) is en de andere ofwel je werkstation (qtechtype == &lsquo;W&rsquo;) ofwel een productiemachine (qtechtype == &lsquo;P&rsquo;).
+Dat betekent dat je voor de ontwikkeling van qtechng ook moet kunnen beschikken over 2 machines. De aangewezen oplossing hiervoor is om op je werkstation ofwel een virtual machine ofwel een docker container op te zetten.">
+<meta itemprop="datePublished" content="2020-05-27T11:51:32&#43;02:00" />
+<meta itemprop="dateModified" content="2020-05-27T11:51:32&#43;02:00" />
+<meta itemprop="wordCount" content="555">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vbox"/>
+<meta name="twitter:description" content="Een virtuele machine of Docker ?
+qtechng werkt essentieel steeds met 2 servers waarbij de ene machine de ontwikkelmachine (dev.anet.be: qtechtype == &lsquo;B&rsquo;) is en de andere ofwel je werkstation (qtechtype == &lsquo;W&rsquo;) ofwel een productiemachine (qtechtype == &lsquo;P&rsquo;).
+Dat betekent dat je voor de ontwikkeling van qtechng ook moet kunnen beschikken over 2 machines. De aangewezen oplossing hiervoor is om op je werkstation ofwel een virtual machine ofwel een docker container op te zetten."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  
+  <header class="cover bg-top" style="background-image: url('https://rphilips.github.io/qtechng-blog/images/vbox.svg');">
+    <div class="pb3-m pb6-l bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://rphilips.github.io/qtechng-blog/" class="f3 fw2 hover-white no-underline white-90 dib">
+      QtechNG Blog
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/qtechng-blog/post/" title="Artikelen page">
+              Artikelen
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Vbox</h1>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        ARTIKELEN
+      </aside>
+      
+
+
+      <h1 class="f1 athelas mt3 mb1">Vbox</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-05-27T11:51:32&#43;02:00">May 27, 2020</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Een <a href="https://en.wikipedia.org/wiki/Virtual_machine" title="Virtual Machine">virtuele machine</a> of <a href="https://en.wikipedia.org/wiki/Docker_(software)" title="Docker">Docker</a> ?</p>
+<p><code>qtechng</code> werkt essentieel steeds met 2 servers waarbij de ene machine de ontwikkelmachine (dev.anet.be: qtechtype == &lsquo;B&rsquo;) is en de andere ofwel je werkstation (qtechtype == &lsquo;W&rsquo;) ofwel een productiemachine (qtechtype == &lsquo;P&rsquo;).</p>
+<p>Dat betekent dat je voor de ontwikkeling van <code>qtechng</code> ook moet kunnen beschikken over 2 machines. De aangewezen oplossing hiervoor is om op je werkstation ofwel een <em>virtual machine</em> ofwel een <em>docker container</em> op te zetten.</p>
+<p>Ik koos ervoor om te gaan voor de <code>virtual machine</code>. Deze keuze is niet zo vanzelfsprekend: Docker is immers <em>gemaakt</em> om dit soort setups te tackelen. Ik ben echter meer vertrouwd met <em>virtual machines</em>. Bovendien wil ik zo dicht mogelijk aanleunen bij de situaties waarin <code>qtechng</code> worden ontplooid.</p>
+<p>Er zijn echter ook nog wat andere redenen: ik wil graag eens een aantal Linux versies uitproberen waarover ik veel goeds heb gehoord maar er zelf nooit heb mee gewerkt: Manjaro, Ubuntu Budgie en UbuntuDDE.</p>
+<p>Één van de mooie dingen van een VM is dat je ook kunt experimenteren met het aantal CPU&rsquo;s (cores) die je toewijst aan een VM.</p>
+<p>Het opzetten van een VM aan de hand van Virtual Box is niet bepaald uitdagend. Toch een wijze raad: moderne Linux distributies komen met een software store. Het voorkomt heel wat problemen als je <em>Virtual Box</em> installeert vanuit deze software store: nieuwere versies vertonen immers vaak compatibiliteitsproblemen.</p>
+<p>Vanzelfsprekend mag je niet nalaten de <code>Guest Additions</code> te installeren: deze maken het werken met muis, clipboard en  het filesysteem een stuk gemakkelijker.</p>
+<p>Voor wat netwerking betreft, kies ik voor de eenvoudigste en tegelijkertijd ook veiligste oplossing: <code>NAT</code> met Port-forwarding voor <code>SSH</code>.</p>
+<ul>
+<li>Mijn host (dagdagelijkse machine) is Linux Mint</li>
+<li>De <code>guest</code> die ik installeer is <code>Ubuntu Budgie</code> (20.04)</li>
+<li>Met Linux <code>Guest Additions</code></li>
+<li>Networking: NAT met Port Forwarding: SSH: IP 127.0.0.1 op poort 2222 naar poort 22 op de guest</li>
+<li>In /etc/hosts op de host plaats ik een entry: <code>127.0.0.1       localhost budgie</code>. Op deze wijze kan ik mijn <code>guest</code> steeds adresseren als <code>budgie</code>.</li>
+</ul>
+<p>Op <code>budgie</code> installeer ik de environment variabele <code>BROCADE_REGISTRY</code> in <code>etc/environment</code>:</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#268bd2">BROCADE_REGISTRY</span>=/home/rphilips/brocade/registry.json
+</code></pre></div><p>De relevante inhoud van de registry:</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#268bd2;font-weight:bold">&#34;qtechng-test&#34;</span>: <span style="color:#2aa198">&#34;test-entry&#34;</span>,
+    <span style="color:#268bd2;font-weight:bold">&#34;qtechng-version&#34;</span>: <span style="color:#2aa198">&#34;9.92&#34;</span>,
+    <span style="color:#268bd2;font-weight:bold">&#34;qtechng-hg-backup&#34;</span>: <span style="color:#2aa198">&#34;ssh://root@backup.anet.be//qtech/hg/{version}&#34;</span>,
+    <span style="color:#268bd2;font-weight:bold">&#34;qtechng-type&#34;</span>: <span style="color:#2aa198">&#34;B&#34;</span>,
+    <span style="color:#268bd2;font-weight:bold">&#34;qtechng-repository-dir&#34;</span>: <span style="color:#2aa198">&#34;/home/rphilips/qtechng&#34;</span>,
+    <span style="color:#268bd2;font-weight:bold">&#34;qtechng-hg-enable&#34;</span>: <span style="color:#2aa198">&#34;1&#34;</span>,
+    <span style="color:#268bd2;font-weight:bold">&#34;qtechng-max-openfiles&#34;</span>: <span style="color:#2aa198">&#34;64&#34;</span>
+}
+</code></pre></div><p>Aangezien <code>budgie</code> de rol gaat spelen van de ontwikkelserver moet hier een <code>SSH</code> service worden op gedefinieerd.</p>
+<p><code>Ubuntu</code> is een <a href="https://en.wikipedia.org/wiki/Systemd" title="SystemD">SystemD</a> distributie en bijgevolg is het opzetten en starten van de <code>SSH</code> service vrij standaard:</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install openssh-server  <span style="color:#93a1a1;font-style:italic"># installeren van de software uit de softare store</span>
+sudo systemctl <span style="color:#cb4b16">enable</span> ssh <span style="color:#93a1a1;font-style:italic"># enable de service</span>
+sudo systemctl start ssh <span style="color:#93a1a1;font-style:italic"># opstarten van de start</span>
+sudo ufw allow ssh <span style="color:#93a1a1;font-style:italic"># firewall configuratie</span>
+sudo ufw <span style="color:#cb4b16">enable</span>
+sudo systemctl status ssh
+</code></pre></div><p>Vanzelfsprekend moet je nu een account aanmaken op <code>budgie</code>.</p>
+<p>Vervolgens moet je je SSH gegevens kopieren naar <code>budie</code>. Is je host een  UNIX-achtige machine, dan kan je dit meer dan waarschijnlijk eenvoudig doen door middel van de instructie:</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh-copy-id -i ~/.ssh/id_rsa.pub rphilips@budgie -p <span style="color:#2aa198;font-weight:bold">2222</span> <span style="color:#93a1a1;font-style:italic"># Voer uit van op je eigen machine</span>
+</code></pre></div><p>Op de host (je eigen werkstation) zien de relevante registry waarden er als volgt uit:</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#268bd2;font-weight:bold">&#34;qtechng-releases&#34;</span>: <span style="color:#2aa198">&#34;4.20; 4.30; 4.40; 5.00; 5.10&#34;</span>,
+    <span style="color:#268bd2;font-weight:bold">&#34;qtechng-test&#34;</span>: <span style="color:#2aa198">&#34;test-entry&#34;</span>,
+    <span style="color:#268bd2;font-weight:bold">&#34;qtechng-diff&#34;</span>: <span style="color:#2aa198">&#34;[\&#34;meld\&#34;, \&#34;$target\&#34;, \&#34;$source\&#34;]&#34;</span>,
+    <span style="color:#268bd2;font-weight:bold">&#34;qtechng-version&#34;</span>: <span style="color:#2aa198">&#34;9.92&#34;</span>,
+    <span style="color:#268bd2;font-weight:bold">&#34;qtechng-uid&#34;</span>: <span style="color:#2aa198">&#34;rphilips&#34;</span>,
+    <span style="color:#268bd2;font-weight:bold">&#34;qtechng-editor-exe&#34;</span>: <span style="color:#2aa198">&#34;code&#34;</span>,
+    <span style="color:#268bd2;font-weight:bold">&#34;qtechng-server&#34;</span>: <span style="color:#2aa198">&#34;budgie:2222&#34;</span>,
+    <span style="color:#268bd2;font-weight:bold">&#34;qtechng-type&#34;</span>: <span style="color:#2aa198">&#34;W&#34;</span>,
+    <span style="color:#268bd2;font-weight:bold">&#34;qtechng-workstation-basedir&#34;</span>: <span style="color:#2aa198">&#34;/home/rphilips/projects/brocade/edit&#34;</span>,
+    <span style="color:#268bd2;font-weight:bold">&#34;qtechng-max-openfiles&#34;</span>: <span style="color:#2aa198">&#34;64&#34;</span>
+}
+</code></pre></div><p>Let op de adressering van de server!</p>
+<p>Zo, we hebben nu twee systemen klaar voor actie!</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://rphilips.github.io/qtechng-blog/" >
+    &copy;  QtechNG Blog 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/qtechng-blog/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

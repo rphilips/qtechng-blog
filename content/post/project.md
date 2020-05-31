@@ -8,7 +8,7 @@ date: 2020-05-21T08:59:12+02:00
 
 Brocade 5.00 telt meer dan 14000 bestanden.
 
-Om beheer mogelijk te maken, moet hier structuur worden aangebracht. Het voornaamste structuurelement is het *project*. 
+Om beheer mogelijk te maken, moet hier structuur worden aangebracht. Het voornaamste structuurelement is het *project*.
 Een project staat voor een deelverzameling van deze bestanden, fysiek ondergebracht in een directory.
 
 Van oudsher kent Brocade een thematische opsplitsing: zo werden bestanden rondom het bestellen van dingen gegroepeerd in projecten met namen als:
@@ -27,19 +27,18 @@ Indeling naar technologie heeft grote voordelen voor het ontwikkelproces. Anderz
 
 In die kleine 20 jaar dat `qtech` in gebruik was, ben ik ongeveer de enige die deze feature heeft gebruikt. Overigens, met weinig succes!
 
-
-In `qtechng` wordt de definitie van een project aangescherpt. 
+In `qtechng` wordt de definitie van een project aangescherpt.
 
 ## QtechNG: projecten kunnen directories bevatten
 
-Moderne software projecten komen in een directory tree. Node, Go, Hugo, reStructuredText ... noem maar op: ze kennen allemaal het concept van project en ze zijn in boom-vorm. 
+Moderne software projecten komen in een directory tree. Node, Go, Hugo, reStructuredText ... noem maar op: ze kennen allemaal het concept van project en ze zijn in boom-vorm.
 Dikwijls gaat de ondersteunende software hier ook handig op inspelen.
 
 Als dergelijke projecten een plaats moeten krijgen binnen `qtechng`, dan moet deze boomstructuur ook kunnen.
 
 ## QtechNG: projecten kunnen kind-projecten bevatten
 
-`qtechng` gaat nog verder: projecten kunnen ook kind-projecten bevatten. 
+`qtechng` gaat nog verder: projecten kunnen ook kind-projecten bevatten.
 
 Dit heeft grote implicaties (en ook grote mogelijkheden) over de installatie van een project op een systeem.
 
@@ -47,14 +46,14 @@ In een latere blog post gaan we dit uitvoerig bespreken.
 
 ## QtechNG: brocade.json
 
-Elk project moet in zijn root-directory het bestand `brocade.json` bevatten. Dit bestand vervangt het vroegere `install.cfg`. 
+Elk project moet in zijn root-directory het bestand `brocade.json` bevatten. Dit bestand vervangt het vroegere `install.cfg`.
 Er werd een andere naam gekozen omdat het dan voor bijvoorbeeld Visual Studio Code onmiddellijk duidelijk was hoe dergelijke bestanden moesten worden bewerkt.
 
 In tegenstelling tot `install.cfg`, is `brocade.json` verplicht! Het aantal mogelijkheden is ook drastisch uitgebreid.
 
 ## Andere bestanden
 
-Projecten komen nog met andere *standaard* bestanden: 
+Projecten komen nog met andere *standaard* bestanden:
 
 - install.py: help bij de installatie van het project op een server
 - release.py: help bij het opzetten van allerlei registry waarden

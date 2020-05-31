@@ -19,7 +19,7 @@ Een tijd - ondertussen een paar jaar - geleden hadden Luc en ik een discussie ov
 
 ## Semantic versioning
 
-De discussie die Luc en ik voerden, startte over de betekenis van een projectnummer van de gedaan `0.98.12`. Het gebruik van een software waarvan het versie nummer begint met `0.` is niet erg geruststellend: meestal duidt dit op een `beta` versie, nauwelijks beproefd in `the wild`. Maar eerlijk gezegd, dat slaat nergens op: de betekenis van die nummertjes ligt immers niet vast. 
+De discussie die Luc en ik voerden, startte over de betekenis van een projectnummer van de gedaan `0.98.12`. Het gebruik van een software waarvan het versie nummer begint met `0.` is niet erg geruststellend: meestal duidt dit op een `beta` versie, nauwelijks beproefd in `the wild`. Maar eerlijk gezegd, dat slaat nergens op: de betekenis van die nummertjes ligt immers niet vast.
 
 Is deze software een eindpunt op zich - bijvoorbeeld een tekstverwerker - dan is dat geen probleem: je gebruikt immers de software of je gebruikt hem niet en daar stopt het.
 
@@ -57,7 +57,7 @@ In dit nummerschema wordt betekenis gegeven aan de diverse componenten: `Major.M
 - Minor: verandering van deze component houdt een miniem risico in. Bijvoorbeeld de signatuur van de API krijgt een argument bij.
 - Patch: verandering van deze component houdt een klein risico in. Meestal een eenvoudige bugfix.
 
-Sommige ontwikkelsystemen (zoals vb. Go) gaan hier op uiterste gesofistikeerde manier mee om: het module systeem gebruikt die 3 componenten en gaat bijvoorbeeld wel automatische updates toelaten van `Patch`. 
+Sommige ontwikkelsystemen (zoals vb. Go) gaan hier op uiterste gesofistikeerde manier mee om: het module systeem gebruikt die 3 componenten en gaat bijvoorbeeld wel automatische updates toelaten van `Patch`.
 De rest moet expliciet worden geconfigureerd.
 
 Niet alle software projecten gaan hier even gezwind mee om of gaan hier licht van afwijken (vb. [Python](https://www.python.org/dev/peps/pep-0440/ "Version Identification and Dependency Specification") )
@@ -67,18 +67,3 @@ Ik denk dat Semantic Versioning zijn plaats heeft in Brocade: niet zozeer om de 
 Versie aanduidingen hebben zeker een rol te spelen in het verwante *versie controle*.
 
 Maar dat is een onderwerp voor een ander blog post.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

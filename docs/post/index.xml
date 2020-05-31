@@ -12,6 +12,29 @@
     
     
     <item>
+      <title>Vbox</title>
+      <link>https://rphilips.github.io/qtechng-blog/post/vbox/</link>
+      <pubDate>Wed, 27 May 2020 11:51:32 +0200</pubDate>
+      
+      <guid>https://rphilips.github.io/qtechng-blog/post/vbox/</guid>
+      <description>Een virtuele machine of Docker ?
+qtechng werkt essentieel steeds met 2 servers waarbij de ene machine de ontwikkelmachine (dev.anet.be: qtechtype == &amp;lsquo;B&amp;rsquo;) is en de andere ofwel je werkstation (qtechtype == &amp;lsquo;W&amp;rsquo;) ofwel een productiemachine (qtechtype == &amp;lsquo;P&amp;rsquo;).
+Dat betekent dat je voor de ontwikkeling van qtechng ook moet kunnen beschikken over 2 machines. De aangewezen oplossing hiervoor is om op je werkstation ofwel een virtual machine ofwel een docker container op te zetten.</description>
+    </item>
+    
+    <item>
+      <title>SSH</title>
+      <link>https://rphilips.github.io/qtechng-blog/post/ssh/</link>
+      <pubDate>Tue, 26 May 2020 08:09:15 +0200</pubDate>
+      
+      <guid>https://rphilips.github.io/qtechng-blog/post/ssh/</guid>
+      <description>Waarom gebruik je SSH in qtechng?
+Wel, toen we in 1997 begonnen aan de bouw van Brocade, was dit niet zo!
+We hadden daarvoor 2 redenen: een goede en een slechte.
+Laten we beginnen met de slechte reden. Zoals steeds, als ik gegrepen ben door een idee, dan heb ik de neiging om dat idee tot in het extreme te volgen. In 1997, 1998 was ik er van overtuigd dat web technologie de wereld van informatiebeheerders ging bepalen.</description>
+    </item>
+    
+    <item>
       <title>Cobra</title>
       <link>https://rphilips.github.io/qtechng-blog/post/cobra/</link>
       <pubDate>Sun, 24 May 2020 11:03:36 +0200</pubDate>

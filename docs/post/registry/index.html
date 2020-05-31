@@ -182,11 +182,11 @@
    chmod --reference=<span style="color:#268bd2">$BASE</span> <span style="color:#268bd2">$BASE</span>/registry
    chown --reference=<span style="color:#268bd2">$BASE</span> <span style="color:#268bd2">$BASE</span>/registry/registry.json
    chmod <span style="color:#268bd2">u</span>=rw,g=r,o= <span style="color:#268bd2">$BASE</span>/registry/registry.json
-   
+
    touch <span style="color:#268bd2">$BASE</span>/registry/localregistry.json
    chown --reference=<span style="color:#268bd2">$BASE</span>/registry/registry.json <span style="color:#268bd2">$BASE</span>/registry/localregistry.json
    chmod --reference=<span style="color:#268bd2">$BASE</span>/registry/registry.json <span style="color:#268bd2">$BASE</span>/registry/localregistry.json
-   
+
    touch <span style="color:#268bd2">$BASE</span>/registry/saltregistry.json
    chown --reference=<span style="color:#268bd2">$BASE</span>/registry/registry.json <span style="color:#268bd2">$BASE</span>/registry/saltregistry.json
    chmod --reference=<span style="color:#268bd2">$BASE</span>/registry/registry.json <span style="color:#268bd2">$BASE</span>/registry/saltregistry.json

@@ -6,10 +6,20 @@
     <description>Recent content in QtechNG: Ontwikkelen voor Brocade on QtechNG Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>nl-nl</language>
-    <lastBuildDate>Wed, 27 May 2020 11:51:32 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 31 May 2020 16:45:31 +0200</lastBuildDate>
     
 	<atom:link href="https://rphilips.github.io/qtechng-blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Test</title>
+      <link>https://rphilips.github.io/qtechng-blog/post/test/</link>
+      <pubDate>Sun, 31 May 2020 16:45:31 +0200</pubDate>
+      
+      <guid>https://rphilips.github.io/qtechng-blog/post/test/</guid>
+      <description>Dit is een bijdrage van Bart: interpreteer deze tekst als een overzicht van de problematiek. testen is een munt met verschillende kanten. Later worden deze van nabij besproken.
+Inleiding In deze blog gaan we het hebben over het belang van softwaretesten op verschillende niveaus. Ik denk dat niemand overtuigd moeten worden van het belang maar het is wel belangrijk om de niveaus van softwaretesten te onderscheiden en zo ook communicatie er over te verbeteren.</description>
+    </item>
     
     <item>
       <title>Vbox</title>

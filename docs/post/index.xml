@@ -135,5 +135,16 @@ Deze tekst gaat over de software zelf: wat designprincipe zijn, hoeveel software
 Het belangrijkste principe is wel dat Brocade een werk van lange adem is. De wereld van (wetenschappelijke) bibliotheken en archieven verandert razendsnel. Dit gaat samen met de aard van informatieverschaffing maar evengoed met het veranderend statuut en aanzien van wetenschapsbeoefenaars.</description>
     </item>
     
+    <item>
+      <title>Blog</title>
+      <link>https://rphilips.github.io/qtechng-blog/post/blog/</link>
+      <pubDate>Fri, 01 May 2020 16:55:43 +0200</pubDate>
+      
+      <guid>https://rphilips.github.io/qtechng-blog/post/blog/</guid>
+      <description>Deze blog gaat over Brocade en qtech(ng).
+Er zijn verschillende redenen waarom ik deze blog opstart:
+  In de eerste plaats wil ik discussieteksten aanreiken. In ben volop bezig met de constructie van de nieuwe qtech. Dit is een belangrijk, veelzijdig instrument dat voor een groot gedeelte het comfort van de ontwikkelaars van Brocade bepaalt. Deze discussies kunnen de uitbouw van qtechng sterk beïnvloeden. Het stopt echter daar niet: zoals elk goed instrument, reikt qtechng verschillende manieren van ontplooiing aan.</description>
+    </item>
+    
   </channel>
 </rss>

@@ -6,10 +6,21 @@
     <description>Recent content in QtechNG: Ontwikkelen voor Brocade on QtechNG Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>nl-nl</language>
-    <lastBuildDate>Sun, 31 May 2020 16:45:31 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 03 Jun 2020 10:50:56 +0200</lastBuildDate>
     
 	<atom:link href="https://rphilips.github.io/qtechng-blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ansible Automation Platform en Qtech</title>
+      <link>https://rphilips.github.io/qtechng-blog/post/ansible/</link>
+      <pubDate>Wed, 03 Jun 2020 10:50:56 +0200</pubDate>
+      
+      <guid>https://rphilips.github.io/qtechng-blog/post/ansible/</guid>
+      <description>Deze blog-post van Luc gaat over het beheer van Ansible met Qtech(ng).
+In 2016 hebben wij de afweging gemaakt tussen Salt en Ansible voor IT-automatisering. Salt leek op dat moment de beste keuze. De software had een lage leercurve en enorm veel integraties. Ansible daarentegen was toen de “new kid on the block” maar wel met veel potentieel !
+Intussen heeft Ansible onder de vleugels van Red Hat een inhaalbeweging gemaakt en is vooral dankzij support van Red Hat het automatiseringsplatform geworden.</description>
+    </item>
     
     <item>
       <title>Test</title>

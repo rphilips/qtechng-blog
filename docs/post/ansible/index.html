@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="nl-nl">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Ansible Automation Platform en Qtech | QtechNG Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.69.0-DEV" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/qtechng-blog/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Ansible Automation Platform en Qtech" />
+<meta property="og:description" content="Deze blog-post van Luc gaat over het beheer van Ansible met Qtech(ng).
+In 2016 hebben wij de afweging gemaakt tussen Salt en Ansible voor IT-automatisering. Salt leek op dat moment de beste keuze. De software had een lage leercurve en enorm veel integraties. Ansible daarentegen was toen de “new kid on the block” maar wel met veel potentieel !
+Intussen heeft Ansible onder de vleugels van Red Hat een inhaalbeweging gemaakt en is vooral dankzij support van Red Hat het automatiseringsplatform geworden." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rphilips.github.io/qtechng-blog/post/ansible/" />
+<meta property="article:published_time" content="2020-06-03T10:50:56+02:00" />
+<meta property="article:modified_time" content="2020-06-03T10:50:56+02:00" />
+<meta itemprop="name" content="Ansible Automation Platform en Qtech">
+<meta itemprop="description" content="Deze blog-post van Luc gaat over het beheer van Ansible met Qtech(ng).
+In 2016 hebben wij de afweging gemaakt tussen Salt en Ansible voor IT-automatisering. Salt leek op dat moment de beste keuze. De software had een lage leercurve en enorm veel integraties. Ansible daarentegen was toen de “new kid on the block” maar wel met veel potentieel !
+Intussen heeft Ansible onder de vleugels van Red Hat een inhaalbeweging gemaakt en is vooral dankzij support van Red Hat het automatiseringsplatform geworden.">
+<meta itemprop="datePublished" content="2020-06-03T10:50:56&#43;02:00" />
+<meta itemprop="dateModified" content="2020-06-03T10:50:56&#43;02:00" />
+<meta itemprop="wordCount" content="670">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ansible Automation Platform en Qtech"/>
+<meta name="twitter:description" content="Deze blog-post van Luc gaat over het beheer van Ansible met Qtech(ng).
+In 2016 hebben wij de afweging gemaakt tussen Salt en Ansible voor IT-automatisering. Salt leek op dat moment de beste keuze. De software had een lage leercurve en enorm veel integraties. Ansible daarentegen was toen de “new kid on the block” maar wel met veel potentieel !
+Intussen heeft Ansible onder de vleugels van Red Hat een inhaalbeweging gemaakt en is vooral dankzij support van Red Hat het automatiseringsplatform geworden."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  
+  <header class="cover bg-top" style="background-image: url('https://rphilips.github.io/qtechng-blog/images/ansible.svg');">
+    <div class="pb3-m pb6-l bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://rphilips.github.io/qtechng-blog/" class="f3 fw2 hover-white no-underline white-90 dib">
+      QtechNG Blog
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/qtechng-blog/post/" title="Artikelen page">
+              Artikelen
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Ansible Automation Platform en Qtech</h1>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        ARTIKELEN
+      </aside>
+      
+
+
+      <h1 class="f1 athelas mt3 mb1">Ansible Automation Platform en Qtech</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-06-03T10:50:56&#43;02:00">June 3, 2020</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Deze blog-post van Luc gaat over het beheer van <a href="https://www.ansible.com">Ansible</a> met <em>Qtech(ng)</em>.</p>
+<p>In 2016 hebben wij de afweging gemaakt tussen <em>Salt</em> en <em>Ansible</em> voor IT-automatisering.  Salt leek op dat moment de beste keuze.  De software had een lage leercurve en enorm veel integraties.  Ansible daarentegen was toen de “new kid on the block” maar wel met veel potentieel !</p>
+<p>Intussen heeft Ansible onder de vleugels van <a href="www.redhat.com">Red Hat</a> een inhaalbeweging gemaakt en is vooral dankzij support van Red Hat <strong>het</strong> automatiseringsplatform geworden.</p>
+<p>Wat heeft dan voor ons de doorslag gegeven om over te stappen ?</p>
+<p>Ansible heeft een aantal eigenschappen die het mogelijk maken om het beheer van <em>Ansible draaiboeken</em> en <em>Ansible roles</em> onder Qtech te plaatsen.<br>
+Dit was met Salt niet of nauwelijks realiseerbaar of toch niet zonder in te grijpen in de manier waarop Qtech werkt.</p>
+<p>Nu, vooraleer we dieper ingaan in de ontplooing van een Ansible folderstructuur op onze servers met Qtech,
+toch eerst even een woordje uitleg over het gebruik van Ansible zelf en wat onze doelstellingen zijn.</p>
+<ul>
+<li>
+<p>De <a href="https://www.ansible.com">Ansible Software</a> wordt op al onze servers geinstalleerd.</p>
+</li>
+<li>
+<p>De installatie van de Ansible folderstructuur gebeurt door Qtech.</p>
+</li>
+<li>
+<p>Op elk van onze servers wordt een Ansible folderstructuur geplaatst.  Dit zijn de <em>Ansible playbooks</em> en de <em>Ansible roles</em> afgestemd voor die specifieke server.</p>
+</li>
+<li>
+<p>De uiteindelijke installatie van software en services op onze servers start met het Ansible commando:</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ansible-playbook playbook.yml 
+</code></pre></div><ul>
+<li>De opdrachten in een Ansible draaiboek zijn idempotent en kunnen meermaals uitgevoerd worden zonder neveneffecten.</li>
+</ul>
+<p>De Ansible folderstructuur op een server ziet er als volgt uit:</p>
+<pre><code>* playbook.yml
+* playbook-gtm.yml
+* playbook-apache.yml
+* ...
+* files/
+  * gtm.tar.gz
+  * apache.tar.gz
+  * ...
+* group_vars
+  * all/
+    * role-common.yml
+    * role-make.yml
+    * role-gtm.yml
+    * role-apache.yml
+    * ...
+* roles/
+  * gtm/
+    * handlers/
+      * main.yml
+      * ...
+    * meta/
+      * main.yml
+      * ...
+    * tasks/
+      * main.yml
+      * ...
+    * templates/
+      * execcache.j2
+      * ...
+  * apache/
+  * htmldoc/
+  * ...
+</code></pre><p>Deze Ansible folderstructuur is vrij eenvoudig aan te maken met Qtech indien een aantal afspraken rond <em>Qtech bestandsnamen</em> en <em>Qtech folders</em> worden gevolgd.</p>
+<p>De Qtech repository voor Ansible ziet er als volgt uit:</p>
+<pre><code>* /ansible/
+  * roles/
+    * gtm/
+      * install.py
+      * task-main.yml
+      * meta.yml
+      * handler-main.yml
+      * plugins.xc.j2
+      * ...
+    * apache/
+    * ...
+  * servers/
+    * presto/
+      * install.py
+      * playbook.yml
+      * vars-common.yml
+      * vars-apache.yml
+      * vars-gtm.yml
+      * ...
+    * moto/
+    * dolce/
+    * ...
+</code></pre><ul>
+<li><em>Roles</em> worden beheerd in Qtech projecten <code>'/ansible/roles/[role name]'</code></li>
+<li>Voor elke server bestaat een Qtech project <code>'/ansible/servers/[server name]'</code></li>
+<li>Het Qtech bestand <code>'/ansible/servers/[server name]/playbook.yml'</code> wordt vertaald naar een server <em>Ansible draaiboek</em></li>
+<li>Qtech bestanden <code>'/ansible/servers/[server name]/vars-*.yml'</code> worden vertaald naar <em>Ansible variabelen</em> in <code>'group_vars/all/'</code></li>
+<li>Qtech bestanden <code>'/ansible/roles/[role name]/task-*.yml'</code> worden vertaald naar <em>Ansible taken</em></li>
+<li>Het Qtech bestand <code>'/ansible/roles/[role name]/meta.yml'</code> wordt vertaald naar <em>Ansible meta data</em></li>
+<li>Qtech bestanden <code>'/ansible/roles/[role name]/handler-*.yml'</code> worden vertaald naar <em>Ansible handlers</em></li>
+<li>Qtech bestanden <code>'/ansible/roles/[role name]/*.j2'</code> worden vertaald naar <em>Ansible templates</em></li>
+<li>&hellip;</li>
+</ul>
+<p>Uiteindelijk is het <code>'/core/python3/ansible.py'</code> die de vertaalslag doet van Qtech bestanden naar een Ansible folderstructuur.</p>
+<p>bv. <code>'/ansible/servers/presto/install.py'</code></p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#93a1a1;font-style:italic"># -*- coding: utf-8 -*-</span>
+<span style="color:#93a1a1;font-style:italic"># /ansible/servers/presto/install.py</span>
+
+<span style="color:#dc322f;font-weight:bold">from</span> <span style="color:#268bd2">anet.core</span> <span style="color:#dc322f;font-weight:bold">import</span> <span style="color:#268bd2">ansible</span>
+<span style="color:#268bd2">ansible</span>.<span style="color:#268bd2">install_playground</span>(<span style="color:#268bd2">host</span>=<span style="color:#2aa198">&#39;presto&#39;</span>)
+</code></pre></div><p>bv. <code>'/ansible/roles/gtm/install.py'</code></p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#93a1a1;font-style:italic"># -*- coding: utf-8 -*-</span>
+<span style="color:#93a1a1;font-style:italic"># /ansible/roles/gtm/install.py</span>
+
+<span style="color:#dc322f;font-weight:bold">from</span> <span style="color:#268bd2">anet.core</span> <span style="color:#dc322f;font-weight:bold">import</span> <span style="color:#268bd2">ansible</span>
+<span style="color:#268bd2">ansible</span>.<span style="color:#268bd2">install_role</span>(<span style="color:#2aa198">&#39;gtm&#39;</span>)
+</code></pre></div><p>Bij het inchecken van een Ansible Qtech project worden ook de bestanden uit de Ansible repository (een remote site bepaald door een registry-waarde) gekopieerd naar de Ansible folderstructuur.  Dit gaat voornamelijk over bestanden die niet thuishoren in Qtech zoals tarbals, zip, e.a.  Op die manier is alles aan boord en is in principe geen netwerktoegang vereist tijdens de installatie en configuratie van de server.</p>
+<p>Je voelt het “kip-en-het-ei-verhaal” al aankomen ?  Hoe kan je nu een Ansible folderstructuur opbouwen op een server waarop nog geen Qtech aanwezig is ?  bv. een installatie op een nieuwe server.</p>
+<p>Wel, op de ontwikkelserver (de server met system-role <strong>&lsquo;dev&rsquo;</strong>) wordt bij het inchecken van een Ansible Qtech project, voor <strong>elke</strong> server een Ansible folderstructuur opgebouwd.   De nieuwe server kan dan geinstalleerd en geconfigureerd worden ofwel vanaf de ontwikkelserver ofwel na kopiëren van de Ansible folderstructuur naar de nieuwe server.  De keuze is aan ons.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://rphilips.github.io/qtechng-blog/" >
+    &copy;  QtechNG Blog 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/qtechng-blog/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

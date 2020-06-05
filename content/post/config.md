@@ -29,7 +29,8 @@ In Visual Studio Code is er meteen uitgebreide documentatie en ondersteuning van
 
 ```json
     {
-        "$schema": "https://dev.anet.be/brocade/schema/qtechng.schema.json",
+        "$id": "https://dev.anet.be/brocade/schema/qtechng.schema.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
         "core": true,
         "mumps": [
             "gtm"

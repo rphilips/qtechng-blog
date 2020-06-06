@@ -1,0 +1,51 @@
+digraph "QtechNG repository" {
+      /* paper size in inches */
+      size="11.0,8.5";
+      /* locate label at top of drawing */
+      labelloc=t;
+      label="QtechNG repository";
+      /* no directional arrow on connectors */
+      edge [dir=none];
+      /* nodes below are boxes (folders) */
+      node [shape=box;color=red];
+      version [label="5.20"];
+      node [shape=box;color=blue];
+      meta [label="meta"];
+      source [label="source"];
+      data [label="data"];
+      node [shape=box;color=black];
+      admin [label="admin"];
+      objects [label="objects"];
+      i4 [label="i4"];
+      m4 [label="m4"];
+      l4 [label="l4"];
+      hg [label=".hg"];
+      python3 [label="python3"];
+      python [label="python"];
+      core [label="core"];
+      tmp [label="tmp"];
+      unique [label="unique"];
+      /* nodes below are ellipses (files) */
+      node [shape=ellipse;color=green];
+      bjson [label="brocade.json"];
+      node [shape=ellipse;color=black];
+      basepy [label="base.py"];
+      /* parent -> child, to draw the tree */
+      version -> admin;
+      version -> meta;
+      version -> objects;
+      version -> source;
+      version -> tmp;
+      version -> unique;
+      objects -> i4;
+      objects -> l4;
+      objects -> m4;
+      source -> data;
+      source -> hg;
+      data -> core;
+      core -> python3;
+      core -> python;
+      python3 -> bjson;
+      python3 -> basepy; 
+}
+

@@ -3,12 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://rphilips.github.io/qtechng-blog/post/ansible/</loc>
-    <lastmod>2020-06-03T10:50:56+02:00</lastmod>
+    <loc>https://rphilips.github.io/qtechng-blog/</loc>
+    <lastmod>2020-06-06T14:56:03+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://rphilips.github.io/qtechng-blog/</loc>
+    <loc>https://rphilips.github.io/qtechng-blog/post/repository/</loc>
+    <lastmod>2020-06-06T14:56:03+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rphilips.github.io/qtechng-blog/post/ansible/</loc>
     <lastmod>2020-06-03T10:50:56+02:00</lastmod>
   </url>
   

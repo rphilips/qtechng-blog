@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="nl-nl">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Repository | QtechNG Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.69.0-DEV" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/qtechng-blog/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Repository" />
+<meta property="og:description" content="QtechNG werkt met een software repository. De basis directory waarop dit repository rust, komt - u raadt het al - uit de registry: qtechng-repository-dir: vb. /library/repository
+Deze directory - beschikbaar op alle productieservers en ontwikkelservers - wordt door root:db aangemaakt door Ansible met het commando:
+export REPO=`delphi key qtechng-repository-dir` sudo mkdir -p $REPO sudo chown root $REPO sudo chgrp db $REPO sudo chmod 2770 $REPO Dit maakt dat het setgid bit van de directory wordt gezet: alle bestanden en directories gaan to groep db behoren." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rphilips.github.io/qtechng-blog/post/repository/" />
+<meta property="article:published_time" content="2020-06-06T14:56:03+02:00" />
+<meta property="article:modified_time" content="2020-06-06T14:56:03+02:00" />
+<meta itemprop="name" content="Repository">
+<meta itemprop="description" content="QtechNG werkt met een software repository. De basis directory waarop dit repository rust, komt - u raadt het al - uit de registry: qtechng-repository-dir: vb. /library/repository
+Deze directory - beschikbaar op alle productieservers en ontwikkelservers - wordt door root:db aangemaakt door Ansible met het commando:
+export REPO=`delphi key qtechng-repository-dir` sudo mkdir -p $REPO sudo chown root $REPO sudo chgrp db $REPO sudo chmod 2770 $REPO Dit maakt dat het setgid bit van de directory wordt gezet: alle bestanden en directories gaan to groep db behoren.">
+<meta itemprop="datePublished" content="2020-06-06T14:56:03&#43;02:00" />
+<meta itemprop="dateModified" content="2020-06-06T14:56:03&#43;02:00" />
+<meta itemprop="wordCount" content="329">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Repository"/>
+<meta name="twitter:description" content="QtechNG werkt met een software repository. De basis directory waarop dit repository rust, komt - u raadt het al - uit de registry: qtechng-repository-dir: vb. /library/repository
+Deze directory - beschikbaar op alle productieservers en ontwikkelservers - wordt door root:db aangemaakt door Ansible met het commando:
+export REPO=`delphi key qtechng-repository-dir` sudo mkdir -p $REPO sudo chown root $REPO sudo chgrp db $REPO sudo chmod 2770 $REPO Dit maakt dat het setgid bit van de directory wordt gezet: alle bestanden en directories gaan to groep db behoren."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  
+  <header class="cover bg-top" style="background-image: url('https://rphilips.github.io/qtechng-blog/images/repo.svg');">
+    <div class="pb3-m pb6-l bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://rphilips.github.io/qtechng-blog/" class="f3 fw2 hover-white no-underline white-90 dib">
+      QtechNG Blog
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/qtechng-blog/post/" title="Artikelen page">
+              Artikelen
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Repository</h1>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        ARTIKELEN
+      </aside>
+      
+
+
+      <h1 class="f1 athelas mt3 mb1">Repository</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-06-06T14:56:03&#43;02:00">June 6, 2020</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><img src="../images/repo.svg" alt="5.20 repository"></p>
+<p><code>QtechNG</code> werkt met een software repository. De basis directory waarop dit repository rust, komt - u raadt het al - uit de registry: <code>qtechng-repository-dir</code>: vb. <code>/library/repository</code></p>
+<p>Deze directory - beschikbaar op alle productieservers en ontwikkelservers - wordt door <code>root:db</code> aangemaakt door Ansible met het commando:</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#cb4b16">export</span> <span style="color:#268bd2">REPO</span>=<span style="color:#2aa198">`</span>delphi key qtechng-repository-dir<span style="color:#2aa198">`</span>
+sudo mkdir -p <span style="color:#268bd2">$REPO</span>
+sudo chown root <span style="color:#268bd2">$REPO</span>
+sudo chgrp db <span style="color:#268bd2">$REPO</span>
+sudo chmod <span style="color:#2aa198;font-weight:bold">2770</span> <span style="color:#268bd2">$REPO</span>
+</code></pre></div><p>Dit maakt dat het <code>setgid</code> bit van de directory wordt gezet: alle bestanden en directories gaan to groep <code>db</code> behoren.</p>
+<p>In deze directory worden dan - per release - subfolders aangemaakt die dan de naam van de release dragen.</p>
+<p>De release directory heeft een aantal subfolders. In latere posts in deze blog gaan we deze wel nader bekijken.</p>
+<p>Nu wil ik vooral beklemtonen dat deze structuur werkt als een eenvoudige databank.
+Ik wou geen gebruik maken van een bestaand databank product: ofwel zijn deze van de gedaante one-writer/multiple readers (zoals SQLite) ofwel maken ze gebruik van een client-server opstelling.</p>
+<p>Ik wou de opzet primitief houden: geen extra onderhoudswerken, geen extra installatieproblemen, geen locks die op de meest vervelende momenten gelockt blijven, maar wel een robuuste opstelling die in alle omstandigheden kan werken.
+Dit systeem, gebaseerd op eigenschappen van bestanden en directories, heeft ook het voordeel dat het zonder licentie of prijsoverwegingen op andere servers kan worden geplaatst. Hoewel Brocade zelf niet opensource is (in de betekenis dat de software gratis is), wordt de source code op elk productiesysteem in alle openheid geïnstalleerd en bijgewerkt.</p>
+<p>Het is niet alleen <code>QtechNG</code> die deze benadering volgt: nagenoeg alle versie controle systemen (Git, Mercurial) ondersteunen deze aanpak. Het <code>QtechNG</code> repository leent overigens nogal wat uit de trukendoos van dergelijke systemen.</p>
+<p>De directories met de belangrijke data zijn:</p>
+<ul>
+<li>meta: elementaire meta data omtrent de ontwikkelbestanden</li>
+<li>source: ontwikkelbestanden gegroepeerd in projecten</li>
+</ul>
+<p>Uit deze 2, kan de rest van de data worden hersteld.</p>
+<p>In volgende blogposts gaan we het belang en de structuur van de verschillende directories uit de doeken doen.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://rphilips.github.io/qtechng-blog/" >
+    &copy;  QtechNG Blog 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/qtechng-blog/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

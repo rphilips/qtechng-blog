@@ -6,10 +6,21 @@
     <description>Recent content in QtechNG: Ontwikkelen voor Brocade on QtechNG Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>nl-nl</language>
-    <lastBuildDate>Wed, 03 Jun 2020 10:50:56 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 06 Jun 2020 14:56:03 +0200</lastBuildDate>
     
 	<atom:link href="https://rphilips.github.io/qtechng-blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Repository</title>
+      <link>https://rphilips.github.io/qtechng-blog/post/repository/</link>
+      <pubDate>Sat, 06 Jun 2020 14:56:03 +0200</pubDate>
+      
+      <guid>https://rphilips.github.io/qtechng-blog/post/repository/</guid>
+      <description>QtechNG werkt met een software repository. De basis directory waarop dit repository rust, komt - u raadt het al - uit de registry: qtechng-repository-dir: vb. /library/repository
+Deze directory - beschikbaar op alle productieservers en ontwikkelservers - wordt door root:db aangemaakt door Ansible met het commando:
+export REPO=`delphi key qtechng-repository-dir` sudo mkdir -p $REPO sudo chown root $REPO sudo chgrp db $REPO sudo chmod 2770 $REPO Dit maakt dat het setgid bit van de directory wordt gezet: alle bestanden en directories gaan to groep db behoren.</description>
+    </item>
     
     <item>
       <title>Ansible Automation Platform en Qtech</title>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="nl-nl">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Interludium: Graphiz &amp; Dot | QtechNG Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.69.0-DEV" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/qtechng-blog/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Interludium: Graphiz &amp; Dot" />
+<meta property="og:description" content="In de vorige blog post toonde ik een SVG.
+Ik was eerst van plan deze met Inkscape aan te maken maar de goesting ging snel over. SVG is een XML toepassing en dat met de hand schrijven leek me nog minder appetijtelijk.
+Ik herinnerde me dat het in Sphinx, ons documentatie platform, mogelijk is om grafen in te bedden en besloot om de technologie daarachter, eens van nabij te bekijken." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rphilips.github.io/qtechng-blog/post/dot/" />
+<meta property="article:published_time" content="2020-06-07T11:48:42+02:00" />
+<meta property="article:modified_time" content="2020-06-07T11:48:42+02:00" />
+<meta itemprop="name" content="Interludium: Graphiz &amp; Dot">
+<meta itemprop="description" content="In de vorige blog post toonde ik een SVG.
+Ik was eerst van plan deze met Inkscape aan te maken maar de goesting ging snel over. SVG is een XML toepassing en dat met de hand schrijven leek me nog minder appetijtelijk.
+Ik herinnerde me dat het in Sphinx, ons documentatie platform, mogelijk is om grafen in te bedden en besloot om de technologie daarachter, eens van nabij te bekijken.">
+<meta itemprop="datePublished" content="2020-06-07T11:48:42&#43;02:00" />
+<meta itemprop="dateModified" content="2020-06-07T11:48:42&#43;02:00" />
+<meta itemprop="wordCount" content="373">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Interludium: Graphiz &amp; Dot"/>
+<meta name="twitter:description" content="In de vorige blog post toonde ik een SVG.
+Ik was eerst van plan deze met Inkscape aan te maken maar de goesting ging snel over. SVG is een XML toepassing en dat met de hand schrijven leek me nog minder appetijtelijk.
+Ik herinnerde me dat het in Sphinx, ons documentatie platform, mogelijk is om grafen in te bedden en besloot om de technologie daarachter, eens van nabij te bekijken."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  
+  <header class="cover bg-top" style="background-image: url('https://rphilips.github.io/qtechng-blog/images/graphviz.svg');">
+    <div class="pb3-m pb6-l bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://rphilips.github.io/qtechng-blog/" class="f3 fw2 hover-white no-underline white-90 dib">
+      QtechNG Blog
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/qtechng-blog/post/" title="Artikelen page">
+              Artikelen
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Interludium: Graphiz &amp; Dot</h1>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        ARTIKELEN
+      </aside>
+      
+
+
+      <h1 class="f1 athelas mt3 mb1">Interludium: Graphiz &amp; Dot</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-06-07T11:48:42&#43;02:00">June 7, 2020</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>In de vorige blog post toonde ik een <a href="https://en.wikipedia.org/wiki/Scalable_Vector_Graphics" title="SVG">SVG</a>.</p>
+<p>Ik was eerst van plan deze met <a href="https://en.wikipedia.org/wiki/Inkscape" title="Inkscape">Inkscape</a> aan te maken maar de goesting ging snel over. <code>SVG</code> is een <code>XML</code> toepassing en dat met de hand schrijven leek me nog minder appetijtelijk.</p>
+<p>Ik herinnerde me dat het in <a href="https://en.wikipedia.org/wiki/Sphinx_(documentation_generator)" title="Sphinx">Sphinx</a>, ons documentatie platform,  mogelijk is om grafen in te bedden en besloot om de technologie daarachter, eens van nabij te bekijken.</p>
+<p><code>Sphinx</code> maakt gebruik van <a href="https://en.wikipedia.org/wiki/Graphviz" title="Graphviz">Graphviz</a>. In <code>Graphviz</code> wordt een <a href="https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)" title="Graf">graf</a> rigoureus beschreven en dan met behulp van gespecialiseerde software, omgevormd naar diverse formaten: PDF, PNG, &hellip; en SVG.</p>
+<p>De specificatie van een <code>graf</code> gebeurt met <a href="https://en.wikipedia.org/wiki/DOT_(graph_description_language)" title="graph description language">DOT</a>. Dit is een gespecialiseerde taal waarmee men de knopen en takken en hun samengang, zorgvuldig kan beschrijven.</p>
+<p>Ik geef meteen het voorbeeld wat ik in de vorige blog post heb gemaakt.</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
+cat repo.dot <span style="color:#93a1a1;font-style:italic"># Toon de inhoud van de graf specificatie in dot</span>
+
+digraph <span style="color:#2aa198">&#34;QtechNG repository&#34;</span> {
+      /* paper size in inches */
+      <span style="color:#268bd2">size</span>=<span style="color:#2aa198">&#34;11.0,8.5&#34;</span>;
+      /* locate label at top of drawing */
+      <span style="color:#268bd2">labelloc</span>=t;
+      <span style="color:#268bd2">label</span>=<span style="color:#2aa198">&#34;QtechNG repository&#34;</span>;
+      /* no directional arrow on connectors */
+      edge [<span style="color:#268bd2">dir</span>=none];
+      /* nodes below are boxes (folders) */
+      node [<span style="color:#268bd2">shape</span>=box;<span style="color:#268bd2">color</span>=red];
+      version [<span style="color:#268bd2">label</span>=<span style="color:#2aa198">&#34;5.20&#34;</span>];
+      node [<span style="color:#268bd2">shape</span>=box;<span style="color:#268bd2">color</span>=blue];
+      meta [<span style="color:#268bd2">label</span>=<span style="color:#2aa198">&#34;meta&#34;</span>];
+      <span style="color:#cb4b16">source</span> [<span style="color:#268bd2">label</span>=<span style="color:#2aa198">&#34;source&#34;</span>];
+      data [<span style="color:#268bd2">label</span>=<span style="color:#2aa198">&#34;data&#34;</span>];
+      node [<span style="color:#268bd2">shape</span>=box;<span style="color:#268bd2">color</span>=black];
+      admin [<span style="color:#268bd2">label</span>=<span style="color:#2aa198">&#34;admin&#34;</span>];
+      objects [<span style="color:#268bd2">label</span>=<span style="color:#2aa198">&#34;objects&#34;</span>];
+      i4 [<span style="color:#268bd2">label</span>=<span style="color:#2aa198">&#34;i4&#34;</span>];
+      m4 [<span style="color:#268bd2">label</span>=<span style="color:#2aa198">&#34;m4&#34;</span>];
+      l4 [<span style="color:#268bd2">label</span>=<span style="color:#2aa198">&#34;l4&#34;</span>];
+      hg [<span style="color:#268bd2">label</span>=<span style="color:#2aa198">&#34;.hg&#34;</span>];
+      python3 [<span style="color:#268bd2">label</span>=<span style="color:#2aa198">&#34;python3&#34;</span>];
+      python [<span style="color:#268bd2">label</span>=<span style="color:#2aa198">&#34;python&#34;</span>];
+      core [<span style="color:#268bd2">label</span>=<span style="color:#2aa198">&#34;core&#34;</span>];
+      tmp [<span style="color:#268bd2">label</span>=<span style="color:#2aa198">&#34;tmp&#34;</span>];
+      unique [<span style="color:#268bd2">label</span>=<span style="color:#2aa198">&#34;unique&#34;</span>];
+      /* nodes below are ellipses (files) */
+      node [<span style="color:#268bd2">shape</span>=ellipse;<span style="color:#268bd2">color</span>=green];
+      bjson [<span style="color:#268bd2">label</span>=<span style="color:#2aa198">&#34;brocade.json&#34;</span>];
+      node [<span style="color:#268bd2">shape</span>=ellipse;<span style="color:#268bd2">color</span>=black];
+      basepy [<span style="color:#268bd2">label</span>=<span style="color:#2aa198">&#34;base.py&#34;</span>];
+      /* parent -&gt; child, to draw the tree */
+      version -&gt; admin;
+      version -&gt; meta;
+      version -&gt; objects;
+      version -&gt; source;
+      version -&gt; tmp;
+      version -&gt; unique;
+      objects -&gt; i4;
+      objects -&gt; l4;
+      objects -&gt; m4;
+      <span style="color:#cb4b16">source</span> -&gt; data;
+      <span style="color:#cb4b16">source</span> -&gt; hg;
+      data -&gt; core;
+      core -&gt; python3;
+      core -&gt; python;
+      python3 -&gt; bjson;
+      python3 -&gt; basepy;
+}
+
+dot -Tsvg repo.dot -o repo.svg <span style="color:#93a1a1;font-style:italic"># Maak een SVG aan</span>
+</code></pre></div><p><code>repo.svg</code> ziet er uit als volgt:</p>
+<p><img src="../images/repo.svg" alt="5.20 repository"></p>
+<p><code>SVG</code> kan een belangrijke plaats innemen in Brocade. Vooral Alain is de kampioen van deze technologie: het gebruik van <code>SVG</code> in bijvoorbeeld statistieken, opent immers heel wat mogelijkheden.</p>
+<p>Het is te omslachtig om <code>SVG</code> met behulp van <code>Python</code> te genereren. Er bestaat echter een library voor <a href="https://pypi.org/project/graphviz/" title="Simple Python interface for Graphviz">Graphviz in Python</a>.</p>
+<p>Aanmaken van SVG&rsquo;s - via DOT - wordt hiermee een koud kunstje.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://rphilips.github.io/qtechng-blog/" >
+    &copy;  QtechNG Blog 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/qtechng-blog/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

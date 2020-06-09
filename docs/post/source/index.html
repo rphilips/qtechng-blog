@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="nl-nl">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Source | QtechNG Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.69.0-DEV" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/qtechng-blog/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Source" />
+<meta property="og:description" content="Een bestand wegschrijven in het QtechNG repository ?
+Dat kan toch niet zo moeilijk zijn!
+Neen, het is inderdaad niet zo moeilijk maar je moet wel heel erg minutieus te werk gaan!
+Ik wil beklemtonen dat deze bijdrage enkel gaat over gewone bestanden: met andere woorden het gaat niet over object definiërende bestanden (dat zijn de bestanden van de gedaante *.[ild]): we gaan die afzonderlijk bespreken.
+Ook het installeren in de productieomgeving wordt niet behandeld: dus we gaan niet uitleggen hoe een bestand van de gedaante *." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rphilips.github.io/qtechng-blog/post/source/" />
+<meta property="article:published_time" content="2020-06-09T16:25:22+02:00" />
+<meta property="article:modified_time" content="2020-06-09T16:25:22+02:00" />
+<meta itemprop="name" content="Source">
+<meta itemprop="description" content="Een bestand wegschrijven in het QtechNG repository ?
+Dat kan toch niet zo moeilijk zijn!
+Neen, het is inderdaad niet zo moeilijk maar je moet wel heel erg minutieus te werk gaan!
+Ik wil beklemtonen dat deze bijdrage enkel gaat over gewone bestanden: met andere woorden het gaat niet over object definiërende bestanden (dat zijn de bestanden van de gedaante *.[ild]): we gaan die afzonderlijk bespreken.
+Ook het installeren in de productieomgeving wordt niet behandeld: dus we gaan niet uitleggen hoe een bestand van de gedaante *.">
+<meta itemprop="datePublished" content="2020-06-09T16:25:22&#43;02:00" />
+<meta itemprop="dateModified" content="2020-06-09T16:25:22&#43;02:00" />
+<meta itemprop="wordCount" content="962">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Source"/>
+<meta name="twitter:description" content="Een bestand wegschrijven in het QtechNG repository ?
+Dat kan toch niet zo moeilijk zijn!
+Neen, het is inderdaad niet zo moeilijk maar je moet wel heel erg minutieus te werk gaan!
+Ik wil beklemtonen dat deze bijdrage enkel gaat over gewone bestanden: met andere woorden het gaat niet over object definiërende bestanden (dat zijn de bestanden van de gedaante *.[ild]): we gaan die afzonderlijk bespreken.
+Ook het installeren in de productieomgeving wordt niet behandeld: dus we gaan niet uitleggen hoe een bestand van de gedaante *."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  
+  <header class="cover bg-top" style="background-image: url('https://rphilips.github.io/qtechng-blog/images/source.svg');">
+    <div class="pb3-m pb6-l bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://rphilips.github.io/qtechng-blog/" class="f3 fw2 hover-white no-underline white-90 dib">
+      QtechNG Blog
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/qtechng-blog/post/" title="Artikelen page">
+              Artikelen
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Source</h1>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        ARTIKELEN
+      </aside>
+      
+
+
+      <h1 class="f1 athelas mt3 mb1">Source</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-06-09T16:25:22&#43;02:00">June 9, 2020</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Een bestand wegschrijven in het <code>QtechNG</code> repository ?</p>
+<p>Dat kan toch niet zo moeilijk zijn!</p>
+<p>Neen, het is inderdaad niet zo moeilijk maar je moet wel heel erg minutieus te werk gaan!</p>
+<p>Ik wil beklemtonen dat deze bijdrage enkel gaat over gewone bestanden: met andere woorden het gaat niet over <em>object definiërende</em> bestanden
+(dat zijn de bestanden van de gedaante <code>*.[ild]</code>): we gaan die afzonderlijk bespreken.</p>
+<p>Ook het installeren in de productieomgeving wordt niet behandeld: dus we gaan niet uitleggen hoe een bestand van de gedaante <code>*.m</code> in <code>M</code> terechtkomt.</p>
+<p>Er zijn diverse aspecten die we willen bespreken.</p>
+<h2 id="waar-precies-wordt-een-bestand-weggeschreven-">Waar precies wordt een bestand weggeschreven ?</h2>
+<p>Dit hangt af van verschillende parameters:</p>
+<ul>
+<li>in de eerste plaats de registry waarde in de sleutel <code>qtechng-repository-dir</code></li>
+<li>vervolgens de release (deze moet steeds - impliciet of expliciet - worden opgegeven)</li>
+<li>het <code>qtechng-path</code> van de source file: dit is een systeem onafhankelijke voorstelling</li>
+</ul>
+<p>Om het met <code>python</code> termen te zeggen:</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#268bd2">release</span> = <span style="color:#2aa198">&#34;5.20&#34;</span>
+<span style="color:#268bd2">repository</span> = <span style="color:#268bd2">registry</span>(<span style="color:#2aa198">&#34;qtechng-repository-dir&#34;</span>)
+<span style="color:#268bd2">qtechngpath</span> = <span style="color:#2aa198">&#34;/take/application/takwone.m&#34;</span>
+
+<span style="color:#268bd2">filename</span> = <span style="color:#268bd2">os</span>.<span style="color:#268bd2">path</span>.<span style="color:#268bd2">join</span>(<span style="color:#268bd2">repository</span>, <span style="color:#268bd2">release</span>, <span style="color:#2aa198">&#34;source&#34;</span>, <span style="color:#2aa198">&#34;data&#34;</span>, *<span style="color:#268bd2">qtechngpath</span>.<span style="color:#268bd2">split</span>(<span style="color:#2aa198">&#34;/&#34;</span>)[<span style="color:#2aa198;font-weight:bold">1</span>:])
+</code></pre></div><p>Wat die &ldquo;data&rdquo; component daar komt bij doen, houden we voor later!</p>
+<h2 id="bepalen-van-het-project-waartoe-een-bestand-behoort">Bepalen van het project waartoe een bestand behoort</h2>
+<p>Eens dat de filenaam is bepaald, kunnen we gaan zoeken naar het project waartoe de file behoord.</p>
+<p>Te beginnen vanaf <code>os.path.join(repository, release, &quot;source&quot;, &quot;data&quot;)</code>, schuimen we alle directories af, op zoek naar naar de <code>brocade.json</code> files.</p>
+<p>De laatste <code>brocade.json</code> file die we vinden, zegt ons meteen wat het <code>project</code> is waartoe ons bestand behoord.</p>
+<p>Je vraagt je wellicht af waarom het niet beter is van <em>omgekeerd</em> te werk te gaan: eerst in dezelfde directory kijken waar onze bestand staat en dan afdalen, richting <code>os.path.join(repository, release, &quot;source&quot;, &quot;data&quot;)</code>. Dat lijkt zeker efficiënter.</p>
+<p>Het is echter zo dat brocade configuratie files (<code>brocade.json</code> bestanden) met behulp van de sleutel <code>notconfig</code>, sommige <code>brocade.json</code> bestanden kunnen merken als <em>niet-configuratie bestand</em>!</p>
+<p>Het kunnen bepalen tot welk project een bestand behoort is echt wel belangrijk: een bestand zonder project wordt simpelweg niet opgeslagen in het repository!</p>
+<h2 id="wat-met-brocadejson-">Wat met <code>brocade.json</code> ?</h2>
+<p>Bestanden met een basename gelijk aan <code>brocade.json</code>, moeten speciaal worden behandeld. Als <code>QtechNG</code> uitvist dat het om een waarachtige configuratiefile gaat, dan wordt zorgvuldig gecontroleerd of die voldoet aan het JSON schema en of er geen overtollige - en mogelijke schadelijke - data in staat. Pas als aan alle testen voldaan zijn, kan het bestand worden geplaatst.</p>
+<p>De reden voor deze voorzichtigheid is eenvoudig: eens een foutieve configuratiefile in het systeem terecht komt, kan die niet meer met de <code>QtechNG</code> software worden verwijderd en moet deze manueel worden aangepast.</p>
+<h2 id="unieke-bestanden">Unieke bestanden</h2>
+<p>Sommige bestanden moeten een unieke basename hebben!</p>
+<p>Denk maar aan de M routines (en hun schermfiles <code>*.x</code>). De precieze structuur van die unieke bestanden wordt gespecificeerd door <code>registry(&quot;qtechng-unique-ext&quot;)</code>.</p>
+<p>Om de uniciteit van deze bestanden te bewaken, maakt <code>QtechNG</code> in <code>os.path.join(repository, release, &quot;unique&quot;)</code> een structuur aan voor <em>alle</em> bestanden. (De registry waarde kan immers veranderen en dan moeten we <em>klaar</em> staan voor die verandering).</p>
+<p>In <code>unique</code> wordt er voor ons bestand een path gedefinieerd als volgt:</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#268bd2">basename</span> = <span style="color:#268bd2">os</span>.<span style="color:#268bd2">path</span>.<span style="color:#268bd2">basename</span>(<span style="color:#268bd2">filename</span>)
+<span style="color:#268bd2">bdigest</span> = <span style="color:#268bd2">SHA512</span>(<span style="color:#268bd2">basename</span>)
+<span style="color:#268bd2">fdigest</span> = <span style="color:#268bd2">SHA512</span>(<span style="color:#268bd2">filename</span>)
+
+<span style="color:#268bd2">uniquename</span> = <span style="color:#268bd2">os</span>.<span style="color:#268bd2">path</span>.<span style="color:#268bd2">join</span>(<span style="color:#268bd2">repository</span>, <span style="color:#268bd2">release</span>, <span style="color:#2aa198">&#34;unique&#34;</span>, <span style="color:#268bd2">bdigest</span>[:<span style="color:#2aa198;font-weight:bold">2</span>], <span style="color:#268bd2">bdigest</span>[<span style="color:#2aa198;font-weight:bold">2</span>:], <span style="color:#268bd2">fdigest</span>)
+
+<span style="color:#93a1a1;font-style:italic"># in uniquename wordt `{&#34;path&#34;: qtechng-path van bestand} weggeschreven</span>
+</code></pre></div><p>Op deze wijze kan snel worden uitgevist, of er al een bestand bestaat met dezelfde basename.</p>
+<p>Nog even meegeven dat de constructie van uniqename schaamteloos geleend is uit andere technologieën: zowel <code>git</code> als <code>hg</code> gebruiken gelijkaardige constructies. Zo is de splitsing van <code>bdigest</code> ingegeven om de directories niet over te bevolken!</p>
+<p>Bestanden die zondigen tegen de uniciteits-regel worden niet weggeschreven in het repository: ook deze fouten kunnen immers niet altijd door <code>QtechNG</code> worden rechtgezet.</p>
+<p>Het uniciteitsverhaal is hiermee nog niet ten einde: in de configuratie kan immers met de sleutel <code>notunique</code> uitzonderingen op de regel worden gemaakt. Dit is belangrijk om bijvoorbeeld M routines toe te laten die verschillen op <code>GT.M</code> en <code>Cache</code>. Een uitzondering kan gewettigd zijn als we er maar voor zorgen dat ze niet beiden worden geinstalleerd.</p>
+<h2 id="meta-informatie">Meta informatie</h2>
+<p>Per source file wordt een beperkte set aan meta data bijgehouden. Deze komt terecht in <code>os.path.join(repository, release, &quot;unique&quot;)</code>. Deze meta informatie is een JSON structuur die tijdstippen van aanmaak en laatste update bijhouden, samen met de userid van de verantwoordelijken.</p>
+<p>De plaats waar deze meta informatie terecht komt, is in grote mate gelijk aan de constructie van de unieke namen:</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#268bd2">fdigest</span> = <span style="color:#268bd2">SHA512</span>(<span style="color:#268bd2">filename</span>)
+
+<span style="color:#268bd2">metaname</span> = <span style="color:#268bd2">os</span>.<span style="color:#268bd2">path</span>.<span style="color:#268bd2">join</span>(<span style="color:#268bd2">repository</span>, <span style="color:#268bd2">release</span>, <span style="color:#2aa198">&#34;meta&#34;</span>, <span style="color:#268bd2">fdigest</span>[:<span style="color:#2aa198;font-weight:bold">2</span>], <span style="color:#268bd2">digest</span>[<span style="color:#2aa198;font-weight:bold">2</span>:]+<span style="color:#2aa198">&#34;.json&#34;</span>)
+</code></pre></div><h2 id="test-op-token">Test op token</h2>
+<p>Als het bestand wordt aangeboden om te worden weggeschreven, moet dit vergezeld zijn van een <code>token</code>. Dit token moet bewijzen dat je begonnen bent met dit bestand te downloaden uit het repository en dat je daar dan veranderingen hebt aan aangebracht.</p>
+<p>Dit <code>token</code> reist steeds mee met dit bestand. Dit <code>token</code> (een SHA512 digest) wordt gecontroleerd tegenover het reeds aanwezige bestand. Klopt het <code>token</code> niet, dan wordt de opslag geweigerd en moet de gebruiker het bestand opnieuw downloaden (samen met het juiste token), zijn aanpassingen aanbrengen en terug aanbieden.</p>
+<p>Overigens, samen met de verkeerde <code>brocade.json</code> en de uniciteits regel, zijn dit de enige situaties waarbij aangeboden bestanden <em>niet</em> worden weggeschreven in het repository.</p>
+<h2 id="atomair-wegschrijven-van-de-bestanden">Atomair wegschrijven van de bestanden</h2>
+<p>Het definitief wegschrijven van de bestanden is een belangrijk zaak: Alain zou zeggen: &ldquo;Dit moet in steen worden gebeiteld&rdquo;.</p>
+<p>Alle voorzorgen moeten worden genomen opdat het wegschrijven compleet gebeurd: het niet wegschrijven van een bestand is erg, maar het corrupt of partieel wegschrijven is nog veel erger.</p>
+<p>Gelukkig bestaan er systeem onafhankelijke, atomaire operaties die dit mogelijk maken: eerst wordt het bestand opgeslagen onder een andere naam in dezelfde directory en tenslotte wordt er een <code>rename</code> uitgevoerd (onder windows moet er eerst wel een delete van het originele bestand gebeuren).</p>
+<h2 id="eind-goed-al-goed-">Eind goed, al goed &hellip;</h2>
+<p>Dat dacht je maar.</p>
+<p>In volgende blog posts gaan we het nog hebben over <em>virtuele filesystemen</em> en <em>parallelle</em> acties.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://rphilips.github.io/qtechng-blog/" >
+    &copy;  QtechNG Blog 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/qtechng-blog/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

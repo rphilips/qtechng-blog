@@ -12,6 +12,17 @@
     
     
     <item>
+      <title>Virtuele filesystemen</title>
+      <link>https://rphilips.github.io/qtechng-blog/post/vfs/</link>
+      <pubDate>Wed, 10 Jun 2020 17:55:19 +0200</pubDate>
+      
+      <guid>https://rphilips.github.io/qtechng-blog/post/vfs/</guid>
+      <description>Met deze blogbijdrage wil ik een lans breken voor een techniek die niet alleen een groot gebruikersgemak oplevert voor de ontwikkelaar maar ook een paar (dramatische) fouten kan voorkomen!
+We gaan het hebben over Virtuele Filesystemen.
+Een VFS vertrekt steeds van een reeds bestaand filesysteem: dat kan zijn het goed gekende filesysteem zoals het op je notebook staat, maar dat kan ook een Dropbox folder zijn, een simpele ZIP-file, of iets dat op AWS staat of op Google Drive.</description>
+    </item>
+    
+    <item>
       <title>Source</title>
       <link>https://rphilips.github.io/qtechng-blog/post/source/</link>
       <pubDate>Tue, 09 Jun 2020 16:25:22 +0200</pubDate>

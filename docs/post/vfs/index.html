@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="nl-nl">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Virtuele filesystemen | QtechNG Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.69.0-DEV" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/qtechng-blog/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Virtuele filesystemen" />
+<meta property="og:description" content="Met deze blogbijdrage wil ik een lans breken voor een techniek die niet alleen een groot gebruikersgemak oplevert voor de ontwikkelaar maar ook een paar (dramatische) fouten kan voorkomen!
+We gaan het hebben over Virtuele Filesystemen.
+Een VFS vertrekt steeds van een reeds bestaand filesysteem: dat kan zijn het goed gekende filesysteem zoals het op je notebook staat, maar dat kan ook een Dropbox folder zijn, een simpele ZIP-file, of iets dat op AWS staat of op Google Drive." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rphilips.github.io/qtechng-blog/post/vfs/" />
+<meta property="article:published_time" content="2020-06-10T17:55:19+02:00" />
+<meta property="article:modified_time" content="2020-06-10T17:55:19+02:00" />
+<meta itemprop="name" content="Virtuele filesystemen">
+<meta itemprop="description" content="Met deze blogbijdrage wil ik een lans breken voor een techniek die niet alleen een groot gebruikersgemak oplevert voor de ontwikkelaar maar ook een paar (dramatische) fouten kan voorkomen!
+We gaan het hebben over Virtuele Filesystemen.
+Een VFS vertrekt steeds van een reeds bestaand filesysteem: dat kan zijn het goed gekende filesysteem zoals het op je notebook staat, maar dat kan ook een Dropbox folder zijn, een simpele ZIP-file, of iets dat op AWS staat of op Google Drive.">
+<meta itemprop="datePublished" content="2020-06-10T17:55:19&#43;02:00" />
+<meta itemprop="dateModified" content="2020-06-10T17:55:19&#43;02:00" />
+<meta itemprop="wordCount" content="642">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Virtuele filesystemen"/>
+<meta name="twitter:description" content="Met deze blogbijdrage wil ik een lans breken voor een techniek die niet alleen een groot gebruikersgemak oplevert voor de ontwikkelaar maar ook een paar (dramatische) fouten kan voorkomen!
+We gaan het hebben over Virtuele Filesystemen.
+Een VFS vertrekt steeds van een reeds bestaand filesysteem: dat kan zijn het goed gekende filesysteem zoals het op je notebook staat, maar dat kan ook een Dropbox folder zijn, een simpele ZIP-file, of iets dat op AWS staat of op Google Drive."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  
+  <header class="cover bg-top" style="background-image: url('https://rphilips.github.io/qtechng-blog/images/vfs.svg');">
+    <div class="pb3-m pb6-l bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://rphilips.github.io/qtechng-blog/" class="f3 fw2 hover-white no-underline white-90 dib">
+      QtechNG Blog
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/qtechng-blog/post/" title="Artikelen page">
+              Artikelen
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Virtuele filesystemen</h1>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        ARTIKELEN
+      </aside>
+      
+
+
+      <h1 class="f1 athelas mt3 mb1">Virtuele filesystemen</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-06-10T17:55:19&#43;02:00">June 10, 2020</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Met deze blogbijdrage wil ik een lans breken voor een techniek die niet alleen een groot gebruikersgemak oplevert voor de ontwikkelaar maar ook een paar (dramatische) fouten kan voorkomen!</p>
+<p>We gaan het hebben over <a href="https://en.wikipedia.org/wiki/Virtual_file_system" title="Virtual file system">Virtuele Filesystemen</a>.</p>
+<p>Een <code>VFS</code> vertrekt steeds van een reeds bestaand filesysteem: dat kan zijn het goed gekende filesysteem zoals het op je notebook staat, maar dat kan ook een Dropbox folder zijn, een simpele ZIP-file, of iets dat op AWS staat of op Google Drive.</p>
+<p>Wij, Brocade mensen, kennen maar al te goed WebDAV: door middel van een instrument zoals Webdrive wordt een webserver aangeboden net alsof het een lokale schijf is.</p>
+<p>Kenmerkend is dat er een soort bemiddelbaar bestaat die het <code>VFS</code> op een meer vertrouwde manier aanbiedt.</p>
+<p>Deze bemiddelaar kan echter ook een bibliotheek zijn die door de ontwikkelaar kan worden aangewend om bestanden te lezen, te schrijven, te wissen, te doorzoeken, &hellip;</p>
+<p>Een goed voorbeeld van een <code>VFS</code> uit de <code>Python</code> wereld, is <a href="https://www.pyfilesystem.org/">PyFilesystem</a>.</p>
+<p>Ook in <code>Go</code> zijn er talrijke <code>VFS</code> te vinden en dat hoeft je niet te verwonderen: de designers van deze programmeertaal hebben het I/O systeem - cruciaal voor filesystemen - op een waarlijk voortreffelijke manier uitgebouwd. <code>VFS</code>-en in <code>Go</code> kunnen op een zeer natuurlijke manier worden uitgebouwd.</p>
+<p>Zo&rsquo;n <code>VFS</code> heeft diverse voordelen: met een minimum aan inspanningen kan de code operationeel worden gemaakt op <a href="https://en.wikipedia.org/wiki/Amazon_Web_Services" title="AWS">Amazon Web Services</a> of simpelweg in RAM. Dit laatste is bijvoorbeeld zeer handig als je de <code>QtechNG</code> software wil testen: voor je repository switch je van harde schijf naar RAM en, na afloop van je testen, is alles mooi opgeruimd!</p>
+<p>In <code>QtechNG</code> gebruik ik diverse <code>VFS</code>.</p>
+<p>Laat ik eerst de problemen (of: gevaren) schetsen die ik tegenkom met de <em>gewone</em> filesystemen.</p>
+<p>Het is duidelijk dat het <code>QtechNG</code> repository tot diepe folderstructuren leidt. Dit zal trouwens nog erger worden als we ook de opslag van objecten (samen met hun gebruik in bestanden) gaan behandelen.</p>
+<p>Dit heeft tot gevolg dat de aanmaak en afbouw van folders en subfolders heel zorgvuldig moet gebeuren. Ik wou daarom dat de klassieke <code>mkdir</code> in <code>QtechNG</code> dezelfde functionaliteit kreeg als <code>mkdir -p</code>: alle, nog niet gedefinieerde, tussenliggende folders worden automatisch aangemaakt.</p>
+<p>Echter, vergeet niet dat het repository als een databank moest fungeren: ik wou dus ook dat, als folders leeg zijn, deze ook automatisch worden opgeruimd!</p>
+<p>Kijk, met klassieke file operaties is dat om moeilijkheden vragen:</p>
+<ul>
+<li>je vergeet al eens een folder te schrappen (als hij verder geen bestanden bevat)</li>
+<li>maar nog veel erger, het is echt niet uit de lucht gegrepen dat het schrappen te ver gaat en folders worden opgeruimd waar dat beter niet zou bij gebeuren.</li>
+</ul>
+<p>De oplossing ligt in het organiseren van een <code>VFS</code>. Zoals dat in Brocade context meestal het geval is, stopt het niet bij het in gebruik nemen van een software. Neen, er wordt een heuse fabriek opgezet om dergelijke <code>VFS</code> te genereren.</p>
+<p>De basis ligt in <a href="https://github.com/spf13/afero" title="Afero">Afero</a>, een software van de makers van <em>Cobra</em>.</p>
+<p>Hier heb ik een aantal methodes aangepast:</p>
+<ul>
+<li>Bij het schrappen van een bestand wordt er gekeken of er nog bestanden in de parentfolder staan en is dat niet zo, <em>en het gaat hier niet om de rootfolder</em>, dan wordt de folder zelf meedogenloos geschrapt</li>
+<li>Alle schrijfacties zijn atomair</li>
+<li>Bestanden behoren steeds tot de groep <code>db</code> en ze kunnen enkel gelezen en beschreven worden door leden van die groep</li>
+<li>Aanmaak van een directory maakt ook de tussenliggende directories aan</li>
+<li>Filesystemen kunnen <code>readonly</code> zijn (zeer nuttig bij zoekacties)</li>
+<li>De separator is steeds <code>/</code></li>
+</ul>
+<p>Er worden (op dynamische wijze) filesystemen aangemaakt voor de verschillende Brocade versies, voor elk project, voor de objectbomen, enz. De <code>root</code> van elk dergelijk filesysteem is zodanig dat je daar niet kunt buiten opereren.</p>
+<p>Het mag duidelijk zijn dat ik echt opgetogen ben over deze werkwijze, een werkwijze die we trouwens nog op heel wat andere plaatsen kunnen aanwenden in Brocade.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://rphilips.github.io/qtechng-blog/" >
+    &copy;  QtechNG Blog 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/qtechng-blog/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

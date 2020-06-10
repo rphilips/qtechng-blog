@@ -104,7 +104,16 @@ Als het bestand wordt aangeboden om te worden weggeschreven, moet dit vergezeld 
 
 Dit `token` reist steeds mee met dit bestand. Dit `token` (een SHA512 digest) wordt gecontroleerd tegenover het reeds aanwezige bestand. Klopt het `token` niet, dan wordt de opslag geweigerd en moet de gebruiker het bestand opnieuw downloaden (samen met het juiste token), zijn aanpassingen aanbrengen en terug aanbieden.
 
-Overigens, samen met de verkeerde `brocade.json` en de uniciteits regel, zijn dit de enige situaties waarbij aangeboden bestanden *niet* worden weggeschreven in het repository.
+## Overzicht van de situaties waarbij een bestand wordt geweigerd
+
+Even een opsomming van alle situaties waarbij een bestand wordt geweigerd:
+
+- `source.new.noproject`: geen project gevonden dat past bij het bestand
+- `source.store.config.invalid`: de file (`brocade.json`) is geen geldig configuratiebestand
+- `source.store.notunique`: het bestand beantwoordt niet aan de uniciteitsregels
+- `source.store.forbidden`: kan het bestand niet wegschrijven (vermoedelijk door token probleem)
+
+Dit *weigeren* resulteert in een aangepaste foutboodschap. Er kunnen nog heel wat andere foutboodschappen komen - zoals het bestand bevat een M parse fout - maar dan wordt het wel opgenomen in het repository!
 
 ## Atomair wegschrijven van de bestanden
 

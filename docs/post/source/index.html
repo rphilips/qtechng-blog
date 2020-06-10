@@ -43,7 +43,7 @@ Ik wil beklemtonen dat deze bijdrage enkel gaat over gewone bestanden: met ander
 Ook het installeren in de productieomgeving wordt niet behandeld: dus we gaan niet uitleggen hoe een bestand van de gedaante *.">
 <meta itemprop="datePublished" content="2020-06-09T16:25:22&#43;02:00" />
 <meta itemprop="dateModified" content="2020-06-09T16:25:22&#43;02:00" />
-<meta itemprop="wordCount" content="962">
+<meta itemprop="wordCount" content="1027">
 
 
 
@@ -193,7 +193,15 @@ Ook het installeren in de productieomgeving wordt niet behandeld: dus we gaan ni
 </code></pre></div><h2 id="test-op-token">Test op token</h2>
 <p>Als het bestand wordt aangeboden om te worden weggeschreven, moet dit vergezeld zijn van een <code>token</code>. Dit token moet bewijzen dat je begonnen bent met dit bestand te downloaden uit het repository en dat je daar dan veranderingen hebt aan aangebracht.</p>
 <p>Dit <code>token</code> reist steeds mee met dit bestand. Dit <code>token</code> (een SHA512 digest) wordt gecontroleerd tegenover het reeds aanwezige bestand. Klopt het <code>token</code> niet, dan wordt de opslag geweigerd en moet de gebruiker het bestand opnieuw downloaden (samen met het juiste token), zijn aanpassingen aanbrengen en terug aanbieden.</p>
-<p>Overigens, samen met de verkeerde <code>brocade.json</code> en de uniciteits regel, zijn dit de enige situaties waarbij aangeboden bestanden <em>niet</em> worden weggeschreven in het repository.</p>
+<h2 id="overzicht-van-de-situaties-waarbij-een-bestand-wordt-geweigerd">Overzicht van de situaties waarbij een bestand wordt geweigerd</h2>
+<p>Even een opsomming van alle situaties waarbij een bestand wordt geweigerd:</p>
+<ul>
+<li><code>source.new.noproject</code>: geen project gevonden dat past bij het bestand</li>
+<li><code>source.store.config.invalid</code>: de file (<code>brocade.json</code>) is geen geldig configuratiebestand</li>
+<li><code>source.store.notunique</code>: het bestand beantwoordt niet aan de uniciteitsregels</li>
+<li><code>source.store.forbidden</code>: kan het bestand niet wegschrijven (vermoedelijk door token probleem)</li>
+</ul>
+<p>Dit <em>weigeren</em> resulteert in een aangepaste foutboodschap. Er kunnen nog heel wat andere foutboodschappen komen - zoals het bestand bevat een M parse fout - maar dan wordt het wel opgenomen in het repository!</p>
 <h2 id="atomair-wegschrijven-van-de-bestanden">Atomair wegschrijven van de bestanden</h2>
 <p>Het definitief wegschrijven van de bestanden is een belangrijk zaak: Alain zou zeggen: &ldquo;Dit moet in steen worden gebeiteld&rdquo;.</p>
 <p>Alle voorzorgen moeten worden genomen opdat het wegschrijven compleet gebeurd: het niet wegschrijven van een bestand is erg, maar het corrupt of partieel wegschrijven is nog veel erger.</p>

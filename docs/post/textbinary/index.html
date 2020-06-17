@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="nl-nl">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Tekst versus binair | QtechNG Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.69.0-DEV" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/qtechng-blog/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Tekst versus binair" />
+<meta property="og:description" content="Wat is een tekstbestand ? Een eenvoudige definitie is: een tekstbestand bestaat uitsluitend uit (Unicode) karakters. Het vervelende hierbij is dat je, behalve het tekstbestand en zijn inhoud, ook de encoding moet opgeven: als je CP-1252 gebruikt, is elk bestand tekst.
+Om het onderscheid te maken in qtech, volgde ik een pragmatische benadering.
+Ik werkte in 3 stappen:
+  Had het bestand een filenaam een extensie en behoorde die extensie tot een bepaalde verzameling (vb." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rphilips.github.io/qtechng-blog/post/textbinary/" />
+<meta property="article:published_time" content="2020-06-17T19:21:17+02:00" />
+<meta property="article:modified_time" content="2020-06-17T19:21:17+02:00" />
+<meta itemprop="name" content="Tekst versus binair">
+<meta itemprop="description" content="Wat is een tekstbestand ? Een eenvoudige definitie is: een tekstbestand bestaat uitsluitend uit (Unicode) karakters. Het vervelende hierbij is dat je, behalve het tekstbestand en zijn inhoud, ook de encoding moet opgeven: als je CP-1252 gebruikt, is elk bestand tekst.
+Om het onderscheid te maken in qtech, volgde ik een pragmatische benadering.
+Ik werkte in 3 stappen:
+  Had het bestand een filenaam een extensie en behoorde die extensie tot een bepaalde verzameling (vb.">
+<meta itemprop="datePublished" content="2020-06-17T19:21:17&#43;02:00" />
+<meta itemprop="dateModified" content="2020-06-17T19:21:17&#43;02:00" />
+<meta itemprop="wordCount" content="444">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Tekst versus binair"/>
+<meta name="twitter:description" content="Wat is een tekstbestand ? Een eenvoudige definitie is: een tekstbestand bestaat uitsluitend uit (Unicode) karakters. Het vervelende hierbij is dat je, behalve het tekstbestand en zijn inhoud, ook de encoding moet opgeven: als je CP-1252 gebruikt, is elk bestand tekst.
+Om het onderscheid te maken in qtech, volgde ik een pragmatische benadering.
+Ik werkte in 3 stappen:
+  Had het bestand een filenaam een extensie en behoorde die extensie tot een bepaalde verzameling (vb."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  
+  <header class="cover bg-top" style="background-image: url('https://rphilips.github.io/qtechng-blog/images/textbinary.svg');">
+    <div class="pb3-m pb6-l bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://rphilips.github.io/qtechng-blog/" class="f3 fw2 hover-white no-underline white-90 dib">
+      QtechNG Blog
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/qtechng-blog/post/" title="Artikelen page">
+              Artikelen
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Tekst versus binair</h1>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        ARTIKELEN
+      </aside>
+      
+
+
+      <h1 class="f1 athelas mt3 mb1">Tekst versus binair</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-06-17T19:21:17&#43;02:00">June 17, 2020</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h2 id="wat-is-een-tekstbestand-">Wat is een tekstbestand ?</h2>
+<p>Een eenvoudige definitie is: een tekstbestand bestaat uitsluitend uit (<a href="https://home.unicode.org/">Unicode</a>) karakters. Het vervelende hierbij is dat je, behalve het tekstbestand en zijn inhoud, ook de encoding moet opgeven: als je <code>CP-1252</code> gebruikt, is elk bestand tekst.</p>
+<p>Om het onderscheid te maken in <code>qtech</code>, volgde ik een pragmatische benadering.</p>
+<p>Ik werkte in 3 stappen:</p>
+<ul>
+<li>
+<p>Had het bestand een filenaam een extensie en behoorde die extensie tot een bepaalde verzameling (vb. <code>{&quot;.js&quot;, &quot;.m&quot;, &quot;.d&quot;, &quot;.html&quot;, &quot;.zwr&quot;})</code> dan concludeerde ik: dit is een <code>tekstbestand</code>.</p>
+</li>
+<li>
+<p>Had het bestand een filenaam een extensie en behoorde die extensie tot een andere verzameling (vb. <code>{&quot;.pdf&quot;, &quot;.zip&quot;, &quot;.png&quot;, &quot;.xls&quot;, &quot;.odt&quot;})</code> dan verklaarde ik het bestand <code>binair</code></p>
+</li>
+<li>
+<p>Had het bestand geen extensie, of lag de extensie buiten deze beide verzamelingen, of &hellip; werd de data aangeleverd zonder filenaam, dan volgde ik een algoritme dat ik in de code van de <a href="https://www.perl.org/">Perl</a> programmeertaal vond. (<code>Perl</code> had een operator - <code>-T</code> als ik het goed heb - waarmee je kan testen of een bepaald bestand binair was). Dit algoritme nam de eerste 4K bytes en deed daar allerlei analyses op en besloot daaruit met <code>tekst</code> of <code>binair</code>.</p>
+</li>
+</ul>
+<h2 id="waarom-is-dat-belangrijk-">Waarom is dat belangrijk ?</h2>
+<p>Dit is belangrijk omdat toepassingen nu eenmaal anders omgaan met tekstbestanden en binaire bestanden: open je een binair bestand met je - van Emacs verschillende - editor, dan is de kans groot dat je editor crasht.</p>
+<p>Gebruik je <a href="https://en.wikipedia.org/wiki/Grep">grep</a> om bestanden te doorzoeken naar tekst, dan gaat <code>grep</code> enkel de tekstbestanden beschouwen. Daar kan je je aardig aan verbranden zoals ik onlangs tot mijn scha en schande heb ervaren: ik doorzocht een <code>*.zwr</code> file (<code>tekst</code>, weet je wel) naar afbeeldingen die in Docman stonden. Als ik de afbeeldingen <em>niet</em> vond in het bestand, dan mocht ik ze schrappen uit Docman. Wel, <code>grep</code> concludeerde dat de betreffende <code>*.zwr</code> file, <code>binair</code> was! Er stond immers bitmapindexen in, die het algoritme deden misleiden. Gevolg: <code>grep</code> vond niets. Gevolg: ik schrapte teveel afbeeldingen&hellip; (gelukkig met backup :-)</p>
+<p>In <code>qtech</code> werd het onderscheid tussen tekstbestanden en binaire bestanden voor 2 redenen gemaakt:</p>
+<ul>
+<li>Bij zoekopdrachten: enkel tekst werd doorzocht</li>
+<li>Bij substitutie van <code>m4/i4/r4/l4</code> constructies: ook deze vonden enkel bij tekstbestanden plaats.</li>
+</ul>
+<h2 id="hoe-wordt-het-onderscheid-in-qtechng-gemaakt-">Hoe wordt het onderscheid in <code>QtechNG</code> gemaakt ?</h2>
+<p><code>QtechNG</code> stapt af van deze willekeurige behandeling en verklaart: <strong>alle bestanden zijn tekst totdat het tegendeel wordt geconfigureerd</strong></p>
+<p>In de configuratie file <code>brocade.json</code> kan je, per project, perfect opsommen - eventueel met wildcards - wat de binaire bestanden zijn: daartoe bestaat de sleutel <code>binary</code>.</p>
+<p>Aanverwant aan deze sleutel is er nog de sleutel <code>objectsnotreplaces</code>. Hiermee kan, per project en per object, worden aangegeven in welke <em>tekstbestanden</em> er geen substitutie mag plaatsvinden: handig bij documentatie bijvoorbeeld.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://rphilips.github.io/qtechng-blog/" >
+    &copy;  QtechNG Blog 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/qtechng-blog/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

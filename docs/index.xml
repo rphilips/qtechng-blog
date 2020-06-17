@@ -6,10 +6,22 @@
     <description>Recent content in QtechNG: Ontwikkelen voor Brocade on QtechNG Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>nl-nl</language>
-    <lastBuildDate>Wed, 10 Jun 2020 17:55:19 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jun 2020 19:21:17 +0200</lastBuildDate>
     
 	<atom:link href="https://rphilips.github.io/qtechng-blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tekst versus binair</title>
+      <link>https://rphilips.github.io/qtechng-blog/post/textbinary/</link>
+      <pubDate>Wed, 17 Jun 2020 19:21:17 +0200</pubDate>
+      
+      <guid>https://rphilips.github.io/qtechng-blog/post/textbinary/</guid>
+      <description>Wat is een tekstbestand ? Een eenvoudige definitie is: een tekstbestand bestaat uitsluitend uit (Unicode) karakters. Het vervelende hierbij is dat je, behalve het tekstbestand en zijn inhoud, ook de encoding moet opgeven: als je CP-1252 gebruikt, is elk bestand tekst.
+Om het onderscheid te maken in qtech, volgde ik een pragmatische benadering.
+Ik werkte in 3 stappen:
+  Had het bestand een filenaam een extensie en behoorde die extensie tot een bepaalde verzameling (vb.</description>
+    </item>
     
     <item>
       <title>Virtuele filesystemen</title>

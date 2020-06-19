@@ -6,10 +6,20 @@
     <description>Recent content in QtechNG: Ontwikkelen voor Brocade on QtechNG Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>nl-nl</language>
-    <lastBuildDate>Wed, 17 Jun 2020 19:21:17 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2020 18:55:55 +0200</lastBuildDate>
     
 	<atom:link href="https://rphilips.github.io/qtechng-blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Interludium: PEG parsers</title>
+      <link>https://rphilips.github.io/qtechng-blog/post/peg/</link>
+      <pubDate>Fri, 19 Jun 2020 18:55:55 +0200</pubDate>
+      
+      <guid>https://rphilips.github.io/qtechng-blog/post/peg/</guid>
+      <description>PEG (Parser Expression Grammar) parsers gaan in QtechNG een belangrijke rol spelen. Als parser systeem is dit een vrij recente ontwikkeling: het basis artikel van Bryan Ford verscheen in 2004: toen waren de hoogdagen van parsers al lang voorbij. Ik herinner me nog de jaren &amp;lsquo;80 toen het fameuze boek Compilers: Principles, Techniques, and Tools van Aho en Ullman (en anderen) de de facto bijbel was.
+PEG parsers kwamen onder mijn aandacht toen ik veel werkte met Lua: PEG technologie zat immers standaard ingebakken in de programmeertaal en bewezen daar hoe krachtig dit wel was.</description>
+    </item>
     
     <item>
       <title>Tekst versus binair</title>

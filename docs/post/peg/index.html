@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="nl-nl">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Interludium: PEG parsers | QtechNG Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.69.0-DEV" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/qtechng-blog/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Interludium: PEG parsers" />
+<meta property="og:description" content="PEG (Parser Expression Grammar) parsers gaan in QtechNG een belangrijke rol spelen. Als parser systeem is dit een vrij recente ontwikkeling: het basis artikel van Bryan Ford verscheen in 2004: toen waren de hoogdagen van parsers al lang voorbij. Ik herinner me nog de jaren &lsquo;80 toen het fameuze boek Compilers: Principles, Techniques, and Tools van Aho en Ullman (en anderen) de de facto bijbel was.
+PEG parsers kwamen onder mijn aandacht toen ik veel werkte met Lua: PEG technologie zat immers standaard ingebakken in de programmeertaal en bewezen daar hoe krachtig dit wel was." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rphilips.github.io/qtechng-blog/post/peg/" />
+<meta property="article:published_time" content="2020-06-19T18:55:55+02:00" />
+<meta property="article:modified_time" content="2020-06-19T18:55:55+02:00" />
+<meta itemprop="name" content="Interludium: PEG parsers">
+<meta itemprop="description" content="PEG (Parser Expression Grammar) parsers gaan in QtechNG een belangrijke rol spelen. Als parser systeem is dit een vrij recente ontwikkeling: het basis artikel van Bryan Ford verscheen in 2004: toen waren de hoogdagen van parsers al lang voorbij. Ik herinner me nog de jaren &lsquo;80 toen het fameuze boek Compilers: Principles, Techniques, and Tools van Aho en Ullman (en anderen) de de facto bijbel was.
+PEG parsers kwamen onder mijn aandacht toen ik veel werkte met Lua: PEG technologie zat immers standaard ingebakken in de programmeertaal en bewezen daar hoe krachtig dit wel was.">
+<meta itemprop="datePublished" content="2020-06-19T18:55:55&#43;02:00" />
+<meta itemprop="dateModified" content="2020-06-19T18:55:55&#43;02:00" />
+<meta itemprop="wordCount" content="691">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Interludium: PEG parsers"/>
+<meta name="twitter:description" content="PEG (Parser Expression Grammar) parsers gaan in QtechNG een belangrijke rol spelen. Als parser systeem is dit een vrij recente ontwikkeling: het basis artikel van Bryan Ford verscheen in 2004: toen waren de hoogdagen van parsers al lang voorbij. Ik herinner me nog de jaren &lsquo;80 toen het fameuze boek Compilers: Principles, Techniques, and Tools van Aho en Ullman (en anderen) de de facto bijbel was.
+PEG parsers kwamen onder mijn aandacht toen ik veel werkte met Lua: PEG technologie zat immers standaard ingebakken in de programmeertaal en bewezen daar hoe krachtig dit wel was."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  
+  <header class="cover bg-top" style="background-image: url('https://rphilips.github.io/qtechng-blog/images/peg.svg');">
+    <div class="pb3-m pb6-l bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://rphilips.github.io/qtechng-blog/" class="f3 fw2 hover-white no-underline white-90 dib">
+      QtechNG Blog
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/qtechng-blog/post/" title="Artikelen page">
+              Artikelen
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Interludium: PEG parsers</h1>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        ARTIKELEN
+      </aside>
+      
+
+
+      <h1 class="f1 athelas mt3 mb1">Interludium: PEG parsers</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-06-19T18:55:55&#43;02:00">June 19, 2020</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><a href="https://en.wikipedia.org/wiki/Parsing_expression_grammar">PEG</a> (Parser Expression Grammar) parsers gaan in <code>QtechNG</code> een belangrijke rol spelen. Als parser systeem is dit een vrij recente ontwikkeling: het basis <a href="https://bford.info/pub/lang/peg/">artikel</a> van Bryan Ford verscheen in 2004: toen waren de hoogdagen van parsers al lang voorbij. Ik herinner me nog de jaren &lsquo;80 toen het fameuze boek <a href="https://en.wikipedia.org/wiki/Compilers:_Principles,_Techniques,_and_Tool">Compilers: Principles, Techniques, and Tools</a> van Aho en Ullman (en anderen) de de facto bijbel was.</p>
+<p>PEG parsers kwamen onder mijn aandacht toen ik veel werkte met <a href="http://www.lua.org/">Lua</a>: PEG technologie zat immers standaard ingebakken in de programmeertaal en bewezen daar hoe krachtig dit wel was.</p>
+<p>Onlangs bracht Guido Van Rossem deze parsers in de belangstelling met zijn <a href="https://medium.com/@gvanrossum_83706/peg-parsing-series-de5d41b2ed60">blogreeks op Medium</a> over zijn experimenten met Python. In <a href="https://www.python.org/dev/peps/pep-0617/">PEP 617</a> geeft hij zelfs een aanzet om Python zelf te formuleren aan de hand van een PEG.</p>
+<p>De reden waarom hij dit doet is precies dezelfde reden als waarom ik PEG wil gebruiken in <code>QtechNG</code>: je kan op rigoureuze wijze complexe dingen definiëren.
+Wist je dat er tot nu toe nog altijd geen ondubbelzinnige specificatie bestaat voor Python ? Het antwoord van het ontwikkelteam was steeds hetzelfde: <em>De implementatie is de specificatie</em>.</p>
+<p>Onmogelijke vol te houden natuurlijk: er bestaan op dit ogenblik minstens 4 implementaties van Python, allemaal lichtjes verschillend. Hierbij zijn nog niet eens de verschillende versies van Python gerekend!</p>
+<p>Programmeertalen maar ook andere, complexe, structuren hebben nood aan een <em>grammatica</em> die de structuur op ondubbelzinnige wijze beschrijven. Denk maar aan onze macro’s en lgcodes!</p>
+<p>In de informaticawereld heeft men daartoe een structuur van productieregels ontwikkeld. Meestal worden deze productieregels zelf geformuleerd in <a href="https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form">Backus-Naur notatie</a>.</p>
+<p>Dit is een systeem waarmee men <em>geldige zinnen</em> kan maken (produceren) in de grammatica. Het <em>parsen</em> van een tekst is dan het onderzoeken of deze tekst een geldige producties is in deze grammatica. Als het even kan worden dan diverse onderdelen uit de zin herkend en daar worden dan weer <em>acties</em> mee verbonden.</p>
+<p>Dit is precies hetzelfde als met omgangstaal: tekst is een geldige zin, we kunnen dan onderwerp, werkwoord, meewerkend voorwerp e.d. herkennen en zo begrijpen we wat de zin doet.</p>
+<p>Je kan wel denken dat het voor een parser wel heel erg complex kan zijn om een zin als <em>geldig</em> te kunnen herkennen: soms zet een gedeelte van de zin de parser op het verkeerde been en moet de parser op den duur &lsquo;backtracken&rsquo; om toch de ware structuur te herkennen. Soms is dat zelfs niet mogelijk. In mijn opleiding Informatica, zovele jaren geleden, studeerde ik <a href="https://en.wikipedia.org/wiki/ALGOL_68">Algol 68</a>, een uiterst krachtige en complexe programmeertaal. Het gerucht deed de ronde dat er geen enkele <em>niet-ambigue</em> parser voor bestond. Dat gerucht werd in ieder geval versterkt doordat de Siemens mainframe van UGent, geen enkel compilatie tot een goed einde bracht. Studenten hielden wedstrijd om de mainframe zo snel mogelijk te doen crashen met geldige Algol 68.</p>
+<p>PEG parsers pretenderen niet dat ze ALLE grammatica&rsquo;s aankunnen. Ze kunnen er echter heel wat aan en ze kunnen parsen in een tijd evenredig met de lengte van de aangeboden tekst.
+Bovendien zijn ze niet ambigue: met andere woorden elke geldige tekst kan maar op 1 manier geldig zijn. Met andere woorden: de specificatie is ondubbelzinnig.</p>
+<p>PEG parsers zijn ook <a href="https://en.wikipedia.org/wiki/Context-free_grammar">context-vrij</a>: in de parser wereld is dit <em>a big deal</em>. Het betekent dat de resultaten van 1 productieregel mogen worden gebruikt op <em>elke</em> plaats waar die productieregel staat en het resultaat zal nog steeds een geldige zin zijn.</p>
+<p>Elke zichzelf respecterende programmeertaal heeft wel een library om PEG-parsers te vervaardigen voor tal van problemen.</p>
+<p>Zo ook <code>Go</code> (de taal waarin <code>QtechNG</code> wordt geschreven). Er zijn er zelfs meerdere.</p>
+<p>Mijn voorkeur gaat uit naar <a href="https://github.com/mna/pigeon">Pigeon</a>, PEG &hellip; heb je hem &hellip;</p>
+<p>Niet alleen is Pigeon een kwalitatief hoogstaande parser generator, maar je hebt de library zelfs niet nodig in <code>QtechNG</code> !</p>
+<p>Hoe zit dat nu?, zal je zeggen. Wel, stel dat je een PEG grammatica maakt voor pakweg een <code>l-file</code>, dan kan je Pigeon een go-software laten genereren die compleet op zichzelf staat. Je mag nadien Pigeon gewoon weggooien: je kan rustig verder met de gegenereerde code. Straf!</p>
+<p>In latere posts gaan we dieper in op het gebruik van Pigeon bij specifieke grammatica&rsquo;s.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://rphilips.github.io/qtechng-blog/" >
+    &copy;  QtechNG Blog 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/qtechng-blog/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

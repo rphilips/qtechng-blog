@@ -21,14 +21,41 @@ In de informaticawereld heeft men daartoe een structuur van productieregels ontw
 
 Dit is een systeem waarmee men *geldige zinnen* kan maken (produceren) in de grammatica. Het *parsen* van een tekst is dan het onderzoeken of deze tekst een geldige producties is in deze grammatica. Als het even kan worden dan diverse onderdelen uit de zin herkend en daar worden dan weer *acties* mee verbonden. 
 
-Dit is precies hetzelfde als met omgangstaal: tekst is een geldige zin, we kunnen dan onderwerp, werkwoord, meewerkend voorwerp e.d. herkennen en zo begrijpen we wat de zin doet.
+Dit is precies hetzelfde als met omgangstaal: tekst is een geldige zin, we kunnen dan onderwerp, werkwoord, meewerkend voorwerp e.d. herkennen en zo begrijpen wat de zin doet.
 
 Je kan wel denken dat het voor een parser wel heel erg complex kan zijn om een zin als *geldig* te kunnen herkennen: soms zet een gedeelte van de zin de parser op het verkeerde been en moet de parser op den duur 'backtracken' om toch de ware structuur te herkennen. Soms is dat zelfs niet mogelijk. In mijn opleiding Informatica, zovele jaren geleden, studeerde ik [Algol 68](https://en.wikipedia.org/wiki/ALGOL_68), een uiterst krachtige en complexe programmeertaal. Het gerucht deed de ronde dat er geen enkele *niet-ambigue* parser voor bestond. Dat gerucht werd in ieder geval versterkt doordat de Siemens mainframe van UGent, geen enkel compilatie tot een goed einde bracht. Studenten hielden wedstrijd om de mainframe zo snel mogelijk te doen crashen met geldige Algol 68.
 
-PEG parsers pretenderen niet dat ze ALLE grammatica's aankunnen. Ze kunnen er echter heel wat aan en ze kunnen parsen in een tijd evenredig met de lengte van de aangeboden tekst. 
-Bovendien zijn ze niet ambigue: met andere woorden elke geldige tekst kan maar op 1 manier geldig zijn. Met andere woorden: de specificatie is ondubbelzinnig.
+PEG parsers pretenderen niet dat ze ALLE grammatica's aankunnen. Ze kunnen er echter heel wat aan. Bryan Ford creëerde trouwens een nieuwe techniek - de zogenaamd Packrat parsers - die PEG kunnen laten parsen in een tijd evenredig met de lengte van de aangeboden tekst! Dit ging dan wel ten koste van het gebruikte geheugen. Ach, hoe dikwijls heb ik dit nu al gezien in informatica: de balans tussen tijd, cpu en geheugen!
+
+PEG parsers zijn niet ambigue: met andere woorden elke geldige tekst kan maar op 1 manier geldig zijn. Anders gezegd: de specificatie is ondubbelzinnig. Dat heeft ook nadelen: PEG parsers kunnen dan ook geen grammatica's aan die van nature uit ambigue zijn. Zoals het Nederlands bijvoorbeeld. Hoe zou je een PEG parser kunnen vervaardigen die in alle omstandigheden om kan met een zin zoals *"Het baasje zocht de hond met de verrekijker"*?
+Je kan stellen dat PEG parsers heel erg geschikt zijn om om te gaan met *computertext* en heel wat minder met *natuurlijke taal*.
 
 PEG parsers zijn ook [context-vrij](https://en.wikipedia.org/wiki/Context-free_grammar): in de parser wereld is dit *a big deal*. Het betekent dat de resultaten van 1 productieregel mogen worden gebruikt op *elke* plaats waar die productieregel staat en het resultaat zal nog steeds een geldige zin zijn.
+
+Een PEG parser bereikt dit context-vrij zijn en het niet-ambigue karakter door op een specifieke wijze om te gaan met de keuzes in een productieregel. Een productieregel is samengesteld uit andere, eenvoudiger productieregels: net zoals teksten samengesteld zijn uit paragrafen die samengesteld zijn uit zinnen die samengesteld zijn uit woorden. De PEG parser gaat die keuzes 1 voor 1 af en zodra hij een keuze vindt die overeenkomt, zegt hij: "dat is hem" en keert niet meer op zijn stappen terug.
+
+Dit betekent nog dat als je een specificatie voor een bepaalde structuur uitwerkt, je wat moet opletten op de volgorde waarop je dingen test.
+
+Ik geef een voorbeeld. In [XML](https://en.wikipedia.org/wiki/XML) heb je markers voor het begin en einde van een element: vb, `<HTML>` en `</HTML>`.
+
+Als nu je productieregel van de gedaante is:
+
+```
+marker ← ( "<" | "</") name ">"
+
+name ← [a-zA-Z]+
+```
+Dan zal de PEG parser wel de zin `<HTML>` vinden maar nooit de zin `</HTML>`: hij ziet immers de "<" , die matcht en kijkt niet meer verder!
+
+Een goede productieregel is:
+
+```
+marker ← ( "</" | "<") name ">"
+
+name ← [a-zA-Z]+
+```
+
+Met deze specificatie zijn zowel `<HTML>` als `</HTML>` geldig!
 
 Elke zichzelf respecterende programmeertaal heeft wel een library om PEG-parsers te vervaardigen voor tal van problemen.
 
@@ -42,27 +69,4 @@ Hoe zit dat nu?, zal je zeggen. Wel, stel dat je een PEG grammatica maakt voor p
 
 In latere posts gaan we dieper in op het gebruik van Pigeon bij specifieke grammatica's.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Alain en ik zijn ook aan het uitzoeken of we een generator kunnen bouwen in [M](https://en.wikipedia.org/wiki/MUMPS). Ik zie dit als de perfecte tegenhanger van het Brocade template systeem: in het template systeem stel je een zin samen op basis van diverse onderdelen terwijl je met een PEG parser een zin opsplitst in zijn structuren en daarmee dingen doet.

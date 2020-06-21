@@ -6,10 +6,22 @@
     <description>Recent content in QtechNG: Ontwikkelen voor Brocade on QtechNG Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>nl-nl</language>
-    <lastBuildDate>Fri, 19 Jun 2020 18:55:55 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 21 Jun 2020 10:58:25 +0200</lastBuildDate>
     
 	<atom:link href="https://rphilips.github.io/qtechng-blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Parallel</title>
+      <link>https://rphilips.github.io/qtechng-blog/post/parallel/</link>
+      <pubDate>Sun, 21 Jun 2020 10:58:25 +0200</pubDate>
+      
+      <guid>https://rphilips.github.io/qtechng-blog/post/parallel/</guid>
+      <description>Een doelstelling van QtechNG is dat overkoepelende acties zoals de bootstrap en de sweep sneller verlopen.
+Met sneller bedoel ik niet een 10% winst maar heb ik het eerder over 2 tot 3x zo snel.
+Cruciale momenten in het leven met Brocade zijn de oplevering van nieuwe releases en het installeren van een nieuwe ontwikkelversies.
+Beiden nemen nu uren in beslag. Niet alleen zou het een stuk comfortabeler zijn indien dit sneller zou kunnen, maar het zou bovendien de mogelijkheid scheppen om het aantal uitgebrachte releases drastisch op te voeren.</description>
+    </item>
     
     <item>
       <title>Interludium: PEG parsers</title>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="nl-nl">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Interludium: Het Brocade template systeem | QtechNG Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.69.0-DEV" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/qtechng-blog/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Interludium: Het Brocade template systeem" />
+<meta property="og:description" content="Het Brocade Template System (BTS) is werkelijk uit zijn voegen gebarsten. Niet alleen worden de mogelijkheden nog geregeld uitgebreid maar ook de toepassingsgebieden nemens steeds toe.
+BTS is het ideale niveau tussen programmeren enerzijds en metadatering anderzijds. Gebruikers hebben vrij snel door wat de grote contouren zijn van het templatesysteem. Het zit hem - net zoals bij programmeren - echter in de details, en dat vergt grondige kennis van de diverse mogelijkheden." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rphilips.github.io/qtechng-blog/post/template/" />
+<meta property="article:published_time" content="2020-06-24T11:56:55+02:00" />
+<meta property="article:modified_time" content="2020-06-24T11:56:55+02:00" />
+<meta itemprop="name" content="Interludium: Het Brocade template systeem">
+<meta itemprop="description" content="Het Brocade Template System (BTS) is werkelijk uit zijn voegen gebarsten. Niet alleen worden de mogelijkheden nog geregeld uitgebreid maar ook de toepassingsgebieden nemens steeds toe.
+BTS is het ideale niveau tussen programmeren enerzijds en metadatering anderzijds. Gebruikers hebben vrij snel door wat de grote contouren zijn van het templatesysteem. Het zit hem - net zoals bij programmeren - echter in de details, en dat vergt grondige kennis van de diverse mogelijkheden.">
+<meta itemprop="datePublished" content="2020-06-24T11:56:55&#43;02:00" />
+<meta itemprop="dateModified" content="2020-06-24T11:56:55&#43;02:00" />
+<meta itemprop="wordCount" content="1434">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Interludium: Het Brocade template systeem"/>
+<meta name="twitter:description" content="Het Brocade Template System (BTS) is werkelijk uit zijn voegen gebarsten. Niet alleen worden de mogelijkheden nog geregeld uitgebreid maar ook de toepassingsgebieden nemens steeds toe.
+BTS is het ideale niveau tussen programmeren enerzijds en metadatering anderzijds. Gebruikers hebben vrij snel door wat de grote contouren zijn van het templatesysteem. Het zit hem - net zoals bij programmeren - echter in de details, en dat vergt grondige kennis van de diverse mogelijkheden."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  
+  <header class="cover bg-top" style="background-image: url('https://rphilips.github.io/qtechng-blog/images/template.svg');">
+    <div class="pb3-m pb6-l bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://rphilips.github.io/qtechng-blog/" class="f3 fw2 hover-white no-underline white-90 dib">
+      QtechNG Blog
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/qtechng-blog/post/" title="Artikelen page">
+              Artikelen
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Interludium: Het Brocade template systeem</h1>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        ARTIKELEN
+      </aside>
+      
+
+
+      <h1 class="f1 athelas mt3 mb1">Interludium: Het Brocade template systeem</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-06-24T11:56:55&#43;02:00">June 24, 2020</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Het <em>Brocade Template System</em> (BTS) is werkelijk uit zijn voegen gebarsten. Niet alleen worden de mogelijkheden nog geregeld uitgebreid maar ook de toepassingsgebieden nemens steeds toe.</p>
+<p>BTS is het ideale niveau tussen programmeren enerzijds en metadatering anderzijds. Gebruikers hebben vrij snel door wat de grote contouren zijn van het templatesysteem. Het zit hem - net zoals bij programmeren - echter in de details, en dat vergt grondige kennis van de diverse mogelijkheden.</p>
+<p>Daarom organiseren we een tutorial over BTS en deze tekst dient om deze tutorial wat te begeleiden.</p>
+<h2 id="basisinstrumenten">Basisinstrumenten</h2>
+<p>Eerst en vooral is er de <a href="https://dev.anet.be/doc/brocade/system/templates">documentie</a>: dit is een wat droge maar uitgebreide omschrijving van de mogelijkheden.</p>
+<p>Er werd ook een <a href="https://dev.anet.be/menu/templatepractice">speeltuin</a> voorzien waarmee templates kunnen worden getest en ideeen uitgeprobeerd.</p>
+<h2 id="geschiedenis">Geschiedenis</h2>
+<p>Voordat <em>BTS</em> werd ontwikkeld, werkten we in Brocade met een ander template systeem. Dat systeem heeft veel gemeenschappelijks met BTS maar is complexer, minder rigoureus gedefinieerd en is ook heel wat minder krachtig. Spijtig genoeg is dit systeem nog op diverse plaatsen in gebruik. We belichten later welke technieken er kunnen worden ontplooid om dit probleem aan te pakken.</p>
+<h2 id="de-onderdelen-van-een-template">De onderdelen van een template</h2>
+<p>Een template bestaat uit 2 delen:</p>
+<ul>
+<li>
+<p>een <em>voorschrift</em> (ook wel de template genaamd)</p>
+</li>
+<li>
+<p>een verzameling van placeholder/waarde paren: de sleutels</p>
+</li>
+</ul>
+<p>Deze onderdelen komen precies met de 2 <em>partijen</em> die betrokken zijn bij het werken met templates:</p>
+<ul>
+<li>de persoon die de template samenstelt</li>
+<li>de persoon die de nodige placeholders ter bechikking stelt</li>
+</ul>
+<p>De persoon die de templates samenstelt moet weten welke <em>placeholders</em> (de eerste component van een sleutel) ter beschikking staan.</p>
+<h2 id="bedoeling-van-een-template">Bedoeling van een template</h2>
+<p>Teksten, webpagina&rsquo;s, data &hellip; ze bestaan allemaal uit karakters. Sommige onderdelen van deze teksten zijn vaste gegevens, andere zijn dan weer afhankelijk van de context waarin ze worden gebruikt.</p>
+<p>Het <em>voorschrift</em> van de template gaat zo goed mogelijk de bewuste teksten voorstellen. De dingen in de tekst die veranderen zijn met de context gaan dan worden voorgesteld door een <em>placeholder</em>.
+Dit <em>vervangen</em> van de placeholder door zijn waarde, lijkt eenvoudig maar dit gaat meestal gepaard met een logica en dee logica vatten is het moeilijke in het omgaan met templates.</p>
+<p>Dit vervangen van de placeholders en de bijhorende logica noemen we <em>het evalueren van de template tegenover de sleutels</em></p>
+<p>BTS is tekstueel: dit betekent dat zowel <em>template</em>, <em>placeholders</em> en <em>resultaat</em> steeds karakterrijen (strings) gaan zijn.</p>
+<p>Het is een goede raad om <em>templates</em> te formuleren in <a href="https://en.wikipedia.org/wiki/ASCII">ASCII</a>, toch mogen ze - net zoals waarden en het resultaat - perfect in <a href="https://en.wikipedia.org/wiki/UTF-8">UTF-8</a> zijn.</p>
+<p>Nog even benadrukken dat BTS gericht is op te worden gebruikt in een <a href="https://en.wikipedia.org/wiki/MUMPS">M</a> omgeving en vanzelfsprekend komt het systeem vooral tot zijn recht in een Brocade omgeving.</p>
+<h2 id="voorbeelden-van-templates">Voorbeelden van templates</h2>
+<p>Een template zonder sleutels (en zonder context: er is slechts 1 mogelijk resultaat)</p>
+<pre><code>De hoofdstad van België is Brussel
+</code></pre><p>Als we een overzicht van alle landen en hun hoofdstad willen maken, dan moeten we veranderlijkheid inbouwen in onze template.</p>
+<p>Merk nog op dat het <code>$</code> teken een placeholder inleidt. Er bestaan verschillende soorten placeholders, de meest voorkomende is diegene die met een <code>$</code> begint en dan uit kleine letters en cijfers bestaat.</p>
+<p>Een neveneffect is dat niet alle letters letterlijk mogen worden genomen: sommige letters - zoals de <code>$</code> hebben een speciaal gebruik. BTS draagt er zorg voor dat deze speciale karakters <em>zeldzaam</em> zijn in het gewone gebruik.</p>
+<pre><code>Land: $country
+Hoofdstad: $capital
+</code></pre><p>Met sleutels:</p>
+<ul>
+<li>country: België</li>
+<li>capital: Brussel</li>
+</ul>
+<p>wordt het resultaat:</p>
+<pre><code>Land: België
+Hoofdstad: Brussel
+</code></pre><p>Ok, maar wat als je nu een dollar symbool in je tekst wil zetten? Dan moet je <code>escapen</code>: dit is laten voorafgaan door een <code>\</code>. Meteen ken je een tweede speciaal karakter.</p>
+<pre><code>Bij McDonald's kost een kop koffie 1\$
+</code></pre><p>Na evaluatie:</p>
+<pre><code>Bij McDonald's kost een kop koffie 1$
+</code></pre><h2 id="placeholders">Placeholders</h2>
+<h3 id="gewone-sleutels">Gewone sleutels</h3>
+<p>We hebben reeds een eerste type van templates gezien: deze die beginnen met <code>$</code> en verder uit letters en cijfers bestaan.</p>
+<p>Maar hoe weet je nu waar de placeholder eindigt in de template ? (Beginnen is gemakkelijk: dat is een <code>$</code>)</p>
+<p>Stel dat je &ldquo;Kareltje&rdquo; of &ldquo;Jantje&rdquo; wil zeggen, en je placeholder is <code>$kind</code> met de waarde <code>Karel</code> of <code>Jan</code>.</p>
+<p>Wordt de template dan <code>$kindtje</code> ?</p>
+<p>Neen, natuurlijk niet: de template kan onmogelijk vermoeden dat de placeholder <code>$kindtje</code> is!</p>
+<p>Daarom moet je de <em>reikwijdte</em> van de placeholder afschermen  met <code>{</code> en <code>}</code>. De template wordt:</p>
+<pre><code>{$kind}tje
+</code></pre><p>of zelfs:</p>
+<pre><code>{$kind}tje
+</code></pre><p><code>{</code> en <code>}</code> zijn veel gebruikte karakters in <code>BTS</code> maar hun deel is steeds hetzelfde: een gebied markeren en afschermen.</p>
+<h3 id="tekstfragmenten">Tekstfragmenten</h3>
+<p>Een andere vorm van placeholder is die met een <code>.</code> en voor de rest cijfers en letters.</p>
+<p>De placeholder verwijst dat naar een tekstfragment.</p>
+<p>Met:</p>
+<pre><code>lgcode alphatoomega:
+    N: «Α to Ω»
+    E: «Α to Ω»
+    F: «Α to Ω»
+
+lgcode menu.templateexec:
+    N: «Gecontroleerde code voor templates»
+    E: «Checked code for templates»
+    F: «Code contrôlé pour templates»
+</code></pre><p>De template</p>
+<pre><code>Van $.alphatoomega: $menu.templateexec
+</code></pre><p>evalueert in het Nederlands tot:</p>
+<pre><code>Van Α to Ω: Gecontroleerde code voor templates
+</code></pre><p>Meteen leren we dat het evalueren van een template steeds in de context van een taal gebeurt.</p>
+<h3 id="andere-templates">Andere templates</h3>
+<p>Een placeholder kan ook beginnen met een <code>@</code>. De placeholder verwijst dan naar een andere template.</p>
+<h3 id="omgevingsplaceholders">Omgevingsplaceholders</h3>
+<p>Als een placeholder begint met een <code>$</code> gevolgd door een <em>HOOFDLETTER</em> en het is geen van de vorige placeholders, dan wordt deze gezocht in de werkende M omgeving</p>
+<h3 id="vaste-placeholders">Vaste placeholders</h3>
+<p>Als er gebruik gemaakt wordt van de een placeholder die niet tot de vorige groepen behoort, dan wordt hij gezocht in de collectie van de vaste placeholders.</p>
+<ul>
+<li>technische waarden: maxindex</li>
+<li>context: lg, workstation, staff, job, date, time, session, page, desktop, service, ip</li>
+<li>alle griekse letters: alpha, beta, gamma, &hellip;</li>
+<li>buitenbeentjes: e, smile, unique</li>
+<li>nuttig: true, false, grave, question, empty, quotation, minus, apostrophe, percent, space, crlf, wspace</li>
+</ul>
+<h3 id="meervoudige-placeholders">Meervoudige placeholders</h3>
+<p>Sommige placeholders kunnen meer dan 1 waarde hebben. Zo is er de placeholder <code>$planet</code>, deze heeft als (opeenvolgende waarden): Mercurius, Venus, Aarde, Mars, Jupiter, Saturnus, Uranus, Neptunus, Pluto.</p>
+<h3 id="de-defaultwaarde">De defaultwaarde</h3>
+<p>Er kan een default waarde voor placeholders zijn. Indien de placeholder nergens wordt gevonden en er <em>is</em> een default waarde, dan wordt deze gegeven.</p>
+<p>Een defaultwaarde kan worden gespecificeerd in de sleutelverzameling, in de template of in de oproepende code.</p>
+<p>Is er geen default waarde, dan crasht de code!</p>
+<h2 id="de-pijplijn">De pijplijn</h2>
+<p>Templates vormen een echte pijplijn: op elk moment is er een resultaat en dat resultaat kan worden vervormd to een ander resultaat en dan weer &hellip;</p>
+<p>Het speciale karketer dat de volgende fase van de transformatie inluidt, is <code>|</code>. Het wordt gevolgd door een <em>werkwoord</em> en argumenten. Werkwoord en argumenten zijn gescheiden door een spatie.</p>
+<p>De argumenten kunnen placeholders zijn, getallen of strings tussen dubbele aanhalingstekens.</p>
+<p>Eens je in de pijplijn zit, weet BTS steeds of je met een placeholder te maken hebt. Bijgevolg hoeven de <code>$</code> niet meer.</p>
+<p>De werkwoorden heten <code>modifiers</code>. Welke modifiers er zijn en hoe ze worden gebruikt moet je uit de documentatie halen. Er zijn er op dit ogenblik reeds <a href="https://dev.anet.be/doc/brocade/system/templates#overzicht">135</a> gedefinieerd en deze behandelen diverse situaties. Elk op zich zijn het eenvoudige constructies maar samen vormen ze een uiterst krachtig systeem.</p>
+<p>Met behulp van <code>{</code> en <code>}</code> moet je steeds aangeven welk gebied er betrekking heeft op de pijplijn.</p>
+<h3 id="stringmanipulatie">Stringmanipulatie</h3>
+<p>De template</p>
+<pre><code>{Dag | after staff | upper}
+</code></pre><p>evalueert tot:</p>
+<pre><code>DAGRPHILIPS
+</code></pre><h3 id="brocade-concepten">Brocade concepten</h3>
+<p>De template</p>
+<pre><code>{Titelbeschrijven | menu &quot;bibrec&quot;}
+</code></pre><p>evalueert tot:</p>
+<pre><code>&lt;a␣href=&quot;/menu/bibrec&quot;&gt;Titelbeschrijven&lt;/a&gt;
+</code></pre><p>De template</p>
+<pre><code>{ | menu &quot;bibrec&quot;}
+</code></pre><p>evalueert tot:</p>
+<pre><code>&lt;a href=&quot;/menu/bibrec&quot;&gt;Titelbeschrijvingen invoeren/wijzigen&lt;/a&gt;
+</code></pre><p>De template</p>
+<pre><code>{Titelbeschrijven | menu &quot;bibrec&quot; &quot;&quot; &quot;c:lvd:3&quot;}
+</code></pre><p>evalueert tot:</p>
+<pre><code>&lt;a␣href=&quot;/menu/bibrec/c:lvd:3&quot;&gt;Titelbeschrijven&lt;/a&gt;
+</code></pre><h3 id="bts-concepten">BTS concepten</h3>
+<pre><code>{menu.templateexec | text}
+</code></pre><p>evalueert tot:</p>
+<pre><code>
+Gecontroleerde␣code␣voor␣templates
+</code></pre><p>Stel dat we de sleutel <code>menuitem: templateexec</code> hebben,</p>
+<p>dan:</p>
+<pre><code>{menu.$menuitem | text}
+</code></pre><p>evalueert tot:</p>
+<pre><code>Gecontroleerde␣code␣voor␣templates
+</code></pre><h3 id="booleaans-waarden">Booleaans waarden</h3>
+<p>Elke waarde kan worden gebruikt in een Booleaanse uitdrukking:</p>
+<ul>
+<li>een lege string is <code>vals</code></li>
+<li><code>0</code> is <code>vals</code></li>
+<li>de rest is <code>waar</code></li>
+</ul>
+<p>Dan zijn er de Booleaanse uitdrukkingen:</p>
+<ul>
+<li><code>uitspraak</code> is enkel waar indien <code>!uitspraak</code> vals is</li>
+<li><code>uitspraak1 &amp;&amp; uitspraak2</code> is enkel waar indien beiden waar zijn</li>
+<li><code>uitspraak1 || uitspraak2</code> is enkel vals indien beiden vals zijn</li>
+</ul>
+<h3 id="wiskundige-constructies">Wiskundige constructies</h3>
+<p>Met <code>&lt;</code> en <code>&gt;</code> kunnen uit wiskundige constructies Booleaanse waarden worden gemaakt.</p>
+<h3 id="de--modifier">De <code>?</code> modifier</h3>
+<p>Deze modifier moet steeds vooraan staan in de pijplijn en er kunnen 1 of 3 argumenten zijn.</p>
+<p>Is het eerste argument <code>false</code>, dan wordt het ganse gebied gewist!</p>
+<pre><code>{Karel en Herman{ en Vincent | ? 1&gt;2}}
+</code></pre><p>evalueert tot:</p>
+<pre><code>Karel␣en␣Herman
+</code></pre><p>Met 3 argumenten kan de modifier gebruikt worden in een loop:</p>
+<pre><code>{{$planet, | after &quot; &quot;} | ? true 1 ##planet}
+</code></pre><p>evalueert tot:</p>
+<pre><code>Mercurius,␣Venus,␣Aarde,␣Mars,␣Jupiter,␣Saturnus,␣Uranus,␣Neptunus,␣Pluto,␣
+</code></pre><p>Nog beter:</p>
+<pre><code>{{{$planet, | after &quot; &quot;} | ? true 1 ##planet-1} | rstrip &quot;, &quot;} en {$planet | ? true ##planet ##planet}
+</code></pre><p>evalueert tot:</p>
+<pre><code>Mercurius,␣Venus,␣Aarde,␣Mars,␣Jupiter,␣Saturnus,␣Uranus,␣Neptunus␣en␣Pluto
+</code></pre><p>Eigenlijk kan het eenvoudiger :-)</p>
+<pre><code>{planet | join &quot;, &quot; 1 -1} en {planet | subscript -1}
+</code></pre><p>evalueert tot:</p>
+<pre><code>Mercurius,␣Venus,␣Aarde,␣Mars,␣Jupiter,␣Saturnus,␣Uranus,␣Neptunus␣en␣Pluto
+</code></pre><ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://rphilips.github.io/qtechng-blog/" >
+    &copy;  QtechNG Blog 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/qtechng-blog/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

@@ -6,10 +6,23 @@
     <description>Recent content in QtechNG: Ontwikkelen voor Brocade on QtechNG Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>nl-nl</language>
-    <lastBuildDate>Wed, 24 Jun 2020 11:56:55 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 13 Jul 2020 16:11:09 +0200</lastBuildDate>
     
 	<atom:link href="https://rphilips.github.io/qtechng-blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Naturen</title>
+      <link>https://rphilips.github.io/qtechng-blog/post/natures/</link>
+      <pubDate>Mon, 13 Jul 2020 16:11:09 +0200</pubDate>
+      
+      <guid>https://rphilips.github.io/qtechng-blog/post/natures/</guid>
+      <description>Met QtechNG wordt er ook een classificatie van de bestanden geïntroduceerd.
+Dit is in feite een formalisering van wat reeds jaar en dag gebruikt wordt door het ontwikkelteam.
+Een bestand kan meerdere naturen hebben.
+Deze naturen hebben verschillende functies:
+ ze sturen de installatie ze zijn belangrijk voor m4/r4/i4 substitutie ze kunnen worden gebruikt bij queries  binary en text Deze naturen sluiten elkaar uit. Standaard wordt elk bestand als text beschouwd.</description>
+    </item>
     
     <item>
       <title>Interludium: Het Brocade template systeem</title>

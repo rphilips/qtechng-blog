@@ -6,10 +6,22 @@
     <description>Recent content in QtechNG: Ontwikkelen voor Brocade on QtechNG Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>nl-nl</language>
-    <lastBuildDate>Mon, 13 Jul 2020 16:11:09 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 17 Jul 2020 19:44:58 +0200</lastBuildDate>
     
 	<atom:link href="https://rphilips.github.io/qtechng-blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Search</title>
+      <link>https://rphilips.github.io/qtechng-blog/post/search/</link>
+      <pubDate>Fri, 17 Jul 2020 19:44:58 +0200</pubDate>
+      
+      <guid>https://rphilips.github.io/qtechng-blog/post/search/</guid>
+      <description>De meest gebruikte faciliteit van qtech is ongetwijfeld het zoeken in het software repository.
+Dit moet nog beter (lees: sneller) worden in QtechNG.
+De basis van de zoek-software is de volgende golang structuur:
+type Query struct { Release string CmpRelease string Patterns []string Natures []string Cu []string Mu []string CtBefore string CtAfter string MtBefore string MtAfter string ToLower bool Regexp bool PerLine bool Contains []string Any []func(qpath string, blob []byte) bool All []func(qpath string, blob []byte) bool } Attributen Elk van deze attributen stelt een specifiek type van zoeken voor.</description>
+    </item>
     
     <item>
       <title>Naturen</title>

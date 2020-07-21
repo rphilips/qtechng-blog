@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="nl-nl">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Search | QtechNG Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.69.0-DEV" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/qtechng-blog/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Search" />
+<meta property="og:description" content="De meest gebruikte faciliteit van qtech is ongetwijfeld het zoeken in het software repository.
+Dit moet nog beter (lees: sneller) worden in QtechNG.
+De basis van de zoek-software is de volgende golang structuur:
+type Query struct { Release string CmpRelease string Patterns []string Natures []string Cu []string Mu []string CtBefore string CtAfter string MtBefore string MtAfter string ToLower bool Regexp bool PerLine bool Contains []string Any []func(qpath string, blob []byte) bool All []func(qpath string, blob []byte) bool } Attributen Elk van deze attributen stelt een specifiek type van zoeken voor." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rphilips.github.io/qtechng-blog/post/search/" />
+<meta property="article:published_time" content="2020-07-17T19:44:58+02:00" />
+<meta property="article:modified_time" content="2020-07-17T19:44:58+02:00" />
+<meta itemprop="name" content="Search">
+<meta itemprop="description" content="De meest gebruikte faciliteit van qtech is ongetwijfeld het zoeken in het software repository.
+Dit moet nog beter (lees: sneller) worden in QtechNG.
+De basis van de zoek-software is de volgende golang structuur:
+type Query struct { Release string CmpRelease string Patterns []string Natures []string Cu []string Mu []string CtBefore string CtAfter string MtBefore string MtAfter string ToLower bool Regexp bool PerLine bool Contains []string Any []func(qpath string, blob []byte) bool All []func(qpath string, blob []byte) bool } Attributen Elk van deze attributen stelt een specifiek type van zoeken voor.">
+<meta itemprop="datePublished" content="2020-07-17T19:44:58&#43;02:00" />
+<meta itemprop="dateModified" content="2020-07-17T19:44:58&#43;02:00" />
+<meta itemprop="wordCount" content="1470">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Search"/>
+<meta name="twitter:description" content="De meest gebruikte faciliteit van qtech is ongetwijfeld het zoeken in het software repository.
+Dit moet nog beter (lees: sneller) worden in QtechNG.
+De basis van de zoek-software is de volgende golang structuur:
+type Query struct { Release string CmpRelease string Patterns []string Natures []string Cu []string Mu []string CtBefore string CtAfter string MtBefore string MtAfter string ToLower bool Regexp bool PerLine bool Contains []string Any []func(qpath string, blob []byte) bool All []func(qpath string, blob []byte) bool } Attributen Elk van deze attributen stelt een specifiek type van zoeken voor."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  
+  <header class="cover bg-top" style="background-image: url('https://rphilips.github.io/qtechng-blog/images/search.svg');">
+    <div class="pb3-m pb6-l bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://rphilips.github.io/qtechng-blog/" class="f3 fw2 hover-white no-underline white-90 dib">
+      QtechNG Blog
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/qtechng-blog/post/" title="Artikelen page">
+              Artikelen
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Search</h1>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        ARTIKELEN
+      </aside>
+      
+
+
+      <h1 class="f1 athelas mt3 mb1">Search</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-07-17T19:44:58&#43;02:00">July 17, 2020</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>De meest gebruikte faciliteit van <code>qtech</code> is ongetwijfeld het zoeken in het software repository.</p>
+<p>Dit moet nog beter (lees: sneller) worden in <code>QtechNG</code>.</p>
+<p>De basis van de zoek-software is de volgende golang structuur:</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#859900">type</span> <span style="color:#268bd2">Query</span> <span style="color:#859900">struct</span> {
+    <span style="color:#268bd2">Release</span> <span style="color:#859900;font-weight:bold">string</span>
+    <span style="color:#268bd2">CmpRelease</span> <span style="color:#859900;font-weight:bold">string</span>
+    <span style="color:#268bd2">Patterns</span> []<span style="color:#859900;font-weight:bold">string</span>
+    <span style="color:#268bd2">Natures</span> []<span style="color:#859900;font-weight:bold">string</span>
+    <span style="color:#268bd2">Cu</span> []<span style="color:#859900;font-weight:bold">string</span>
+    <span style="color:#268bd2">Mu</span> []<span style="color:#859900;font-weight:bold">string</span>
+    <span style="color:#268bd2">CtBefore</span> <span style="color:#859900;font-weight:bold">string</span>
+    <span style="color:#268bd2">CtAfter</span> <span style="color:#859900;font-weight:bold">string</span>
+    <span style="color:#268bd2">MtBefore</span> <span style="color:#859900;font-weight:bold">string</span>
+    <span style="color:#268bd2">MtAfter</span> <span style="color:#859900;font-weight:bold">string</span>
+    <span style="color:#268bd2">ToLower</span> <span style="color:#859900;font-weight:bold">bool</span>
+    <span style="color:#268bd2">Regexp</span> <span style="color:#859900;font-weight:bold">bool</span>
+    <span style="color:#268bd2">PerLine</span> <span style="color:#859900;font-weight:bold">bool</span>
+    <span style="color:#268bd2">Contains</span> []<span style="color:#859900;font-weight:bold">string</span>
+    <span style="color:#268bd2">Any</span> []<span style="color:#859900">func</span>(<span style="color:#268bd2">qpath</span> <span style="color:#859900;font-weight:bold">string</span>, <span style="color:#268bd2">blob</span> []<span style="color:#859900;font-weight:bold">byte</span>) <span style="color:#859900;font-weight:bold">bool</span>
+    <span style="color:#268bd2">All</span> []<span style="color:#859900">func</span>(<span style="color:#268bd2">qpath</span> <span style="color:#859900;font-weight:bold">string</span>, <span style="color:#268bd2">blob</span> []<span style="color:#859900;font-weight:bold">byte</span>) <span style="color:#859900;font-weight:bold">bool</span>
+}
+</code></pre></div><h2 id="attributen">Attributen</h2>
+<p>Elk van deze attributen stelt een specifiek type van zoeken voor. Zijn er meerdere attributen gedefinieerd, dan zijn dit <strong>AND</strong> searches: aan elk attribuut moet worden voldaan.</p>
+<p>Dit impliceert ook dat - indien er meerdere attributen ingevuld zijn - de volgorde erg belangrijk wordt: sommige zoekacties vergen nu éénmaal meer resources dan andere.</p>
+<p>Laten we even de verschillende attributen overlopen. Nadien zullen we uitleggen hoe één en ander in elkaar zit.</p>
+<h3 id="release">Release</h3>
+<p>Indien verschillend van leeg, dan moeten zoekresultaten steeds binnen de gegeven <code>Release</code> worden gezocht.</p>
+<p><em>straight forward</em>, dit attribuut moet steeds gespecificeerd zijn (impliciet of expliciet).</p>
+<h3 id="cmprelease">CmpRelease</h3>
+<p>Ook dit attribuut stelt een release voor (m.a.w. een string van de gedaante <code>5.10</code>). Een bestand komt in het zoekresultaat indien er aan één van de volgende voorwaarden wordt voldoen:</p>
+<ul>
+<li>het bestand bestaat <strong>niet</strong> in release CmpRelease</li>
+<li>het bestand verschilt van inhoud ten opzichte van release CmpRelease</li>
+</ul>
+<h3 id="patterns">Patterns</h3>
+<p>Wat de snelheid van zoeken betreft, is dit een cruciaal attribuut: het is een lijst met wildcards. Enkel bestanden waarvan het <code>QtechNG</code> path voldoet aan één of meer van deze patronen, worden weerhouden.</p>
+<p>Belangrijk is dat de bestanden zelf niet moeten worden ingelezen.</p>
+<h3 id="natures">Natures</h3>
+<p>In een vorige blog hebben we het al gehad over de naturen van source code. Enkel de bestanden met een natuur in deze lijst worden weerhouden.</p>
+<p>De bestanden zelf hoeven niet te worden ingelezen. Wel de corresponderende configuratiefiles <code>brocade.json</code>. Hiervan zijn er natuurlijk heel wat minder.</p>
+<h3 id="ctbefore">CtBefore</h3>
+<p>Hiervoor wordt de meta informatie van de betreffende source code opgehaald. Enkel indien de <em>creation time</em> kleiner of gelijk is aan CtBefore, wordt het bestand weerhouden.</p>
+<p>De tijden worden steeds weergegeven in de vorm <code>YYYY-MM-DDThh:mm:ss</code> (ongeldige tijdstippen worden steeds genormaliseerd door overflow: vb. als hh = 25, dan schuift DD op met 1 en hh wordt 01)</p>
+<h3 id="ctafter">CtAfter</h3>
+<p>Hiervoor wordt de meta informatie van de betreffende source code opgehaald. Enkel indien de <em>creation time</em> groter of gelijk is aan CtBefore, wordt het bestand weerhouden.</p>
+<p>De tijden worden steeds weergegeven in de vorm <code>YYYY-MM-DDThh:mm:ss</code> (ongeldige tijdstippen worden steeds genormaliseerd door overflow: vb. als hh = 25, dan schuift DD op met 1 en hh wordt 01)</p>
+<h3 id="cu">Cu</h3>
+<p>Is een lijstje met de userid&rsquo;s van de mogelijke creators. Enkel indien de daadwerkelijke creator in het lijstje zit, wordt het bestand weerhouden.</p>
+<h3 id="mtbefore">MtBefore</h3>
+<p>Hiervoor wordt de meta informatie van de betreffende source code opgehaald. Enkel indien de <em>modification time</em> kleiner of gelijk is aan MtBefore, wordt het bestand weerhouden.</p>
+<p>De tijden worden steeds weergegeven in de vorm <code>YYYY-MM-DDThh:mm:ss</code> (ongeldige tijdstippen worden steeds genormaliseerd door overflow: vb. als hh = 25, dan schuift DD op met 1 en hh wordt 01)</p>
+<h3 id="mtafter">MtAfter</h3>
+<p>Hiervoor wordt de meta informatie van de betreffende source code opgehaald. Enkel indien de <em>modification time</em> groter of gelijk is aan CtAfter, wordt het bestand weerhouden.</p>
+<p>De tijden worden steeds weergegeven in de vorm <code>YYYY-MM-DDThh:mm:ss</code> (ongeldige tijdstippen worden steeds genormaliseerd door overflow: vb. als hh = 25, dan schuift DD op met 1 en hh wordt 01)</p>
+<h3 id="mu">Mu</h3>
+<p>Is een lijstje met de userid&rsquo;s van de mogelijke last modifiers. Enkel indien de daadwerkelijke modifier in het lijstje zit, wordt het bestand weerhouden.</p>
+<h3 id="contains">Contains</h3>
+<p>Dit is een lijstje met strings (<code>needles</code>). De precieze werking is afhankelijk van de waarden van <code>PerLine</code>, <code>ToLower</code> en <code>Regexp</code>.</p>
+<p>In essentie wordt de inhoud van de bestanden gecontroleerd tegen het lijstje met needles. <strong>ALLE</strong> needles moeten tot het bestand behoren.</p>
+<p>Er zijn nu diverse situaties:</p>
+<ul>
+<li>
+<p>is <code>PerLine</code> waar, dan moeten alle needles in dezelfde lijn worden gevonden. Anders wordt gewoon gekeken in het bestand.</p>
+</li>
+<li>
+<p>is <code>Regexp</code> waar, dan worden de needles omgevormd tot reguliere uitdrukkingen.</p>
+</li>
+<li>
+<p>is <code>ToLower</code> waar, dan wordt de inhoud van het bestand omgezet naar kleine letters. Is <code>Regexp</code> onwaar, dan worden ook de needles omgezet naar kleine letters (met <code>Regexp</code> waar, werkt dit niet: de betekenis van de reguliere uitdrukking zou immers kunnen veranderen. vb. <code>\D</code> omzetten naar <code>\d</code>  verandert de zoekactie helemaal.)</p>
+</li>
+</ul>
+<h3 id="any">Any</h3>
+<p>Dit is een gespecialiseerde zoekattribuut: het attribuut is een lijst van functies. Elke functie werkt met 2 argumenten: een <code>QtechNG</code> path naam en een inhoud in bytes. Onderhuids wordt de path naam van elk bestand dat we tegenkomen, samen met zijn inhoud gegeven aan deze functies. Van zodra er 1 functie waar is, wordt het bestand geselecteerd.</p>
+<h3 id="all">All</h3>
+<p>Dit is een gespecialiseerde zoekattribuut: het attribuut is een lijst van functies. Elke functie werkt met 2 argumenten: een <code>QtechNG</code> path naam en een inhoud in bytes. Onderhuids wordt de path naam van elk bestand dat we tegenkomen, samen met zijn inhoud gegeven aan deze functies. Enkel indien <em>ALLE</em> functies waar zijn, wordt het bestand geselecteerd.</p>
+<h2 id="uitwerking">Uitwerking</h2>
+<p>Uit de beschikbare attributen is het duidelijk dat <code>Query</code> niet enkel is bedoeld om door een UI te worden aangestuurd: <strong>Any</strong> en <strong>All</strong> maken de software ook heel erg geschikt voor interne doeleinden.</p>
+<p>De effectieve implementatie gebeurt geheel in termen van concurrency en pipelining.</p>
+<p>De pipeline bevat 3 fases:</p>
+<ul>
+<li>Optimalisering van de <code>Query</code></li>
+<li>in de tweede fase worden de kandidaat bestanden opgelijst</li>
+<li>in de derde fase wordt elke kandidaten getest tegen <code>Query</code>.</li>
+</ul>
+<p>In de eerste fase wordt de <code>Query</code> zelf geanalyseerd en geoptimaliseerd: reguliere uitdrukkingen worden gecompileerd, overbodige patronen worden geschrapt en passende <a href="https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string-search_algorithm">Boyer-Moore skiptabellen</a> worden aangemaakt. Voor alle duidelijkheid: de searches - als die al bestaan - zijn niet altijd volgens Boyer-Moore. Er zijn immers nogal wat situaties waar dit te weinig zou opbrengen. De lengte van de te doorzoeken bestanden speelt hierbij de hoofdrol: bevatten deze bestanden minder dan 64 karakters dan wordt er gewoon <em>brute force</em> gezocht. Die &lsquo;64&rsquo; valt niet zomaar uit de lucht (en heeft ook niets te maken met het schaakspel). Diverse zoekstrategieën in de <a href="https://golang.org/src/bytes/bytes.go?s=26077:26106#L984">golang code</a> zelf maken gebruik van dit getal.</p>
+<p>In de tweede fase wordt er maximaal gebruik gemaakt van de mogelijkheden geboden door <code>Patterns</code> (en <code>Release</code>). De kandidaten worden parallel opgespoord door analyse van de QtechNG paths.
+Om sneller te werken worden in de tweede fase van de pipeline een aantal <em>fouten</em> toegelaten.</p>
+<p>In de derde fase wordt echter elk bestand uit de eerste fase rigoureus (en in parallel) getest tegen de <em>ganse</em> Query. Indien deze werkwijze je doet denken aan de filosofie achter het gebruik van <a href="https://en.wikipedia.org/wiki/Bloom_filter">Bloom filters</a>, dan zit je goed!.</p>
+<h2 id="benchmarks">Benchmarks</h2>
+<p>Tijd voor benchmarks!</p>
+<p>We gaan ons niet bezig houden met micro benchmarks: laten we meteen een realistisch scenario opzetten.</p>
+<p>Ik converteerde qtech&rsquo;s 5.00 release naar QtechNG&rsquo;s 9.98. Deze conversie was compleet: sources, objecten en meta informatie.</p>
+<p>Ik wou 3 searches uitvoeren: deze waren op zich niet zo heel moeilijk maar wel representatief voor het concrete gebruik.</p>
+<h3 id="search-1">Search 1</h3>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#268bd2">Query</span>{
+    <span style="color:#268bd2">Release</span>: <span style="color:#2aa198">&#34;9.98&#34;</span>,
+    <span style="color:#268bd2">Patterns</span>: []<span style="color:#859900;font-weight:bold">string</span>{<span style="color:#2aa198">&#34;/*&#34;</span>},
+    <span style="color:#268bd2">Contains</span>: []<span style="color:#859900;font-weight:bold">string</span>{<span style="color:#2aa198">&#34;m4_getCatIsbdTitles&#34;</span>},
+}
+</code></pre></div><p>Deze zoekactie doorzocht alle bestanden naar de string &ldquo;m4_getCatIsbdTitles&rdquo;.</p>
+<p>De sublieme benchmarking van Go gaf het volgende resultaat:</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Running tool: /usr/local/go/bin/go test -benchmem -run=^$ brocade.be/qtechng/source -bench ^(BenchmarkQuery77)$
+
+goos: linux
+goarch: amd64
+pkg: brocade.be/qtechng/source
+BenchmarkQuery77-4 1000000000 0.0594 ns/op 0 B/op 0 allocs/op
+PASS
+ok brocade.be/qtechng/source 0.673s
+</code></pre></div><p>Met andere woorden, een zoekresultaat binnen (ongeveer) een halve second.</p>
+<h3 id="search-2">Search 2</h3>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#268bd2">Query</span>{
+    <span style="color:#268bd2">Release</span>: <span style="color:#2aa198">&#34;9.98&#34;</span>,
+    <span style="color:#268bd2">Patterns</span>: []<span style="color:#859900;font-weight:bold">string</span>{<span style="color:#2aa198">&#34;/*.m&#34;</span>},
+    <span style="color:#268bd2">Contains</span>: []<span style="color:#859900;font-weight:bold">string</span>{<span style="color:#2aa198">&#34;m4_getCatIsbdTitles&#34;</span>},
+}
+</code></pre></div><p>Deze zoekactie doorzocht alle bestanden naar de string &ldquo;m4_getCatIsbdTitles&rdquo; maar beperkt zich enkel tot de m-files.</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Running tool: /usr/local/go/bin/go test -benchmem -run=^$ brocade.be/qtechng/source -bench ^(BenchmarkQuery78)$
+goos: linux
+goarch: amd64
+pkg: brocade.be/qtechng/source
+BenchmarkQuery78-4 1000000000 0.0387 ns/op 0 B/op 0 allocs/op
+PASS
+ok brocade.be/qtechng/source 0.331s
+</code></pre></div><p>Een halvering van het vorige zoekresultaat.</p>
+<h3 id="search-3">Search 3</h3>
+<p>In de derde zoekactie willen we de bestandne opzoeken die - net zoals in de vorige zoekacties, de string &ldquo;m4_getCatIsbdTitles&rdquo; bevatten, maar waarvan de bestandsnaam niet voldoet aan de style guide.</p>
+<p>Ik geef de volledige benchmarkfunctie:</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#859900">func</span> <span style="color:#268bd2">BenchmarkQuery79</span>(<span style="color:#268bd2">t</span> *<span style="color:#268bd2">testing</span>.<span style="color:#268bd2">B</span>) {
+	<span style="color:#268bd2">r</span> := <span style="color:#2aa198">&#34;9.98&#34;</span>
+
+	<span style="color:#268bd2">query</span> := &amp;<span style="color:#268bd2">Query</span>{
+		<span style="color:#268bd2">Release</span>:  <span style="color:#268bd2">r</span>,
+		<span style="color:#268bd2">Patterns</span>: []<span style="color:#859900;font-weight:bold">string</span>{<span style="color:#2aa198">&#34;/*&#34;</span>},
+		<span style="color:#268bd2">Contains</span>: []<span style="color:#859900;font-weight:bold">string</span>{<span style="color:#2aa198">&#34;m4_getCatIsbdTitles&#34;</span>},
+		<span style="color:#268bd2">All</span>: [](<span style="color:#859900">func</span>(<span style="color:#268bd2">qpath</span> <span style="color:#859900;font-weight:bold">string</span>, <span style="color:#268bd2">blob</span> []<span style="color:#859900;font-weight:bold">byte</span>) <span style="color:#859900;font-weight:bold">bool</span>){
+			<span style="color:#859900">func</span>(<span style="color:#268bd2">qpath</span> <span style="color:#859900;font-weight:bold">string</span>, <span style="color:#268bd2">blob</span> []<span style="color:#859900;font-weight:bold">byte</span>) <span style="color:#859900;font-weight:bold">bool</span> {
+				<span style="color:#268bd2">k</span> := <span style="color:#268bd2">strings</span>.<span style="color:#268bd2">LastIndex</span>(<span style="color:#268bd2">qpath</span>, <span style="color:#2aa198">&#34;/&#34;</span>)
+				<span style="color:#859900">if</span> <span style="color:#268bd2">k</span> == -<span style="color:#2aa198;font-weight:bold">1</span> {
+					<span style="color:#859900">return</span> <span style="color:#859900;font-weight:bold">false</span>
+				}
+				<span style="color:#268bd2">base</span> := <span style="color:#268bd2">qpath</span>[<span style="color:#268bd2">k</span>+<span style="color:#2aa198;font-weight:bold">1</span>:]
+				<span style="color:#859900">if</span> <span style="color:#cb4b16">len</span>(<span style="color:#268bd2">base</span>) &lt; <span style="color:#2aa198;font-weight:bold">4</span> {
+					<span style="color:#859900">return</span> <span style="color:#859900;font-weight:bold">false</span>
+				}
+				<span style="color:#268bd2">fourth</span> := <span style="color:#cb4b16">rune</span>(<span style="color:#268bd2">base</span>[<span style="color:#2aa198;font-weight:bold">3</span>])
+				<span style="color:#268bd2">ok</span> := <span style="color:#268bd2">strings</span>.<span style="color:#268bd2">HasPrefix</span>(<span style="color:#268bd2">base</span>, <span style="color:#2aa198">&#34;g&#34;</span>) || <span style="color:#268bd2">strings</span>.<span style="color:#268bd2">ContainsRune</span>(<span style="color:#2aa198">&#34;wuts&#34;</span>, <span style="color:#268bd2">fourth</span>)
+				<span style="color:#859900">return</span> !<span style="color:#268bd2">ok</span>
+			},
+		},
+	}
+
+	<span style="color:#268bd2">result</span> := <span style="color:#268bd2">query</span>.<span style="color:#268bd2">Run</span>()
+
+	<span style="color:#859900">if</span> <span style="color:#cb4b16">len</span>(<span style="color:#268bd2">result</span>) != <span style="color:#2aa198;font-weight:bold">13</span> {
+		<span style="color:#268bd2">t</span>.<span style="color:#268bd2">Errorf</span>(<span style="color:#2aa198">&#34;Should have found 72: %d&#34;</span>, <span style="color:#cb4b16">len</span>(<span style="color:#268bd2">result</span>))
+		<span style="color:#268bd2">fmt</span>.<span style="color:#268bd2">Println</span>(<span style="color:#268bd2">query</span>)
+		<span style="color:#859900">for</span> <span style="color:#268bd2">_</span>, <span style="color:#268bd2">x</span> := <span style="color:#859900">range</span> <span style="color:#268bd2">result</span> {
+			<span style="color:#268bd2">fmt</span>.<span style="color:#268bd2">Println</span>(<span style="color:#268bd2">x</span>.<span style="color:#268bd2">String</span>())
+		}
+		<span style="color:#859900">return</span>
+	}
+}
+</code></pre></div><p>Deze test gaf het volgende resultaat:</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Running tool: /usr/local/go/bin/go test -benchmem -run=^$ brocade.be/qtechng/source -bench ^(BenchmarkQuery79)$
+
+goos: linux
+goarch: amd64
+pkg: brocade.be/qtechng/source
+BenchmarkQuery79-4   	1000000000	         0.0521 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	brocade.be/qtechng/source	0.662s
+</code></pre></div><h3 id="besluit">Besluit</h3>
+<p>Deze benchmarks werden verschillende keren uitgevoerd (ook met een reboot tussen de verschillende benchmarks). De resultaten waren in grote lijnen consistent.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://rphilips.github.io/qtechng-blog/" >
+    &copy;  QtechNG Blog 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/qtechng-blog/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

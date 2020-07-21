@@ -3,12 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://rphilips.github.io/qtechng-blog/post/natures/</loc>
-    <lastmod>2020-07-13T16:11:09+02:00</lastmod>
+    <loc>https://rphilips.github.io/qtechng-blog/</loc>
+    <lastmod>2020-07-17T19:44:58+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://rphilips.github.io/qtechng-blog/</loc>
+    <loc>https://rphilips.github.io/qtechng-blog/post/search/</loc>
+    <lastmod>2020-07-17T19:44:58+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rphilips.github.io/qtechng-blog/post/natures/</loc>
     <lastmod>2020-07-13T16:11:09+02:00</lastmod>
   </url>
   

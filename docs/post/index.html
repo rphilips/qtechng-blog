@@ -110,6 +110,29 @@
             <div class="mb3 pa4 mid-gray overflow-hidden">
     
       <div class="f6">
+        July 17, 2020
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="https://rphilips.github.io/qtechng-blog/post/search/" class="link black dim">
+        Search
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      De meest gebruikte faciliteit van qtech is ongetwijfeld het zoeken in het software repository.
+Dit moet nog beter (lees: sneller) worden in QtechNG.
+De basis van de zoek-software is de volgende golang structuur:
+type Query struct { Release string CmpRelease string Patterns []string Natures []string Cu []string Mu []string CtBefore string CtAfter string MtBefore string MtAfter string ToLower bool Regexp bool PerLine bool Contains []string Any []func(qpath string, blob []byte) bool All []func(qpath string, blob []byte) bool } Attributen Elk van deze attributen stelt een specifiek type van zoeken voor.
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
         July 13, 2020
       </div>
     
@@ -280,28 +303,6 @@ Ook het installeren in de productieomgeving wordt niet behandeld: dus we gaan ni
       In de vorige blog post toonde ik een SVG.
 Ik was eerst van plan deze met Inkscape aan te maken maar de goesting ging snel over. SVG is een XML toepassing en dat met de hand schrijven leek me nog minder appetijtelijk.
 Ik herinnerde me dat het in Sphinx, ons documentatie platform, mogelijk is om grafen in te bedden en besloot om de technologie daarachter, eens van nabij te bekijken.
-    </div>
-  </div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-          
-            <div class="mb3 pa4 mid-gray overflow-hidden">
-    
-      <div class="f6">
-        June 6, 2020
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="https://rphilips.github.io/qtechng-blog/post/repository/" class="link black dim">
-        Repository
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      QtechNG werkt met een software repository. De basis directory waarop dit repository rust, komt - u raadt het al - uit de registry: qtechng-repository-dir: vb. /library/repository
-Deze directory - beschikbaar op alle productieservers en ontwikkelservers - wordt door root:db aangemaakt door Ansible met het commando:
-export REPO=`delphi key qtechng-repository-dir` sudo mkdir -p $REPO sudo chown root $REPO sudo chgrp db $REPO sudo chmod 2770 $REPO Dit maakt dat het setgid bit van de directory wordt gezet: alle bestanden en directories gaan to groep db behoren.
     </div>
   </div>
 

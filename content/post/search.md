@@ -145,7 +145,38 @@ We gaan ons niet bezig houden met micro benchmarks: laten we meteen een realisti
 
 Ik converteerde qtech's 5.00 release naar QtechNG's 9.98. Deze conversie was compleet: sources, objecten en meta informatie.
 
-Ik wou 3 searches uitvoeren: deze waren op zich niet zo heel moeilijk maar wel representatief voor het concrete gebruik.
+Ik wou 3 searches uitvoeren: deze waren op zich niet zo heel belastend maar wel representatief voor het concrete gebruik.
+
+
+Volg nog even een overzicht van de hardware van mijn XPS-13 (2016):
+
+```text
+Architecture:                    x86_64
+CPU op-mode(s):                  32-bit, 64-bit
+Byte Order:                      Little Endian
+Address sizes:                   39 bits physical, 48 bits virtual
+CPU(s):                          4
+On-line CPU(s) list:             0-3
+Thread(s) per core:              2
+Core(s) per socket:              2
+Socket(s):                       1
+NUMA node(s):                    1
+Vendor ID:                       GenuineIntel
+CPU family:                      6
+Model:                           61
+Model name:                      Intel(R) Core(TM) i7-5500U CPU @ 2.40GHz
+Stepping:                        4
+CPU MHz:                         936.564
+CPU max MHz:                     3000,0000
+CPU min MHz:                     500,0000
+BogoMIPS:                        4789.15
+Virtualization:                  VT-x
+L1d cache:                       64 KiB
+L1i cache:                       64 KiB
+L2 cache:                        512 KiB
+L3 cache:                        4 MiB
+NUMA node0 CPU(s):               0-3
+```
 
 ### Search 1
 
@@ -201,7 +232,7 @@ Een halvering van het vorige zoekresultaat.
 
 ### Search 3
 
-In de derde zoekactie willen we de bestandne opzoeken die - net zoals in de vorige zoekacties, de string "m4_getCatIsbdTitles" bevatten, maar waarvan de bestandsnaam niet voldoet aan de style guide.
+In de derde zoekactie willen we de bestanden opzoeken die - net zoals in de vorige zoekacties, de string "m4_getCatIsbdTitles" bevatten, maar waarvan de bestandsnaam niet voldoet aan de style guide.
 
 Ik geef de volledige benchmarkfunctie:
 

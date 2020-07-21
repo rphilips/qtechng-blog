@@ -41,7 +41,7 @@ De basis van de zoek-software is de volgende golang structuur:
 type Query struct { Release string CmpRelease string Patterns []string Natures []string Cu []string Mu []string CtBefore string CtAfter string MtBefore string MtAfter string ToLower bool Regexp bool PerLine bool Contains []string Any []func(qpath string, blob []byte) bool All []func(qpath string, blob []byte) bool } Attributen Elk van deze attributen stelt een specifiek type van zoeken voor.">
 <meta itemprop="datePublished" content="2020-07-17T19:44:58&#43;02:00" />
 <meta itemprop="dateModified" content="2020-07-17T19:44:58&#43;02:00" />
-<meta itemprop="wordCount" content="1470">
+<meta itemprop="wordCount" content="1572">
 
 
 
@@ -225,8 +225,34 @@ Om sneller te werken worden in de tweede fase van de pipeline een aantal <em>fou
 <p>Tijd voor benchmarks!</p>
 <p>We gaan ons niet bezig houden met micro benchmarks: laten we meteen een realistisch scenario opzetten.</p>
 <p>Ik converteerde qtech&rsquo;s 5.00 release naar QtechNG&rsquo;s 9.98. Deze conversie was compleet: sources, objecten en meta informatie.</p>
-<p>Ik wou 3 searches uitvoeren: deze waren op zich niet zo heel moeilijk maar wel representatief voor het concrete gebruik.</p>
-<h3 id="search-1">Search 1</h3>
+<p>Ik wou 3 searches uitvoeren: deze waren op zich niet zo heel belastend maar wel representatief voor het concrete gebruik.</p>
+<p>Volg nog even een overzicht van de hardware van mijn XPS-13 (2016):</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Architecture:                    x86_64
+CPU op-mode(s):                  32-bit, 64-bit
+Byte Order:                      Little Endian
+Address sizes:                   39 bits physical, 48 bits virtual
+CPU(s):                          4
+On-line CPU(s) list:             0-3
+Thread(s) per core:              2
+Core(s) per socket:              2
+Socket(s):                       1
+NUMA node(s):                    1
+Vendor ID:                       GenuineIntel
+CPU family:                      6
+Model:                           61
+Model name:                      Intel(R) Core(TM) i7-5500U CPU @ 2.40GHz
+Stepping:                        4
+CPU MHz:                         936.564
+CPU max MHz:                     3000,0000
+CPU min MHz:                     500,0000
+BogoMIPS:                        4789.15
+Virtualization:                  VT-x
+L1d cache:                       64 KiB
+L1i cache:                       64 KiB
+L2 cache:                        512 KiB
+L3 cache:                        4 MiB
+NUMA node0 CPU(s):               0-3
+</code></pre></div><h3 id="search-1">Search 1</h3>
 <div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#268bd2">Query</span>{
     <span style="color:#268bd2">Release</span>: <span style="color:#2aa198">&#34;9.98&#34;</span>,
     <span style="color:#268bd2">Patterns</span>: []<span style="color:#859900;font-weight:bold">string</span>{<span style="color:#2aa198">&#34;/*&#34;</span>},
@@ -259,7 +285,7 @@ PASS
 ok brocade.be/qtechng/source 0.331s
 </code></pre></div><p>Een halvering van het vorige zoekresultaat.</p>
 <h3 id="search-3">Search 3</h3>
-<p>In de derde zoekactie willen we de bestandne opzoeken die - net zoals in de vorige zoekacties, de string &ldquo;m4_getCatIsbdTitles&rdquo; bevatten, maar waarvan de bestandsnaam niet voldoet aan de style guide.</p>
+<p>In de derde zoekactie willen we de bestanden opzoeken die - net zoals in de vorige zoekacties, de string &ldquo;m4_getCatIsbdTitles&rdquo; bevatten, maar waarvan de bestandsnaam niet voldoet aan de style guide.</p>
 <p>Ik geef de volledige benchmarkfunctie:</p>
 <div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#859900">func</span> <span style="color:#268bd2">BenchmarkQuery79</span>(<span style="color:#268bd2">t</span> *<span style="color:#268bd2">testing</span>.<span style="color:#268bd2">B</span>) {
 	<span style="color:#268bd2">r</span> := <span style="color:#2aa198">&#34;9.98&#34;</span>

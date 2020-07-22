@@ -132,6 +132,11 @@ De pipeline bevat 3 fases:
 
 In de eerste fase wordt de `Query` zelf geanalyseerd en geoptimaliseerd: reguliere uitdrukkingen worden gecompileerd, overbodige patronen worden geschrapt en passende [Boyer-Moore skiptabellen](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string-search_algorithm) worden aangemaakt. Voor alle duidelijkheid: de searches - als die al bestaan - zijn niet altijd volgens Boyer-Moore. Er zijn immers nogal wat situaties waar dit te weinig zou opbrengen. De lengte van de te doorzoeken bestanden speelt hierbij de hoofdrol: bevatten deze bestanden minder dan 64 karakters dan wordt er gewoon *brute force* gezocht. Die '64' valt niet zomaar uit de lucht (en heeft ook niets te maken met het schaakspel). Diverse zoekstrategieën in de [golang code](https://golang.org/src/bytes/bytes.go?s=26077:26106#L984) zelf maken gebruik van dit getal.
 
+Het Boyer-Moore algoritme werd nog verbeterd met de (Galil)[https://en.wikipedia.org/wiki/Zvi_Galil] aanpassingen.
+
+Indien het bestand de neiging heeft om binair te zijn (een NULL-byte in de eerste 1024 bytes), schakelt het zoekalgoritme over naar (Rabin-Karp)[https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm].
+
+
 In de tweede fase wordt er maximaal gebruik gemaakt van de mogelijkheden geboden door `Patterns` (en `Release`). De kandidaten worden parallel opgespoord door analyse van de QtechNG paths. 
 Om sneller te werken worden in de tweede fase van de pipeline een aantal *fouten* toegelaten. 
 
@@ -198,12 +203,12 @@ Running tool: /usr/local/go/bin/go test -benchmem -run=^$ brocade.be/qtechng/sou
 goos: linux
 goarch: amd64
 pkg: brocade.be/qtechng/source
-BenchmarkQuery77-4 1000000000 0.0594 ns/op 0 B/op 0 allocs/op
+BenchmarkQuery77-4   	1000000000	         0.0259 ns/op	       0 B/op	       0 allocs/op
 PASS
-ok brocade.be/qtechng/source 0.673s
+ok  	brocade.be/qtechng/source	0.311s
 ```
 
-Met andere woorden, een zoekresultaat binnen (ongeveer) een halve second.
+Met andere woorden, een zoekresultaat binnen (ongeveer) een 0.3 seconden.
 
 ### Search 2
 
@@ -219,15 +224,16 @@ Deze zoekactie doorzocht alle bestanden naar de string "m4_getCatIsbdTitles" maa
 
 ```text
 Running tool: /usr/local/go/bin/go test -benchmem -run=^$ brocade.be/qtechng/source -bench ^(BenchmarkQuery78)$
+
 goos: linux
 goarch: amd64
 pkg: brocade.be/qtechng/source
-BenchmarkQuery78-4 1000000000 0.0387 ns/op 0 B/op 0 allocs/op
+BenchmarkQuery78-4   	1000000000	         0.0234 ns/op	       0 B/op	       0 allocs/op
 PASS
-ok brocade.be/qtechng/source 0.331s
+ok  	brocade.be/qtechng/source	0.196s
 ```
 
-Een halvering van het vorige zoekresultaat.
+Met wat goede wil, een halvering van het vorige zoekresultaat.
 
 
 ### Search 3
@@ -281,9 +287,9 @@ Running tool: /usr/local/go/bin/go test -benchmem -run=^$ brocade.be/qtechng/sou
 goos: linux
 goarch: amd64
 pkg: brocade.be/qtechng/source
-BenchmarkQuery79-4   	1000000000	         0.0521 ns/op	       0 B/op	       0 allocs/op
+BenchmarkQuery79-4   	1000000000	         0.0247 ns/op	       0 B/op	       0 allocs/op
 PASS
-ok  	brocade.be/qtechng/source	0.662s
+ok  	brocade.be/qtechng/source	0.289s
 ```
 
 

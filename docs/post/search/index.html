@@ -41,7 +41,7 @@ De basis van de zoek-software is de volgende golang structuur:
 type Query struct { Release string CmpRelease string Patterns []string Natures []string Cu []string Mu []string CtBefore string CtAfter string MtBefore string MtAfter string ToLower bool Regexp bool PerLine bool Contains []string Any []func(qpath string, blob []byte) bool All []func(qpath string, blob []byte) bool } Attributen Elk van deze attributen stelt een specifiek type van zoeken voor.">
 <meta itemprop="datePublished" content="2020-07-17T19:44:58&#43;02:00" />
 <meta itemprop="dateModified" content="2020-07-17T19:44:58&#43;02:00" />
-<meta itemprop="wordCount" content="1572">
+<meta itemprop="wordCount" content="1609">
 
 
 
@@ -218,6 +218,8 @@ type Query struct { Release string CmpRelease string Patterns []string Natures [
 <li>in de derde fase wordt elke kandidaten getest tegen <code>Query</code>.</li>
 </ul>
 <p>In de eerste fase wordt de <code>Query</code> zelf geanalyseerd en geoptimaliseerd: reguliere uitdrukkingen worden gecompileerd, overbodige patronen worden geschrapt en passende <a href="https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string-search_algorithm">Boyer-Moore skiptabellen</a> worden aangemaakt. Voor alle duidelijkheid: de searches - als die al bestaan - zijn niet altijd volgens Boyer-Moore. Er zijn immers nogal wat situaties waar dit te weinig zou opbrengen. De lengte van de te doorzoeken bestanden speelt hierbij de hoofdrol: bevatten deze bestanden minder dan 64 karakters dan wordt er gewoon <em>brute force</em> gezocht. Die &lsquo;64&rsquo; valt niet zomaar uit de lucht (en heeft ook niets te maken met het schaakspel). Diverse zoekstrategieën in de <a href="https://golang.org/src/bytes/bytes.go?s=26077:26106#L984">golang code</a> zelf maken gebruik van dit getal.</p>
+<p>Het Boyer-Moore algoritme werd nog verbeterd met de (Galil)[https://en.wikipedia.org/wiki/Zvi_Galil] aanpassingen.</p>
+<p>Indien het bestand de neiging heeft om binair te zijn (een NULL-byte in de eerste 1024 bytes), schakelt het zoekalgoritme over naar (Rabin-Karp)[https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm].</p>
 <p>In de tweede fase wordt er maximaal gebruik gemaakt van de mogelijkheden geboden door <code>Patterns</code> (en <code>Release</code>). De kandidaten worden parallel opgespoord door analyse van de QtechNG paths.
 Om sneller te werken worden in de tweede fase van de pipeline een aantal <em>fouten</em> toegelaten.</p>
 <p>In de derde fase wordt echter elk bestand uit de eerste fase rigoureus (en in parallel) getest tegen de <em>ganse</em> Query. Indien deze werkwijze je doet denken aan de filosofie achter het gebruik van <a href="https://en.wikipedia.org/wiki/Bloom_filter">Bloom filters</a>, dan zit je goed!.</p>
@@ -265,10 +267,10 @@ NUMA node0 CPU(s):               0-3
 goos: linux
 goarch: amd64
 pkg: brocade.be/qtechng/source
-BenchmarkQuery77-4 1000000000 0.0594 ns/op 0 B/op 0 allocs/op
+BenchmarkQuery77-4   	1000000000	         0.0259 ns/op	       0 B/op	       0 allocs/op
 PASS
-ok brocade.be/qtechng/source 0.673s
-</code></pre></div><p>Met andere woorden, een zoekresultaat binnen (ongeveer) een halve second.</p>
+ok  	brocade.be/qtechng/source	0.311s
+</code></pre></div><p>Met andere woorden, een zoekresultaat binnen (ongeveer) een 0.3 seconden.</p>
 <h3 id="search-2">Search 2</h3>
 <div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#268bd2">Query</span>{
     <span style="color:#268bd2">Release</span>: <span style="color:#2aa198">&#34;9.98&#34;</span>,
@@ -277,13 +279,14 @@ ok brocade.be/qtechng/source 0.673s
 }
 </code></pre></div><p>Deze zoekactie doorzocht alle bestanden naar de string &ldquo;m4_getCatIsbdTitles&rdquo; maar beperkt zich enkel tot de m-files.</p>
 <div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Running tool: /usr/local/go/bin/go test -benchmem -run=^$ brocade.be/qtechng/source -bench ^(BenchmarkQuery78)$
+
 goos: linux
 goarch: amd64
 pkg: brocade.be/qtechng/source
-BenchmarkQuery78-4 1000000000 0.0387 ns/op 0 B/op 0 allocs/op
+BenchmarkQuery78-4   	1000000000	         0.0234 ns/op	       0 B/op	       0 allocs/op
 PASS
-ok brocade.be/qtechng/source 0.331s
-</code></pre></div><p>Een halvering van het vorige zoekresultaat.</p>
+ok  	brocade.be/qtechng/source	0.196s
+</code></pre></div><p>Met wat goede wil, een halvering van het vorige zoekresultaat.</p>
 <h3 id="search-3">Search 3</h3>
 <p>In de derde zoekactie willen we de bestanden opzoeken die - net zoals in de vorige zoekacties, de string &ldquo;m4_getCatIsbdTitles&rdquo; bevatten, maar waarvan de bestandsnaam niet voldoet aan de style guide.</p>
 <p>Ik geef de volledige benchmarkfunctie:</p>
@@ -328,9 +331,9 @@ ok brocade.be/qtechng/source 0.331s
 goos: linux
 goarch: amd64
 pkg: brocade.be/qtechng/source
-BenchmarkQuery79-4   	1000000000	         0.0521 ns/op	       0 B/op	       0 allocs/op
+BenchmarkQuery79-4   	1000000000	         0.0247 ns/op	       0 B/op	       0 allocs/op
 PASS
-ok  	brocade.be/qtechng/source	0.662s
+ok  	brocade.be/qtechng/source	0.289s
 </code></pre></div><h3 id="besluit">Besluit</h3>
 <p>Deze benchmarks werden verschillende keren uitgevoerd (ook met een reboot tussen de verschillende benchmarks). De resultaten waren in grote lijnen consistent.</p>
 <ul class="pa0">

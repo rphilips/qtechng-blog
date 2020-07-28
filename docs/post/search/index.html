@@ -41,7 +41,7 @@ De basis van de zoek-software is de volgende golang structuur:
 type Query struct { Release string CmpRelease string Patterns []string Natures []string Cu []string Mu []string CtBefore string CtAfter string MtBefore string MtAfter string ToLower bool Regexp bool PerLine bool Contains []string Any []func(qpath string, blob []byte) bool All []func(qpath string, blob []byte) bool } Attributen Elk van deze attributen stelt een specifiek type van zoeken voor.">
 <meta itemprop="datePublished" content="2020-07-17T19:44:58&#43;02:00" />
 <meta itemprop="dateModified" content="2020-07-17T19:44:58&#43;02:00" />
-<meta itemprop="wordCount" content="1609">
+<meta itemprop="wordCount" content="1642">
 
 
 
@@ -202,6 +202,9 @@ type Query struct { Release string CmpRelease string Patterns []string Natures [
 </li>
 <li>
 <p>is <code>ToLower</code> waar, dan wordt de inhoud van het bestand omgezet naar kleine letters. Is <code>Regexp</code> onwaar, dan worden ook de needles omgezet naar kleine letters (met <code>Regexp</code> waar, werkt dit niet: de betekenis van de reguliere uitdrukking zou immers kunnen veranderen. vb. <code>\D</code> omzetten naar <code>\d</code>  verandert de zoekactie helemaal.)</p>
+</li>
+<li>
+<p>is <code>SmartCase</code> waar en <code>Regexp</code> onwaar, dan wordt <code>ToLower</code> op waar gezet indien ALLE needles in lowercase staan. Is er echter een needle die grote letters bevat, dan wordt <code>ToLower</code> op onwaar gezet.</p>
 </li>
 </ul>
 <h3 id="any">Any</h3>

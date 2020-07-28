@@ -110,6 +110,8 @@ Er zijn nu diverse situaties:
 
 - is `ToLower` waar, dan wordt de inhoud van het bestand omgezet naar kleine letters. Is `Regexp` onwaar, dan worden ook de needles omgezet naar kleine letters (met `Regexp` waar, werkt dit niet: de betekenis van de reguliere uitdrukking zou immers kunnen veranderen. vb. `\D` omzetten naar `\d`  verandert de zoekactie helemaal.)
 
+- is `SmartCase` waar en `Regexp` onwaar, dan wordt `ToLower` op waar gezet indien ALLE needles in lowercase staan. Is er echter een needle die grote letters bevat, dan wordt `ToLower` op onwaar gezet.
+
 ### Any
 
 Dit is een gespecialiseerde zoekattribuut: het attribuut is een lijst van functies. Elke functie werkt met 2 argumenten: een `QtechNG` path naam en een inhoud in bytes. Onderhuids wordt de path naam van elk bestand dat we tegenkomen, samen met zijn inhoud gegeven aan deze functies. Van zodra er 1 functie waar is, wordt het bestand geselecteerd.

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="nl-nl">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Interludium: JSONPath | QtechNG Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.69.0-DEV" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/qtechng-blog/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Interludium: JSONPath" />
+<meta property="og:description" content="Het zoeken in tabulaire data hebben we aardig onder knie: einde jaren &lsquo;70, begin jaren &lsquo;80, zagen we de ene query taal na de andere verschijnen. Op het einde van de rit bleef er SQL over. Niet dat er geen valabele alternatieven bestonden! Ik studeerde toen informatica en herinner me maar al te goed dat er nog heel wat andere kandidaten bestonden. Maar in het evenwicht tussen kracht en eenvoud, wist dit IBM geesteskind de gulden middenweg te vinden." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rphilips.github.io/qtechng-blog/post/jsonpath/" />
+<meta property="article:published_time" content="2020-08-06T16:56:55+02:00" />
+<meta property="article:modified_time" content="2020-08-06T16:56:55+02:00" />
+<meta itemprop="name" content="Interludium: JSONPath">
+<meta itemprop="description" content="Het zoeken in tabulaire data hebben we aardig onder knie: einde jaren &lsquo;70, begin jaren &lsquo;80, zagen we de ene query taal na de andere verschijnen. Op het einde van de rit bleef er SQL over. Niet dat er geen valabele alternatieven bestonden! Ik studeerde toen informatica en herinner me maar al te goed dat er nog heel wat andere kandidaten bestonden. Maar in het evenwicht tussen kracht en eenvoud, wist dit IBM geesteskind de gulden middenweg te vinden.">
+<meta itemprop="datePublished" content="2020-08-06T16:56:55&#43;02:00" />
+<meta itemprop="dateModified" content="2020-08-06T16:56:55&#43;02:00" />
+<meta itemprop="wordCount" content="529">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Interludium: JSONPath"/>
+<meta name="twitter:description" content="Het zoeken in tabulaire data hebben we aardig onder knie: einde jaren &lsquo;70, begin jaren &lsquo;80, zagen we de ene query taal na de andere verschijnen. Op het einde van de rit bleef er SQL over. Niet dat er geen valabele alternatieven bestonden! Ik studeerde toen informatica en herinner me maar al te goed dat er nog heel wat andere kandidaten bestonden. Maar in het evenwicht tussen kracht en eenvoud, wist dit IBM geesteskind de gulden middenweg te vinden."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  
+  <header class="cover bg-top" style="background-image: url('https://rphilips.github.io/qtechng-blog/images/jsonpath.svg');">
+    <div class="pb3-m pb6-l bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://rphilips.github.io/qtechng-blog/" class="f3 fw2 hover-white no-underline white-90 dib">
+      QtechNG Blog
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/qtechng-blog/post/" title="Artikelen page">
+              Artikelen
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Interludium: JSONPath</h1>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        ARTIKELEN
+      </aside>
+      
+
+
+      <h1 class="f1 athelas mt3 mb1">Interludium: JSONPath</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-08-06T16:56:55&#43;02:00">August 6, 2020</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Het zoeken in tabulaire data hebben we aardig onder knie: einde jaren &lsquo;70, begin jaren &lsquo;80, zagen we de ene query taal na de andere verschijnen. Op het einde van de rit bleef er <a href="https://en.wikipedia.org/wiki/SQL">SQL</a> over. Niet dat er geen valabele alternatieven bestonden! Ik studeerde toen informatica en herinner me maar al te goed dat er nog heel wat andere kandidaten bestonden. Maar in het evenwicht tussen kracht en eenvoud, wist dit IBM geesteskind de gulden middenweg te vinden.</p>
+<p>Tabulaire data is zeker belangrijk. Maar het is mijns inziens niet de natuurlijke manier om data te ordenen: hiërarchische structuren lijken veel beter aan te sluiten bij hoe mensen kijken naar data. Een bibliotheek bevat boeken, boeken bevat hoofdstukken met paragrafen en deze bestaan dan weer uit zinnen.</p>
+<p>Talen zoals <a href="https://en.wikipedia.org/wiki/XML">XML</a> gaan voluit voor deze hiërarchieën. De laatste jaren is er een nieuwkomer zich ook gaat toeleggen op dit soort van data:<a href="https://en.wikipedia.org/wiki/JSON">JSON</a> werd immens populair. Dit heeft alles te maken met zijn (ogenschijnlijke) eenvoud. Je kan er niet omheen: je bent veel sneller op weg met JSON dan met XML. De <a href="https://www.json.org">specificatie</a> vult amper het scherm van een monitor.</p>
+<p>Echter - het lijkt wel onontkoombaar - JSON verliest stilaan zijn status van &lsquo;eenvoud&rsquo;: er bestaan ondertussen 3 standaardisatie initiatieven en er bestaan niet minder dan 25 RFCs met &lsquo;JSON&rsquo; in de titel.</p>
+<p>Je merkt het ook aan de tooling rondom JSON en ik heb het dan niet over de faciliteiten ingebouwd in moderne programmeertalen. Zo hebben we <a href="https://json-schema.org/">JSON schema</a>, de tegenhanger van <a href="https://en.wikipedia.org/wiki/XML_Schema_(W3C)">XML Schema</a>.</p>
+<p>Wat veel moeilijker is bij hiërarchische data dan bij tabulaire data, is het zoeken naar gekwalificeerde informatie. Zo werd voor XML, <a href="https://en.wikipedia.org/wiki/XPath">XPath</a> ontwikkeld en ja, nu is er ook een dergelijk instrument gemaakt voor JSON.</p>
+<p>De <a href="https://goessner.net/articles/JsonPath/">oorspronkelijk tekst</a> die <code>JSONPath</code> introduceerde, kan je vinden bij Stefan Goessner. Dit was zeker niet de enige poging om een XPath-alike te construeren maar Goessner deed het voortreffelijk: een toegankelijke, doch rigoureuze specificatie gekoppeld aan implementaties in de twee belangrijkste programmeertalen op het Web: <a href="https://en.wikipedia.org/wiki/JavaScript">Javascript</a> en <a href="https://en.wikipedia.org/wiki/PHP">PHP</a>. Beiden trouwens ook in gebruik in Brocade.</p>
+<p>Het volgende voorbeeld heb ik geleend bij <a href="https://support.smartbear.com/readyapi/docs/testing/jsonpath-reference.html">SMARTBEAR</a>. Samen met <a href="https://jsonpath.com/"><code>JSONPath</code> online evaluator</a>, overigens een uitstekende site om je te bekwamen in <code>JSONPath</code>.</p>
+<p>Stel, je hebt de volgende data:</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JSON" data-lang="JSON">{
+  <span style="color:#268bd2;font-weight:bold">&#34;store&#34;</span>: {
+    <span style="color:#268bd2;font-weight:bold">&#34;book&#34;</span>: [
+      {
+        <span style="color:#268bd2;font-weight:bold">&#34;category&#34;</span>: <span style="color:#2aa198">&#34;history&#34;</span>,
+        <span style="color:#268bd2;font-weight:bold">&#34;author&#34;</span>: <span style="color:#2aa198">&#34;Arnold Joseph Toynbee&#34;</span>,
+        <span style="color:#268bd2;font-weight:bold">&#34;title&#34;</span>: <span style="color:#2aa198">&#34;A Study of History&#34;</span>,
+        <span style="color:#268bd2;font-weight:bold">&#34;price&#34;</span>: <span style="color:#2aa198;font-weight:bold">5.50</span>
+      },
+      {
+        <span style="color:#268bd2;font-weight:bold">&#34;category&#34;</span>: <span style="color:#2aa198">&#34;poem&#34;</span>,
+        <span style="color:#268bd2;font-weight:bold">&#34;author&#34;</span>: <span style="color:#2aa198">&#34;Aneirin&#34;</span>,
+        <span style="color:#268bd2;font-weight:bold">&#34;title&#34;</span>: <span style="color:#2aa198">&#34;Y Gododdin&#34;</span>,
+        <span style="color:#268bd2;font-weight:bold">&#34;price&#34;</span>: <span style="color:#2aa198;font-weight:bold">17.00</span>
+      },
+      {
+        <span style="color:#268bd2;font-weight:bold">&#34;category&#34;</span>: <span style="color:#2aa198">&#34;fiction&#34;</span>,
+        <span style="color:#268bd2;font-weight:bold">&#34;author&#34;</span>: <span style="color:#2aa198">&#34;James Joyce&#34;</span>,
+        <span style="color:#268bd2;font-weight:bold">&#34;title&#34;</span>: <span style="color:#2aa198">&#34;Finnegans Wake&#34;</span>,
+        <span style="color:#268bd2;font-weight:bold">&#34;isbn&#34;</span>: <span style="color:#2aa198">&#34;9788804677628&#34;</span>,
+        <span style="color:#268bd2;font-weight:bold">&#34;price&#34;</span>: <span style="color:#2aa198;font-weight:bold">15.99</span>
+      },
+      {
+        <span style="color:#268bd2;font-weight:bold">&#34;category&#34;</span>: <span style="color:#2aa198">&#34;fiction&#34;</span>,
+        <span style="color:#268bd2;font-weight:bold">&#34;author&#34;</span>: <span style="color:#2aa198">&#34;Emily Bronte&#34;</span>,
+        <span style="color:#268bd2;font-weight:bold">&#34;title&#34;</span>: <span style="color:#2aa198">&#34;Wuthering Heights&#34;</span>,
+        <span style="color:#268bd2;font-weight:bold">&#34;isbn&#34;</span>: <span style="color:#2aa198">&#34;0-486-29256-8&#34;</span>,
+        <span style="color:#268bd2;font-weight:bold">&#34;price&#34;</span>: <span style="color:#2aa198;font-weight:bold">3.30</span>
+      }
+    ],
+    <span style="color:#268bd2;font-weight:bold">&#34;bicycle&#34;</span>: {
+      <span style="color:#268bd2;font-weight:bold">&#34;color&#34;</span>: <span style="color:#2aa198">&#34;purple&#34;</span>,
+      <span style="color:#268bd2;font-weight:bold">&#34;price&#34;</span>: <span style="color:#2aa198;font-weight:bold">25.45</span>
+    }
+  },
+  <span style="color:#268bd2;font-weight:bold">&#34;expensive&#34;</span>: <span style="color:#2aa198;font-weight:bold">10</span>
+}
+</code></pre></div><p>Deze data vertelt je welke boeken er in de winkel liggen.</p>
+<p>Stel je wil enkel de titels hebben van alle boeken.</p>
+<p>De selectie met behulp van de volgende JSONpath doet precies dat:
+(Oefen op <a href="https://jsonpath.com/"><code>JSONPath</code> online evaluator</a>)</p>
+<pre><code>$.store.book[:].title
+</code></pre><div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JSON" data-lang="JSON">[
+    <span style="color:#2aa198">&#34;A Study of History&#34;</span>,
+    <span style="color:#2aa198">&#34;Y Gododdin&#34;</span>,
+    <span style="color:#2aa198">&#34;Finnegans Wake&#34;</span>,
+    <span style="color:#2aa198">&#34;Wuthering Heights&#34;</span>
+]
+</code></pre></div><p>Als je enkel fictie wil, gebruik je:</p>
+<pre><code>$.store.book[?(@.category == 'fiction')].title
+</code></pre><div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JSON" data-lang="JSON">[
+    <span style="color:#2aa198">&#34;Finnegans Wake&#34;</span>,
+    <span style="color:#2aa198">&#34;Wuthering Heights&#34;</span>
+]
+</code></pre></div><p>Ik denk dat je nu wel een goed idee hebt over wat de doelstellingen en de mogelijkheden zijn van <code>JSONPath</code>.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://rphilips.github.io/qtechng-blog/" >
+    &copy;  QtechNG Blog 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/qtechng-blog/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

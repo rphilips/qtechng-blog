@@ -6,10 +6,19 @@
     <description>Recent content in QtechNG: Ontwikkelen voor Brocade on QtechNG Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>nl-nl</language>
-    <lastBuildDate>Sun, 02 Aug 2020 13:23:14 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 06 Aug 2020 16:56:55 +0200</lastBuildDate>
     
 	<atom:link href="https://rphilips.github.io/qtechng-blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Interludium: JSONPath</title>
+      <link>https://rphilips.github.io/qtechng-blog/post/jsonpath/</link>
+      <pubDate>Thu, 06 Aug 2020 16:56:55 +0200</pubDate>
+      
+      <guid>https://rphilips.github.io/qtechng-blog/post/jsonpath/</guid>
+      <description>Het zoeken in tabulaire data hebben we aardig onder knie: einde jaren &amp;lsquo;70, begin jaren &amp;lsquo;80, zagen we de ene query taal na de andere verschijnen. Op het einde van de rit bleef er SQL over. Niet dat er geen valabele alternatieven bestonden! Ik studeerde toen informatica en herinner me maar al te goed dat er nog heel wat andere kandidaten bestonden. Maar in het evenwicht tussen kracht en eenvoud, wist dit IBM geesteskind de gulden middenweg te vinden.</description>
+    </item>
     
     <item>
       <title>Format</title>

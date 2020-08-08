@@ -41,7 +41,7 @@ Essentieel was deze informatie overdracht echter beperkt tot tekst.
 Niet zo in PowerShell: daar konden heuse objecten worden getransfereerd. Het klinkt allemaal wat abstract, maar ik kan je het verschil het beste uitleggen met docman.">
 <meta itemprop="datePublished" content="2020-08-08T10:11:15&#43;02:00" />
 <meta itemprop="dateModified" content="2020-08-08T10:11:15&#43;02:00" />
-<meta itemprop="wordCount" content="592">
+<meta itemprop="wordCount" content="586">
 
 
 
@@ -156,7 +156,7 @@ Niet zo in PowerShell: daar konden heuse objecten worden getransfereerd. Het kli
 <p>Een paar voorbeelden die de kracht van deze aanpak illustreren.</p>
 <p>Op mijn werkstation:</p>
 <div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#cb4b16">cd</span> /home/rphilips/qtechng/brocade/edit/lab/application
-qtechng file add file1.txt file2.txt --version=9.92 --qdir=/lab/application <span style="color:#93a1a1;font-style:italic"># maak 2 nieuwe bestanden</span>
+qtechng file add file1.txt file2.txt <span style="color:#93a1a1;font-style:italic"># maak 2 nieuwe bestanden</span>
 {
 <span style="color:#2aa198">&#34;host&#34;</span>: <span style="color:#2aa198">&#34;rphilips-home&#34;</span>,
 <span style="color:#2aa198">&#34;time&#34;</span>: <span style="color:#2aa198">&#34;2020-08-08T11:01:58+02:00&#34;</span>,
@@ -179,7 +179,7 @@ qtechng file add file1.txt file2.txt --version=9.92 --qdir=/lab/application <spa
 <p>In een vorige blogpost heb je kunnen kennismaken met <code>JSONPath</code>. Deze technologie kan worden gebruikt om de output drastisch te vereenvoudigen. Het goede nieuws is dat er in <code>qtechng</code> een <code>JSONPath</code> processor is ingebouwd! Deze kan eenvoudig worden geactiveerd door een <code>jsonpath</code> flag mee te geven aan het commando.</p>
 <p>Voorbeelden:</p>
 <div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#cb4b16">cd</span> /home/rphilips/qtechng/brocade/edit/lab/application
-qtechng file add file3.txt file4.txt --version=9.92 --qdir=/lab/application --jsonpath=<span style="color:#2aa198">&#34;</span>$<span style="color:#2aa198">.RESULT&#34;</span>
+qtechng file add file3.txt file4.txt --jsonpath=<span style="color:#2aa198">&#34;</span>$<span style="color:#2aa198">.RESULT&#34;</span>
 [
 {
 <span style="color:#2aa198">&#34;arg&#34;</span>: <span style="color:#2aa198">&#34;file3.txt&#34;</span>,
@@ -194,7 +194,7 @@ qtechng file add file3.txt file4.txt --version=9.92 --qdir=/lab/application --js
 ]
 </code></pre></div><p>of nog korter:</p>
 <div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#cb4b16">cd</span> /home/rphilips/qtechng/brocade/edit/lab/application
-qtechng file add file5.txt file6.txt file7.txt --version=9.92 --qdir=/lab/application --jsonpath=<span style="color:#2aa198">&#34;</span>$<span style="color:#2aa198">.RESULT[:].qpath&#34;</span>
+qtechng file add file5.txt file6.txt file7.txt --jsonpath=<span style="color:#2aa198">&#34;</span>$<span style="color:#2aa198">.RESULT[:].qpath&#34;</span>
 [
 <span style="color:#2aa198">&#34;/lab/application/file5.txt&#34;</span>,
 <span style="color:#2aa198">&#34;/lab/application/file6.txt&#34;</span>,

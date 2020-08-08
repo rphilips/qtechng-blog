@@ -46,7 +46,7 @@ Op mijn werkstation:
 
 ```bash
 cd /home/rphilips/qtechng/brocade/edit/lab/application
-qtechng file add file1.txt file2.txt --version=9.92 --qdir=/lab/application # maak 2 nieuwe bestanden
+qtechng file add file1.txt file2.txt # maak 2 nieuwe bestanden
 {
 "host": "rphilips-home",
 "time": "2020-08-08T11:01:58+02:00",
@@ -77,7 +77,7 @@ Voorbeelden:
 
 ```bash
 cd /home/rphilips/qtechng/brocade/edit/lab/application
-qtechng file add file3.txt file4.txt --version=9.92 --qdir=/lab/application --jsonpath="$.RESULT"
+qtechng file add file3.txt file4.txt --jsonpath="$.RESULT"
 [
 {
 "arg": "file3.txt",
@@ -96,7 +96,7 @@ of nog korter:
 
 ```bash
 cd /home/rphilips/qtechng/brocade/edit/lab/application
-qtechng file add file5.txt file6.txt file7.txt --version=9.92 --qdir=/lab/application --jsonpath="$.RESULT[:].qpath"
+qtechng file add file5.txt file6.txt file7.txt --jsonpath="$.RESULT[:].qpath"
 [
 "/lab/application/file5.txt",
 "/lab/application/file6.txt",

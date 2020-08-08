@@ -1,3 +1,4 @@
+blogpdf create
 hugo
 git add --all
 
@@ -7,4 +8,3 @@ echo You typed ${REPLY}
 git commit -m "$REPLY"
 
 git push -u origin 
-blogpdf create

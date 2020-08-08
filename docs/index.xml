@@ -6,10 +6,22 @@
     <description>Recent content in QtechNG: Ontwikkelen voor Brocade on QtechNG Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>nl-nl</language>
-    <lastBuildDate>Thu, 06 Aug 2020 16:56:55 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 08 Aug 2020 10:11:15 +0200</lastBuildDate>
     
 	<atom:link href="https://rphilips.github.io/qtechng-blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Output</title>
+      <link>https://rphilips.github.io/qtechng-blog/post/output/</link>
+      <pubDate>Sat, 08 Aug 2020 10:11:15 +0200</pubDate>
+      
+      <guid>https://rphilips.github.io/qtechng-blog/post/output/</guid>
+      <description>Najaar 2006.
+Microsoft bracht een nieuwe shell uit, de PowerShell. Nogal wat Unix/Linux affecionados konden enkel een smalend schouderophalen opbrengen. Ik dacht daar toch anders over: Unix/Linux had een krachtig pipe-systeem waarbij toepassingen informatie konden uitwisselen door de output en input streams te ketenen.
+Essentieel was deze informatie overdracht echter beperkt tot tekst.
+Niet zo in PowerShell: daar konden heuse objecten worden getransfereerd. Het klinkt allemaal wat abstract, maar ik kan je het verschil het beste uitleggen met docman.</description>
+    </item>
     
     <item>
       <title>Interludium: JSONPath</title>

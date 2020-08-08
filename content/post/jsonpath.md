@@ -4,7 +4,7 @@ date: 2020-08-06T16:56:55+02:00
 featured_image: "/images/jsonpath.svg"
 ---
 
-Het zoeken in tabulaire data hebben we aardig onder knie: einde jaren '70, begin jaren '80, zagen we de ene query taal na de andere verschijnen. Op het einde van de rit bleef er [SQL](https://en.wikipedia.org/wiki/SQL) over. Niet dat er geen valabele alternatieven bestonden! Ik studeerde toen informatica en herinner me maar al te goed dat er nog heel wat andere kandidaten bestonden. Maar in het evenwicht tussen kracht en eenvoud, wist dit IBM geesteskind de gulden middenweg te vinden.
+Het zoeken in tabulaire data hebben we aardig onder de knie: einde jaren '70, begin jaren '80, zagen we de ene query taal na de andere verschijnen. Op het einde van de rit bleef er [SQL](https://en.wikipedia.org/wiki/SQL) over. Niet dat er geen valabele alternatieven bestonden! Ik studeerde toen informatica en herinner me maar al te goed dat er nog heel wat andere kandidaten bestonden. Maar in het evenwicht tussen kracht en eenvoud, wist dit IBM geesteskind de gulden middenweg te vinden.
 
 Tabulaire data is zeker belangrijk. Maar het is mijns inziens niet de natuurlijke manier om data te ordenen: hiërarchische structuren lijken veel beter aan te sluiten bij hoe mensen kijken naar data. Een bibliotheek bevat boeken, boeken bevat hoofdstukken met paragrafen en deze bestaan dan weer uit zinnen.
 

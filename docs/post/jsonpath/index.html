@@ -26,22 +26,22 @@
     
     
     <meta property="og:title" content="Interludium: JSONPath" />
-<meta property="og:description" content="Het zoeken in tabulaire data hebben we aardig onder knie: einde jaren &lsquo;70, begin jaren &lsquo;80, zagen we de ene query taal na de andere verschijnen. Op het einde van de rit bleef er SQL over. Niet dat er geen valabele alternatieven bestonden! Ik studeerde toen informatica en herinner me maar al te goed dat er nog heel wat andere kandidaten bestonden. Maar in het evenwicht tussen kracht en eenvoud, wist dit IBM geesteskind de gulden middenweg te vinden." />
+<meta property="og:description" content="Het zoeken in tabulaire data hebben we aardig onder de knie: einde jaren &lsquo;70, begin jaren &lsquo;80, zagen we de ene query taal na de andere verschijnen. Op het einde van de rit bleef er SQL over. Niet dat er geen valabele alternatieven bestonden! Ik studeerde toen informatica en herinner me maar al te goed dat er nog heel wat andere kandidaten bestonden. Maar in het evenwicht tussen kracht en eenvoud, wist dit IBM geesteskind de gulden middenweg te vinden." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rphilips.github.io/qtechng-blog/post/jsonpath/" />
 <meta property="article:published_time" content="2020-08-06T16:56:55+02:00" />
 <meta property="article:modified_time" content="2020-08-06T16:56:55+02:00" />
 <meta itemprop="name" content="Interludium: JSONPath">
-<meta itemprop="description" content="Het zoeken in tabulaire data hebben we aardig onder knie: einde jaren &lsquo;70, begin jaren &lsquo;80, zagen we de ene query taal na de andere verschijnen. Op het einde van de rit bleef er SQL over. Niet dat er geen valabele alternatieven bestonden! Ik studeerde toen informatica en herinner me maar al te goed dat er nog heel wat andere kandidaten bestonden. Maar in het evenwicht tussen kracht en eenvoud, wist dit IBM geesteskind de gulden middenweg te vinden.">
+<meta itemprop="description" content="Het zoeken in tabulaire data hebben we aardig onder de knie: einde jaren &lsquo;70, begin jaren &lsquo;80, zagen we de ene query taal na de andere verschijnen. Op het einde van de rit bleef er SQL over. Niet dat er geen valabele alternatieven bestonden! Ik studeerde toen informatica en herinner me maar al te goed dat er nog heel wat andere kandidaten bestonden. Maar in het evenwicht tussen kracht en eenvoud, wist dit IBM geesteskind de gulden middenweg te vinden.">
 <meta itemprop="datePublished" content="2020-08-06T16:56:55&#43;02:00" />
 <meta itemprop="dateModified" content="2020-08-06T16:56:55&#43;02:00" />
-<meta itemprop="wordCount" content="529">
+<meta itemprop="wordCount" content="530">
 
 
 
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Interludium: JSONPath"/>
-<meta name="twitter:description" content="Het zoeken in tabulaire data hebben we aardig onder knie: einde jaren &lsquo;70, begin jaren &lsquo;80, zagen we de ene query taal na de andere verschijnen. Op het einde van de rit bleef er SQL over. Niet dat er geen valabele alternatieven bestonden! Ik studeerde toen informatica en herinner me maar al te goed dat er nog heel wat andere kandidaten bestonden. Maar in het evenwicht tussen kracht en eenvoud, wist dit IBM geesteskind de gulden middenweg te vinden."/>
+<meta name="twitter:description" content="Het zoeken in tabulaire data hebben we aardig onder de knie: einde jaren &lsquo;70, begin jaren &lsquo;80, zagen we de ene query taal na de andere verschijnen. Op het einde van de rit bleef er SQL over. Niet dat er geen valabele alternatieven bestonden! Ik studeerde toen informatica en herinner me maar al te goed dat er nog heel wat andere kandidaten bestonden. Maar in het evenwicht tussen kracht en eenvoud, wist dit IBM geesteskind de gulden middenweg te vinden."/>
 
   </head>
 
@@ -124,7 +124,7 @@
       
       
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Het zoeken in tabulaire data hebben we aardig onder knie: einde jaren &lsquo;70, begin jaren &lsquo;80, zagen we de ene query taal na de andere verschijnen. Op het einde van de rit bleef er <a href="https://en.wikipedia.org/wiki/SQL">SQL</a> over. Niet dat er geen valabele alternatieven bestonden! Ik studeerde toen informatica en herinner me maar al te goed dat er nog heel wat andere kandidaten bestonden. Maar in het evenwicht tussen kracht en eenvoud, wist dit IBM geesteskind de gulden middenweg te vinden.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Het zoeken in tabulaire data hebben we aardig onder de knie: einde jaren &lsquo;70, begin jaren &lsquo;80, zagen we de ene query taal na de andere verschijnen. Op het einde van de rit bleef er <a href="https://en.wikipedia.org/wiki/SQL">SQL</a> over. Niet dat er geen valabele alternatieven bestonden! Ik studeerde toen informatica en herinner me maar al te goed dat er nog heel wat andere kandidaten bestonden. Maar in het evenwicht tussen kracht en eenvoud, wist dit IBM geesteskind de gulden middenweg te vinden.</p>
 <p>Tabulaire data is zeker belangrijk. Maar het is mijns inziens niet de natuurlijke manier om data te ordenen: hiërarchische structuren lijken veel beter aan te sluiten bij hoe mensen kijken naar data. Een bibliotheek bevat boeken, boeken bevat hoofdstukken met paragrafen en deze bestaan dan weer uit zinnen.</p>
 <p>Talen zoals <a href="https://en.wikipedia.org/wiki/XML">XML</a> gaan voluit voor deze hiërarchieën. De laatste jaren is er een nieuwkomer zich ook gaat toeleggen op dit soort van data:<a href="https://en.wikipedia.org/wiki/JSON">JSON</a> werd immens populair. Dit heeft alles te maken met zijn (ogenschijnlijke) eenvoud. Je kan er niet omheen: je bent veel sneller op weg met JSON dan met XML. De <a href="https://www.json.org">specificatie</a> vult amper het scherm van een monitor.</p>
 <p>Echter - het lijkt wel onontkoombaar - JSON verliest stilaan zijn status van &lsquo;eenvoud&rsquo;: er bestaan ondertussen 3 standaardisatie initiatieven en er bestaan niet minder dan 25 RFCs met &lsquo;JSON&rsquo; in de titel.</p>

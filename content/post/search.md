@@ -143,7 +143,7 @@ Indien het bestand de neiging heeft om binair te zijn (een NULL-byte in de eerst
 In de tweede fase wordt er maximaal gebruik gemaakt van de mogelijkheden geboden door `Patterns` (en `Release`). De kandidaten worden parallel opgespoord door analyse van de QtechNG paths. 
 Om sneller te werken worden in de tweede fase van de pipeline een aantal *fouten* toegelaten. 
 
-In de derde fase wordt echter elk bestand uit de eerste fase rigoureus (en in parallel) getest tegen de *ganse* Query. Indien deze werkwijze je doet denken aan de filosofie achter het gebruik van [Bloom filters](https://en.wikipedia.org/wiki/Bloom_filter), dan zit je goed!.
+In de derde fase wordt echter elk bestand uit de eerste fase rigoureus (en in parallel) getest tegen de *ganse* Query. Indien deze werkwijze je doet denken aan de filosofie achter het gebruik van [Bloom filters](https://en.wikipedia.org/wiki/Bloom_filter), dan zit je goed!
 
 ## Benchmarks
 

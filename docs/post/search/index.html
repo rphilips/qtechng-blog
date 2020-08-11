@@ -226,7 +226,7 @@ type Query struct { Release string CmpRelease string Patterns []string Natures [
 <p>Indien het bestand de neiging heeft om binair te zijn (een NULL-byte in de eerste 1024 bytes), schakelt het zoekalgoritme over naar <a href="https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm">Rabin-Karp</a>.</p>
 <p>In de tweede fase wordt er maximaal gebruik gemaakt van de mogelijkheden geboden door <code>Patterns</code> (en <code>Release</code>). De kandidaten worden parallel opgespoord door analyse van de QtechNG paths.
 Om sneller te werken worden in de tweede fase van de pipeline een aantal <em>fouten</em> toegelaten.</p>
-<p>In de derde fase wordt echter elk bestand uit de eerste fase rigoureus (en in parallel) getest tegen de <em>ganse</em> Query. Indien deze werkwijze je doet denken aan de filosofie achter het gebruik van <a href="https://en.wikipedia.org/wiki/Bloom_filter">Bloom filters</a>, dan zit je goed!.</p>
+<p>In de derde fase wordt echter elk bestand uit de eerste fase rigoureus (en in parallel) getest tegen de <em>ganse</em> Query. Indien deze werkwijze je doet denken aan de filosofie achter het gebruik van <a href="https://en.wikipedia.org/wiki/Bloom_filter">Bloom filters</a>, dan zit je goed!</p>
 <h2 id="benchmarks">Benchmarks</h2>
 <p>Tijd voor benchmarks!</p>
 <p>We gaan ons niet bezig houden met micro benchmarks: laten we meteen een realistisch scenario opzetten.</p>

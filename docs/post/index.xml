@@ -62,7 +62,7 @@ Een linter onderzoekt source code en meldt indien er iets schort aan de software
       <description>De meest gebruikte faciliteit van qtech is ongetwijfeld het zoeken in het software repository.
 Dit moet nog beter (lees: sneller) worden in QtechNG.
 De basis van de zoek-software is de volgende golang structuur:
-type Query struct { Release string CmpRelease string Patterns []string Natures []string Cu []string Mu []string CtBefore string CtAfter string MtBefore string MtAfter string ToLower bool Regexp bool PerLine bool Contains []string Any []func(qpath string, blob []byte) bool All []func(qpath string, blob []byte) bool } Attributen Elk van deze attributen stelt een specifiek type van zoeken voor.</description>
+type Query struct { Release string CmpRelease string Patterns []string Natures []string Cu []string Mu []string CtBefore string CtAfter string MtBefore string MtAfter string ToLower bool SmartCase bool Regexp bool PerLine bool Contains []string Any []func(qpath string, blob []byte) bool All []func(qpath string, blob []byte) bool } Attributen Elk van deze attributen stelt een specifiek type van zoeken voor.</description>
     </item>
     
     <item>

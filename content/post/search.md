@@ -23,6 +23,7 @@ type Query struct {
     MtBefore string
     MtAfter string
     ToLower bool
+    SmartCase bool
     Regexp bool
     PerLine bool
     Contains []string
@@ -134,9 +135,9 @@ De pipeline bevat 3 fases:
 
 In de eerste fase wordt de `Query` zelf geanalyseerd en geoptimaliseerd: reguliere uitdrukkingen worden gecompileerd, overbodige patronen worden geschrapt en passende [Boyer-Moore skiptabellen](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string-search_algorithm) worden aangemaakt. Voor alle duidelijkheid: de searches - als die al bestaan - zijn niet altijd volgens Boyer-Moore. Er zijn immers nogal wat situaties waar dit te weinig zou opbrengen. De lengte van de te doorzoeken bestanden speelt hierbij de hoofdrol: bevatten deze bestanden minder dan 64 karakters dan wordt er gewoon *brute force* gezocht. Die '64' valt niet zomaar uit de lucht (en heeft ook niets te maken met het schaakspel). Diverse zoekstrategieën in de [golang code](https://golang.org/src/bytes/bytes.go?s=26077:26106#L984) zelf maken gebruik van dit getal.
 
-Het Boyer-Moore algoritme werd nog verbeterd met de (Galil)[https://en.wikipedia.org/wiki/Zvi_Galil] aanpassingen.
+Het Boyer-Moore algoritme werd nog verbeterd met de [Galil](https://en.wikipedia.org/wiki/Zvi_Galil) aanpassingen.
 
-Indien het bestand de neiging heeft om binair te zijn (een NULL-byte in de eerste 1024 bytes), schakelt het zoekalgoritme over naar (Rabin-Karp)[https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm].
+Indien het bestand de neiging heeft om binair te zijn (een NULL-byte in de eerste 1024 bytes), schakelt het zoekalgoritme over naar [Rabin-Karp](https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm).
 
 
 In de tweede fase wordt er maximaal gebruik gemaakt van de mogelijkheden geboden door `Patterns` (en `Release`). De kandidaten worden parallel opgespoord door analyse van de QtechNG paths. 

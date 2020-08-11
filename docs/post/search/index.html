@@ -29,7 +29,7 @@
 <meta property="og:description" content="De meest gebruikte faciliteit van qtech is ongetwijfeld het zoeken in het software repository.
 Dit moet nog beter (lees: sneller) worden in QtechNG.
 De basis van de zoek-software is de volgende golang structuur:
-type Query struct { Release string CmpRelease string Patterns []string Natures []string Cu []string Mu []string CtBefore string CtAfter string MtBefore string MtAfter string ToLower bool Regexp bool PerLine bool Contains []string Any []func(qpath string, blob []byte) bool All []func(qpath string, blob []byte) bool } Attributen Elk van deze attributen stelt een specifiek type van zoeken voor." />
+type Query struct { Release string CmpRelease string Patterns []string Natures []string Cu []string Mu []string CtBefore string CtAfter string MtBefore string MtAfter string ToLower bool SmartCase bool Regexp bool PerLine bool Contains []string Any []func(qpath string, blob []byte) bool All []func(qpath string, blob []byte) bool } Attributen Elk van deze attributen stelt een specifiek type van zoeken voor." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://rphilips.github.io/qtechng-blog/post/search/" />
 <meta property="article:published_time" content="2020-07-17T19:44:58+02:00" />
@@ -38,10 +38,10 @@ type Query struct { Release string CmpRelease string Patterns []string Natures [
 <meta itemprop="description" content="De meest gebruikte faciliteit van qtech is ongetwijfeld het zoeken in het software repository.
 Dit moet nog beter (lees: sneller) worden in QtechNG.
 De basis van de zoek-software is de volgende golang structuur:
-type Query struct { Release string CmpRelease string Patterns []string Natures []string Cu []string Mu []string CtBefore string CtAfter string MtBefore string MtAfter string ToLower bool Regexp bool PerLine bool Contains []string Any []func(qpath string, blob []byte) bool All []func(qpath string, blob []byte) bool } Attributen Elk van deze attributen stelt een specifiek type van zoeken voor.">
+type Query struct { Release string CmpRelease string Patterns []string Natures []string Cu []string Mu []string CtBefore string CtAfter string MtBefore string MtAfter string ToLower bool SmartCase bool Regexp bool PerLine bool Contains []string Any []func(qpath string, blob []byte) bool All []func(qpath string, blob []byte) bool } Attributen Elk van deze attributen stelt een specifiek type van zoeken voor.">
 <meta itemprop="datePublished" content="2020-07-17T19:44:58&#43;02:00" />
 <meta itemprop="dateModified" content="2020-07-17T19:44:58&#43;02:00" />
-<meta itemprop="wordCount" content="1642">
+<meta itemprop="wordCount" content="1644">
 
 
 
@@ -50,7 +50,7 @@ type Query struct { Release string CmpRelease string Patterns []string Natures [
 <meta name="twitter:description" content="De meest gebruikte faciliteit van qtech is ongetwijfeld het zoeken in het software repository.
 Dit moet nog beter (lees: sneller) worden in QtechNG.
 De basis van de zoek-software is de volgende golang structuur:
-type Query struct { Release string CmpRelease string Patterns []string Natures []string Cu []string Mu []string CtBefore string CtAfter string MtBefore string MtAfter string ToLower bool Regexp bool PerLine bool Contains []string Any []func(qpath string, blob []byte) bool All []func(qpath string, blob []byte) bool } Attributen Elk van deze attributen stelt een specifiek type van zoeken voor."/>
+type Query struct { Release string CmpRelease string Patterns []string Natures []string Cu []string Mu []string CtBefore string CtAfter string MtBefore string MtAfter string ToLower bool SmartCase bool Regexp bool PerLine bool Contains []string Any []func(qpath string, blob []byte) bool All []func(qpath string, blob []byte) bool } Attributen Elk van deze attributen stelt een specifiek type van zoeken voor."/>
 
   </head>
 
@@ -148,6 +148,7 @@ type Query struct { Release string CmpRelease string Patterns []string Natures [
     <span style="color:#268bd2">MtBefore</span> <span style="color:#859900;font-weight:bold">string</span>
     <span style="color:#268bd2">MtAfter</span> <span style="color:#859900;font-weight:bold">string</span>
     <span style="color:#268bd2">ToLower</span> <span style="color:#859900;font-weight:bold">bool</span>
+    <span style="color:#268bd2">SmartCase</span> <span style="color:#859900;font-weight:bold">bool</span>
     <span style="color:#268bd2">Regexp</span> <span style="color:#859900;font-weight:bold">bool</span>
     <span style="color:#268bd2">PerLine</span> <span style="color:#859900;font-weight:bold">bool</span>
     <span style="color:#268bd2">Contains</span> []<span style="color:#859900;font-weight:bold">string</span>
@@ -221,8 +222,8 @@ type Query struct { Release string CmpRelease string Patterns []string Natures [
 <li>in de derde fase wordt elke kandidaten getest tegen <code>Query</code>.</li>
 </ul>
 <p>In de eerste fase wordt de <code>Query</code> zelf geanalyseerd en geoptimaliseerd: reguliere uitdrukkingen worden gecompileerd, overbodige patronen worden geschrapt en passende <a href="https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string-search_algorithm">Boyer-Moore skiptabellen</a> worden aangemaakt. Voor alle duidelijkheid: de searches - als die al bestaan - zijn niet altijd volgens Boyer-Moore. Er zijn immers nogal wat situaties waar dit te weinig zou opbrengen. De lengte van de te doorzoeken bestanden speelt hierbij de hoofdrol: bevatten deze bestanden minder dan 64 karakters dan wordt er gewoon <em>brute force</em> gezocht. Die &lsquo;64&rsquo; valt niet zomaar uit de lucht (en heeft ook niets te maken met het schaakspel). Diverse zoekstrategieën in de <a href="https://golang.org/src/bytes/bytes.go?s=26077:26106#L984">golang code</a> zelf maken gebruik van dit getal.</p>
-<p>Het Boyer-Moore algoritme werd nog verbeterd met de (Galil)[https://en.wikipedia.org/wiki/Zvi_Galil] aanpassingen.</p>
-<p>Indien het bestand de neiging heeft om binair te zijn (een NULL-byte in de eerste 1024 bytes), schakelt het zoekalgoritme over naar (Rabin-Karp)[https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm].</p>
+<p>Het Boyer-Moore algoritme werd nog verbeterd met de <a href="https://en.wikipedia.org/wiki/Zvi_Galil">Galil</a> aanpassingen.</p>
+<p>Indien het bestand de neiging heeft om binair te zijn (een NULL-byte in de eerste 1024 bytes), schakelt het zoekalgoritme over naar <a href="https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm">Rabin-Karp</a>.</p>
 <p>In de tweede fase wordt er maximaal gebruik gemaakt van de mogelijkheden geboden door <code>Patterns</code> (en <code>Release</code>). De kandidaten worden parallel opgespoord door analyse van de QtechNG paths.
 Om sneller te werken worden in de tweede fase van de pipeline een aantal <em>fouten</em> toegelaten.</p>
 <p>In de derde fase wordt echter elk bestand uit de eerste fase rigoureus (en in parallel) getest tegen de <em>ganse</em> Query. Indien deze werkwijze je doet denken aan de filosofie achter het gebruik van <a href="https://en.wikipedia.org/wiki/Bloom_filter">Bloom filters</a>, dan zit je goed!.</p>

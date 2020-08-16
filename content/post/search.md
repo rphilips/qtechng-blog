@@ -139,7 +139,6 @@ Het Boyer-Moore algoritme werd nog verbeterd met de [Galil](https://en.wikipedia
 
 Indien het bestand de neiging heeft om binair te zijn (een NULL-byte in de eerste 1024 bytes), schakelt het zoekalgoritme over naar [Rabin-Karp](https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm).
 
-
 In de tweede fase wordt er maximaal gebruik gemaakt van de mogelijkheden geboden door `Patterns` (en `Release`). De kandidaten worden parallel opgespoord door analyse van de QtechNG paths. 
 Om sneller te werken worden in de tweede fase van de pipeline een aantal *fouten* toegelaten. 
 

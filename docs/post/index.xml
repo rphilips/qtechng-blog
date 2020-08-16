@@ -12,6 +12,19 @@
     
     
     <item>
+      <title>Lgcode</title>
+      <link>https://rphilips.github.io/qtechng-blog/post/lgcode/</link>
+      <pubDate>Sun, 16 Aug 2020 12:11:55 +0200</pubDate>
+      
+      <guid>https://rphilips.github.io/qtechng-blog/post/lgcode/</guid>
+      <description>Bij de constructie van Brocade software, worden teksten steeds ingegeven onder de vorm van tekstfragmenten.
+Tekstfragmenten kunnen zowel in de software als in de Brocade toepassing worden gedefinieerd. Sommige van deze tekstfragmenten kunnen voor lokaal gebruik ook worden aangepast.
+In de Brocade software worden tekstfragmenten aangemaakt in *.l bestanden: dit zijn speciaal gestructureerde bestanden die allen de extensie .l hebben.
+Merk op!
+Door middel van de notbrocade eigenschap uit brocade.json kan men *.</description>
+    </item>
+    
+    <item>
       <title>Output</title>
       <link>https://rphilips.github.io/qtechng-blog/post/output/</link>
       <pubDate>Sat, 08 Aug 2020 10:11:15 +0200</pubDate>

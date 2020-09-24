@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="nl-nl">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Deployment | QtechNG Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.69.0-DEV" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/qtechng-blog/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Deployment" />
+<meta property="og:description" content="Tijd om het deployment scenario te bespreken!
+In de context van deployment wil QtechNG vooral streven naar snelheid: als we willen dat Brocade meermaals per jaar een productie release oplevert, dan moet de technische kant van het verhaal snel en correct verlopen.
+Het kan niet zijn dat een 3-tal mensen een ganse dag bezig zijn met een release te installeren op een productieserver: stel dat we werken met maandelijkse sprints, dan is dit soort operatie gewoonweg veel te inefficiënt." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rphilips.github.io/qtechng-blog/post/deployment/" />
+<meta property="article:published_time" content="2020-09-24T15:16:12+02:00" />
+<meta property="article:modified_time" content="2020-09-24T15:16:12+02:00" />
+<meta itemprop="name" content="Deployment">
+<meta itemprop="description" content="Tijd om het deployment scenario te bespreken!
+In de context van deployment wil QtechNG vooral streven naar snelheid: als we willen dat Brocade meermaals per jaar een productie release oplevert, dan moet de technische kant van het verhaal snel en correct verlopen.
+Het kan niet zijn dat een 3-tal mensen een ganse dag bezig zijn met een release te installeren op een productieserver: stel dat we werken met maandelijkse sprints, dan is dit soort operatie gewoonweg veel te inefficiënt.">
+<meta itemprop="datePublished" content="2020-09-24T15:16:12&#43;02:00" />
+<meta itemprop="dateModified" content="2020-09-24T15:16:12&#43;02:00" />
+<meta itemprop="wordCount" content="888">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Deployment"/>
+<meta name="twitter:description" content="Tijd om het deployment scenario te bespreken!
+In de context van deployment wil QtechNG vooral streven naar snelheid: als we willen dat Brocade meermaals per jaar een productie release oplevert, dan moet de technische kant van het verhaal snel en correct verlopen.
+Het kan niet zijn dat een 3-tal mensen een ganse dag bezig zijn met een release te installeren op een productieserver: stel dat we werken met maandelijkse sprints, dan is dit soort operatie gewoonweg veel te inefficiënt."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  
+  <header class="cover bg-top" style="background-image: url('https://rphilips.github.io/qtechng-blog/images/deployment.svg');">
+    <div class="pb3-m pb6-l bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://rphilips.github.io/qtechng-blog/" class="f3 fw2 hover-white no-underline white-90 dib">
+      QtechNG Blog
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/qtechng-blog/post/" title="Artikelen page">
+              Artikelen
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Deployment</h1>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        ARTIKELEN
+      </aside>
+      
+
+
+      <h1 class="f1 athelas mt3 mb1">Deployment</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-09-24T15:16:12&#43;02:00">September 24, 2020</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Tijd om het <em>deployment scenario</em> te bespreken!</p>
+<p>In de context van <em>deployment</em> wil <code>QtechNG</code> vooral streven naar <strong>snelheid</strong>: als we willen dat Brocade meermaals per jaar een productie release oplevert, dan moet de technische kant van het verhaal snel en correct verlopen.</p>
+<p>Het kan niet zijn dat een 3-tal mensen een ganse dag bezig zijn met een release te installeren op een productieserver: stel dat we werken met maandelijkse sprints, dan is dit soort operatie gewoonweg veel te inefficiënt.</p>
+<p>Daar komt dan nog eens bij dat er ook een andere ontwikkelrelease moet worden klaar gezet. Dit is heel wat minder belastend maar neemt - met de bestaande <code>qtech</code> - toch al gauw een 3-tal uur in beslag. Gedurende deze werkzaamheden kan er niet worden ontwikkeld.</p>
+<p>Ik wil toch nog even vermelden dat werken met sprints, niet alleen een technisch verhaal is: de roadmap moet het ook mogelijk maken dat deze sprints kunnen worden opgeleverd.</p>
+<p>Ik stel nu de volgende aanpak voor.</p>
+<h2 id="soorten-machines">Soorten machines</h2>
+<h3 id="b-machine">B-machine</h3>
+<p>De <code>B-machine</code> (Beta-machine) is <code>dev.anet.be</code>.</p>
+<p>Alle ontwikkeling gebeurt daar op release <code>0.00</code>. <code>0.00</code> is niet langer meer een link maar bevat zowel source code als de versiecontrole (Deze zal in <code>QtechNG</code> niet langer gebaseerd zijn op <code>mercurial</code> maar op <code>git</code>). De versiecontrole wordt voortdurend <em>gepusht</em> naar <code>backup.anet.be</code>.</p>
+<p>De registry waarde <code>qtechng-version</code> bevat de reële waarde van de versie (dit is nodig omdat deze waarde wordt gebruikt in de software: bijvoorbeeld in het werken met <em>guards</em> bij macro&rsquo;s en bij het vertalen van r4-waarden). De software wordt echter steeds opgehaald uit het repository onder <code>0.00</code>.</p>
+<h3 id="w-machines">W-machines</h3>
+<p>Op <code>W-machines</code> (werkstations) is de situatie ook eenvoudig:</p>
+<ul>
+<li>de registry waarde <code>qtechng-version</code> (de oude <code>qtech-version-development</code>) is steeds <code>0.00</code>.</li>
+<li>de registry waarde <code>qtechng-releases</code> bevat achteraan steeds <code>0.00</code> (vb. &ldquo;5.00 5.10 0.00&rdquo;)</li>
+</ul>
+<h3 id="p-machines">P-machines</h3>
+<p>De software, die wordt geïnstalleerd op een P-machines (productie), wordt bepaald door de registry waarde <code>qtechng-version</code>.</p>
+<p>Bestaat er een corresponderende versie in het repository op de <code>B-machine</code> dan wordt bij het synchroniseren deze versie gebruikt.
+Bestaat er <strong>geen</strong> corresponderende versie, dan wordt er gesynchroniseerd met <code>0.00</code>.</p>
+<p>Nieuw is ook dat P-machines kunnen worden voorzien van een registry waarde <code>qtechng-backup</code>.</p>
+<h2 id="voorbeeld">Voorbeeld</h2>
+<p>Om de gedachten te vestigen, laten we de toestand illustreren met een realistisch scenario. In het vervolg van de tekst werken we verder met dit voorbeeld.</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">Release `5.10` is afgerond en geïnstalleerd op `anet.be`. 
+
+We zijn volop bezig met de ontwikkeling van `5.20`.
+
+Op `dev.anet.be`:
+
+- `qtechng-version` = `5.20`
+- alle nieuwe code komt in `/library/software/0.00`
+- er bestaat *GEEN* directory `/library/software/5.20`
+- er bestaat *WEL* een directory `/library/software/5.10`
+
+Op `anet.be`:
+
+- `qtechng-version` = `5.10`
+- `qtechng-backup` = `1`
+
+Op werkstations:
+
+- `qtechng-version` = `0.00`
+- `qtechng-releases` = `5.00 5.10 0.00`
+</code></pre></div><h2 id="gedurende-de-ontwikkelfase">Gedurende de ontwikkelfase</h2>
+<p>Een overzicht van de verschillende elementen die spelen tijdens de ontwikkelfase:</p>
+<h3 id="w-machines-1">W-machines</h3>
+<p>Business as usual.</p>
+<h3 id="b-machine-1">B-machine</h3>
+<ul>
+<li>de source code in <code>0.00</code> wordt aangepast en uitgebreid</li>
+<li>de code uit <code>0.00</code> wordt voortdurend geïnstalleerd op de B-machine</li>
+<li>de source code in oudere releases wordt aangepast</li>
+<li>Hoewel <code>qtechng-version</code> = <code>5.20</code> bestaat er geen repository voor <code>5.20</code></li>
+<li>De git database wordt voortdurend gepusht naar <code>backup.anet.be</code></li>
+</ul>
+<h3 id="p-machines-1">P-machines</h3>
+<ul>
+<li>werkt enkel met software corresponderend met <code>qtechng-version</code> (dit kan wel worden herleid naar <code>0.00</code> indien er geen passend repository bestaat op de B-machine)</li>
+<li>de P-machine kijkt naar de waarde van <code>qtechng-backup</code>. Is deze leeg of bestaat deze niet, dan stopt het verhaal.
+Is deze gelijk aan <code>1</code>, dan wordt het <code>0.00</code> repository van <code>dev.anet.be</code> voortdurend gesynchroniseerd (maar niet geïnstalleerd).
+Op deze wijze is er een voortdurende backup van de source code. Merk nog op dat het initiatief ook komt van <code>anet.be</code> (in tegenstelling tot de <code>push</code> naar de backup server).
+Dit <code>0.00</code> repository kan echter ook nog anders worden gebruikt (zie later)</li>
+</ul>
+<h2 id="installatie-van-een-nieuwe-release">Installatie van een nieuwe release</h2>
+<h3 id="b-machine-2">B-machine</h3>
+<p>Er hoeft niets te gebeuren!</p>
+<h3 id="w-machines-2">W-machines</h3>
+<p>Er hoeft niets te gebeuren!</p>
+<h3 id="p-machine">P-machine</h3>
+<ul>
+<li>synchroniseren van release <code>0.00</code> uit <code>dev.anet.be</code> naar de P-machine: <code>qtechng release sync 0.00</code>
+Merk op, dat indien <code>qtechng-backup</code> = <code>1</code>, dit nagenoeg ogenblikkelijk verloopt. Brocade blijft operationeel gedurende deze fase.</li>
+<li>uitvoeren in release <code>5.10</code> van <code>/release/always/nextrelease.py</code></li>
+<li>uitvoeren van Ansible uit release <code>0.00</code></li>
+<li><code>move</code> van <code>0.00</code> naar <code>5.20</code> in de lokale repositories: <code>qtechng release copy 0.00 5.20</code></li>
+<li>installatie van <code>5.20</code>: <code>qtechng release install 5.20</code></li>
+</ul>
+<h2 id="klaar-zetten-van-een-nieuwe-ontwikkelrelease">Klaar zetten van een nieuwe ontwikkelrelease</h2>
+<h3 id="b-machine-3">B-machine</h3>
+<ul>
+<li>kopiëren van <code>0.00</code> naar <code>5.20</code>: <code>qtechng release copy 0.00 5.20</code></li>
+<li>aanpassen van de registry waarde <code>qtechng-version</code> = <code>5.30</code></li>
+<li>initialiseren van <code>/release/always</code> in <code>0.00</code></li>
+</ul>
+<h3 id="w-machines-3">W-machines</h3>
+<ul>
+<li>zet de registry waarde: <code>qtechng-releases</code> = <code>5.00 5.10 5.20 0.00</code></li>
+</ul>
+<h3 id="p-machines-2">P-machines</h3>
+<p>Er hoeft niets te gebeuren!</p>
+<h2 id="opmerkingen">Opmerkingen</h2>
+<ul>
+<li>deze opzet lijkt wat ingewikkeld maar is dat enkel zo bij eerste lezing: het verhoogt de kwaliteit van de backup en maakt optimaal gebruik van alle datastructuren</li>
+<li>het klaar zetten van een nieuwe ontwikkelrelease is werk van minuten (zowel op de B- als W-machines)</li>
+<li>het installeren op de productie machine wordt herleid tot het pure installeren van de software. Hier heeft <code>QtechNG</code> ruimschoots de gelegenheid om zich te bewijzen!</li>
+<li>als op een P-machine een andere versie moet worden geïnstalleerd dan <code>0.00</code> vervang dan in het voorgaande gewoon <code>0.00</code> door het passende versienummer.</li>
+<li>de <code>qtechng</code> instructies zijn zodanig geconstrueerd dat ze kunnen worden gebruikt in <code>procman</code>, <strong>zonder</strong> dat <code>procman</code> moet worden aangepast.</li>
+<li>Om een aantal collega&rsquo;s (1) te plezieren, komt er ook een registry waarde <code>qtechng-version-name</code>. Deze kan worden gebruikt om in het Brocade welkom scherm de release beter aan te duiden. Zo zou deze op <code>dev.anet.be</code> het woordje <code>beta</code> kunnen bevatten.</li>
+</ul>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://rphilips.github.io/qtechng-blog/" >
+    &copy;  QtechNG Blog 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/qtechng-blog/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

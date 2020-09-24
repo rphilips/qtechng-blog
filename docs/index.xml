@@ -6,10 +6,21 @@
     <description>Recent content in QtechNG: Ontwikkelen voor Brocade on QtechNG Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>nl-nl</language>
-    <lastBuildDate>Thu, 03 Sep 2020 15:37:19 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 24 Sep 2020 15:16:12 +0200</lastBuildDate>
     
 	<atom:link href="https://rphilips.github.io/qtechng-blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Deployment</title>
+      <link>https://rphilips.github.io/qtechng-blog/post/deployment/</link>
+      <pubDate>Thu, 24 Sep 2020 15:16:12 +0200</pubDate>
+      
+      <guid>https://rphilips.github.io/qtechng-blog/post/deployment/</guid>
+      <description>Tijd om het deployment scenario te bespreken!
+In de context van deployment wil QtechNG vooral streven naar snelheid: als we willen dat Brocade meermaals per jaar een productie release oplevert, dan moet de technische kant van het verhaal snel en correct verlopen.
+Het kan niet zijn dat een 3-tal mensen een ganse dag bezig zijn met een release te installeren op een productieserver: stel dat we werken met maandelijkse sprints, dan is dit soort operatie gewoonweg veel te inefficiënt.</description>
+    </item>
     
     <item>
       <title>Setuid</title>

@@ -45,7 +45,7 @@ Bestaat er **geen** corresponderende versie, dan wordt er gesynchroniseerd met `
 Nieuw is ook dat P-machines kunnen worden voorzien van een registry waarde `qtechng-backup`.
 
 
-## Voorbeeld
+## Scenario
 
 Om de gedachten te vestigen, laten we de toestand illustreren met een realistisch scenario. In het vervolg van de tekst werken we verder met dit voorbeeld.
 

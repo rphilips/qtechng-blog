@@ -39,7 +39,7 @@ In de context van deployment wil QtechNG vooral streven naar snelheid: als we wi
 Het kan niet zijn dat een 3-tal mensen een ganse dag bezig zijn met een release te installeren op een productieserver: stel dat we werken met maandelijkse sprints, dan is dit soort operatie gewoonweg veel te inefficiënt.">
 <meta itemprop="datePublished" content="2020-09-24T15:16:12&#43;02:00" />
 <meta itemprop="dateModified" content="2020-09-24T15:16:12&#43;02:00" />
-<meta itemprop="wordCount" content="888">
+<meta itemprop="wordCount" content="1038">
 
 
 
@@ -221,6 +221,16 @@ Merk op, dat indien <code>qtechng-backup</code> = <code>1</code>, dit nagenoeg o
 </ul>
 <h3 id="p-machines-2">P-machines</h3>
 <p>Er hoeft niets te gebeuren!</p>
+<h2 id="qtechng-versus-qtech">QtechNG versus Qtech</h2>
+<p>De essentie van dit verhaal gaat over procedure. Laten we er daarom van uitgaan dat <code>QtechNG</code> slechts een licht aangepaste versie is van <code>Qtech</code>.</p>
+<p>Gewoon door de procedure wat aan te passen kan:</p>
+<ul>
+<li>de installatie van een nieuwe ontwikkelrelease nagenoeg ogenblikkelijk gebeuren. Ook de inspanningen op de individuele werkstations vallen weg.</li>
+<li>de installatie op een productiemachine kan worden herleid tot de helft van de inspanningen. Op <code>dev.anet.be</code> zijn er geen inspanningen meer nodig!</li>
+<li>tegelijkertijd een beter backup systeem opzetten (dat dan nog eens kan worden gebruikt bij de installatie zelf)</li>
+</ul>
+<p><code>QtechNG</code> is echter heel wat meer dan een <em>lichte</em> aanpassing van <code>Qtech</code>: door <code>Go</code> te gebruiken in plaats van <code>Python</code> en maximaal het <code>concurrency</code> model van <code>Go</code> aan te wenden, is deze software nog eens vele malen sneller.</p>
+<p>Die &lsquo;helft&rsquo; bij installatie op productiemachine gaat nog eens drastisch worden ingekort. Die software is nog volop in ontwikkeling.</p>
 <h2 id="opmerkingen">Opmerkingen</h2>
 <ul>
 <li>deze opzet lijkt wat ingewikkeld maar is dat enkel zo bij eerste lezing: het verhoogt de kwaliteit van de backup en maakt optimaal gebruik van alle datastructuren</li>

@@ -133,6 +133,22 @@ Er hoeft niets te gebeuren!
 
 
 
+## QtechNG versus Qtech
+
+De essentie van dit verhaal gaat over procedure. Laten we er daarom van uitgaan dat `QtechNG` slechts een licht aangepaste versie is van `Qtech`.
+
+Gewoon door de procedure wat aan te passen kan:
+
+- de installatie van een nieuwe ontwikkelrelease nagenoeg ogenblikkelijk gebeuren. Ook de inspanningen op de individuele werkstations vallen weg.
+- de installatie op een productiemachine kan worden herleid tot de helft van de inspanningen. Op `dev.anet.be` zijn er geen inspanningen meer nodig!
+- tegelijkertijd een beter backup systeem opzetten (dat dan nog eens kan worden gebruikt bij de installatie zelf)
+
+
+`QtechNG` is echter heel wat meer dan een *lichte* aanpassing van `Qtech`: door `Go` te gebruiken in plaats van `Python` en maximaal het `concurrency` model van `Go` aan te wenden, is deze software nog eens vele malen sneller.
+
+Die 'helft' bij installatie op productiemachine gaat nog eens drastisch worden ingekort. Die software is nog volop in ontwikkeling.
+
+
 ## Opmerkingen
 
 - deze opzet lijkt wat ingewikkeld maar is dat enkel zo bij eerste lezing: het verhoogt de kwaliteit van de backup en maakt optimaal gebruik van alle datastructuren
@@ -141,3 +157,4 @@ Er hoeft niets te gebeuren!
 - als op een P-machine een andere versie moet worden geïnstalleerd dan `0.00` vervang dan in het voorgaande gewoon `0.00` door het passende versienummer.
 - de `qtechng` instructies zijn zodanig geconstrueerd dat ze kunnen worden gebruikt in `procman`, **zonder** dat `procman` moet worden aangepast.
 - Om een aantal collega's (1) te plezieren, komt er ook een registry waarde `qtechng-version-name`. Deze kan worden gebruikt om in het Brocade welkom scherm de release beter aan te duiden. Zo zou deze op `dev.anet.be` het woordje `beta` kunnen bevatten.
+

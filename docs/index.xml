@@ -6,10 +6,24 @@
     <description>Recent content in QtechNG: Ontwikkelen voor Brocade on QtechNG Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>nl-nl</language>
-    <lastBuildDate>Thu, 24 Sep 2020 15:16:12 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 30 Sep 2020 17:04:58 +0200</lastBuildDate>
     
 	<atom:link href="https://rphilips.github.io/qtechng-blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Delete</title>
+      <link>https://rphilips.github.io/qtechng-blog/post/delete/</link>
+      <pubDate>Wed, 30 Sep 2020 17:04:58 +0200</pubDate>
+      
+      <guid>https://rphilips.github.io/qtechng-blog/post/delete/</guid>
+      <description>Het schrappen van een bestand in QtechNG ?
+Hoe moeilijk kan dat zijn ?
+Wel, laten we stellen dat het een orde moeilijker is dan het opslaan van een bestand in QtechNG.
+Probleem 1: Schrappen ? Wat betekent dit precies ? Elk bestand in QtechNG is gekenmerkt door een qpath.
+Dergelijk qpath leidt, binnen een gegeven release, tot een plaats in het fileystem. Dit bestand moet worden verwijderd.
+Een bestand komt ook met uniqueness informatie voor de basename.</description>
+    </item>
     
     <item>
       <title>Deployment</title>

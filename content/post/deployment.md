@@ -121,7 +121,7 @@ Er hoeft niets te gebeuren!
 
 - kopiëren van `0.00` naar `5.20`: `qtechng release copy 0.00 5.20`
 - aanpassen van de registry waarde `qtechng-version` = `5.30`
-- initialiseren van `/release/always` in `0.00`
+- initialiseren van `/release/current` in `0.00`
 
 ### W-machines
 

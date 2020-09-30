@@ -110,6 +110,31 @@
             <div class="mb3 pa4 mid-gray overflow-hidden">
     
       <div class="f6">
+        September 30, 2020
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="https://rphilips.github.io/qtechng-blog/post/delete/" class="link black dim">
+        Delete
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Het schrappen van een bestand in QtechNG ?
+Hoe moeilijk kan dat zijn ?
+Wel, laten we stellen dat het een orde moeilijker is dan het opslaan van een bestand in QtechNG.
+Probleem 1: Schrappen ? Wat betekent dit precies ? Elk bestand in QtechNG is gekenmerkt door een qpath.
+Dergelijk qpath leidt, binnen een gegeven release, tot een plaats in het fileystem. Dit bestand moet worden verwijderd.
+Een bestand komt ook met uniqueness informatie voor de basename.
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
         September 24, 2020
       </div>
     
@@ -278,30 +303,6 @@ Een linter onderzoekt source code en meldt indien er iets schort aan de software
 Dit moet nog beter (lees: sneller) worden in QtechNG.
 De basis van de zoek-software is de volgende golang structuur:
 type Query struct { Release string CmpRelease string Patterns []string Natures []string Cu []string Mu []string CtBefore string CtAfter string MtBefore string MtAfter string ToLower bool SmartCase bool Regexp bool PerLine bool Contains []string Any []func(qpath string, blob []byte) bool All []func(qpath string, blob []byte) bool } Attributen Elk van deze attributen stelt een specifiek type van zoeken voor.
-    </div>
-  </div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-          
-            <div class="mb3 pa4 mid-gray overflow-hidden">
-    
-      <div class="f6">
-        July 13, 2020
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="https://rphilips.github.io/qtechng-blog/post/natures/" class="link black dim">
-        Naturen
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Met QtechNG wordt er ook een classificatie van de bestanden geïntroduceerd.
-Dit is in feite een formalisering van wat reeds jaar en dag gebruikt wordt door het ontwikkelteam.
-Een bestand kan meerdere naturen hebben.
-Deze naturen hebben verschillende functies:
- ze sturen de installatie ze zijn belangrijk voor m4/r4/i4 substitutie ze kunnen worden gebruikt bij queries  binary en text Deze naturen sluiten elkaar uit. Standaard wordt elk bestand als text beschouwd.
     </div>
   </div>
 

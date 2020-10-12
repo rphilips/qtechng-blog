@@ -110,6 +110,28 @@
             <div class="mb3 pa4 mid-gray overflow-hidden">
     
       <div class="f6">
+        October 8, 2020
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="https://rphilips.github.io/qtechng-blog/post/installation/" class="link black dim">
+        Installation
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      In deze blog bijdarge wil beschrijven wat er gebeurt bij een installatie.
+Elke installatie begint met een verzameling van sources.
+Deze sources zijn qpaths naar bestanden in het repository: bij een complete installatie van een release zijn dit simpelweg alle bestanden uit het repository. In het vervolg verwijzen we naar deze verzameling als de sourceset. Het moet steeds expliciet worden meegegeven aan het installatieproces of we te maken hebben met een complete of partiële installatie.
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
         September 30, 2020
       </div>
     
@@ -280,29 +302,6 @@ In middens van software ontwikkelaars zijn er 2 dingen waarmee je snel een heili
       Linters zijn een belangrijke onderdeel van QtechNG.
 Een linter onderzoekt source code en meldt indien er iets schort aan de software. Er zijn zijn essentieel twee soorten berichten:
  De code is onwerkbaar: hij beantwoordt niet aan de vereisten van de specificatie De code is werkbaar maar is samengesteld tegen de afspraken in: de stijl van de software past niet.  Brocade werkt met een grote verscheidenheid aan specificaties: behalve aan goed gekende structuren (HTML, JSON, Python, reST, &hellip;) zijn er ook minder gekende specificaties zoals M en interne formaten zoals X-files, D-files, L-files, B-files, I-files en M-files.
-    </div>
-  </div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-          
-            <div class="mb3 pa4 mid-gray overflow-hidden">
-    
-      <div class="f6">
-        July 17, 2020
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="https://rphilips.github.io/qtechng-blog/post/search/" class="link black dim">
-        Search
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      De meest gebruikte faciliteit van qtech is ongetwijfeld het zoeken in het software repository.
-Dit moet nog beter (lees: sneller) worden in QtechNG.
-De basis van de zoek-software is de volgende golang structuur:
-type Query struct { Release string CmpRelease string Patterns []string Natures []string Cu []string Mu []string CtBefore string CtAfter string MtBefore string MtAfter string ToLower bool SmartCase bool Regexp bool PerLine bool Contains []string Any []func(qpath string, blob []byte) bool All []func(qpath string, blob []byte) bool } Attributen Elk van deze attributen stelt een specifiek type van zoeken voor.
     </div>
   </div>
 

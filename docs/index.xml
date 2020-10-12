@@ -6,10 +6,21 @@
     <description>Recent content in QtechNG: Ontwikkelen voor Brocade on QtechNG Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>nl-nl</language>
-    <lastBuildDate>Wed, 30 Sep 2020 17:04:58 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 08 Oct 2020 13:54:21 +0200</lastBuildDate>
     
 	<atom:link href="https://rphilips.github.io/qtechng-blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Installation</title>
+      <link>https://rphilips.github.io/qtechng-blog/post/installation/</link>
+      <pubDate>Thu, 08 Oct 2020 13:54:21 +0200</pubDate>
+      
+      <guid>https://rphilips.github.io/qtechng-blog/post/installation/</guid>
+      <description>In deze blog bijdarge wil beschrijven wat er gebeurt bij een installatie.
+Elke installatie begint met een verzameling van sources.
+Deze sources zijn qpaths naar bestanden in het repository: bij een complete installatie van een release zijn dit simpelweg alle bestanden uit het repository. In het vervolg verwijzen we naar deze verzameling als de sourceset. Het moet steeds expliciet worden meegegeven aan het installatieproces of we te maken hebben met een complete of partiële installatie.</description>
+    </item>
     
     <item>
       <title>Delete</title>

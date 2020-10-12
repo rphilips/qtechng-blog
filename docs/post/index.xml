@@ -17,7 +17,7 @@
       <pubDate>Thu, 08 Oct 2020 13:54:21 +0200</pubDate>
       
       <guid>https://rphilips.github.io/qtechng-blog/post/installation/</guid>
-      <description>In deze blog bijdarge wil beschrijven wat er gebeurt bij een installatie.
+      <description>In deze blog bijdrage wil beschrijven wat er gebeurt bij een installatie.
 Elke installatie begint met een verzameling van sources.
 Deze sources zijn qpaths naar bestanden in het repository: bij een complete installatie van een release zijn dit simpelweg alle bestanden uit het repository. In het vervolg verwijzen we naar deze verzameling als de sourceset. Het moet steeds expliciet worden meegegeven aan het installatieproces of we te maken hebben met een complete of partiële installatie.</description>
     </item>

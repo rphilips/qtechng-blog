@@ -4,7 +4,7 @@ date: 2020-10-08T13:54:21+02:00
 featured_image: "/images/installation.svg"
 ---
 
-In deze blog bijdarge wil beschrijven wat er gebeurt bij een installatie.
+In deze blog bijdrage wil beschrijven wat er gebeurt bij een installatie.
 
 Elke installatie begint met een verzameling van *sources*.
 

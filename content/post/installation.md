@@ -36,7 +36,7 @@ export WORKDIR=`qtechng tempdir get --prefix=qtechng.`
 
 # Het complete project wordt uit het repository van de huidige productieserver
 # gehaald en geschreven in $WORKDIR
-# Het uitvoeren van een python script kan immers destructief werken
+# Het uitvoeren van een python script kan immers destructief werken:
 # Op zijn minst worden er bestanden geplaatst die niet thuis horen in het
 # repository (vb. *.pyc bestanden)
 cd "$WORKDIR"

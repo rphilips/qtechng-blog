@@ -33,22 +33,30 @@ Om helemaal goed te begrijpen wat er dan precies gebeurt, ga ik vlug even demons
 # Maak een tijdelijke directory aan
 export WORKDIR=`qtechng tempdir get --prefix=qtechng.`
 
+
+# Het complete project wordt uit het repository van de huidige productieserver
+# gehaald en geschreven in $WORKDIR
+# Het uitvoeren van een python script kan immers destructief werken
+# Op zijn minst worden er bestanden geplaatst die niet thuis horen in het
+# repository (vb. *.pyc bestanden)
+cd "$WORKDIR"
+qtechng source co $PYSCRIPT --neighbours --version=$VERSION –-tree
+
+
+# Bereken de absolute filenaam
+export ABSPATH=`qtechng file tell --tell=abspath --pattern=$PYSCRIPT --version=$VERSION --recurse`
+
+
 # Bereken de passende python versie
 # Een Python script kan immers met py2 of met py3 werken:
 # De versie van Python wordt bepaald door
 # - de configuratiefile `brocade.json`
 # - het voorkomen van py2 of py3 op de eerste lijn in de script
-export PYTHON=`qtechng source py $PYSCRIPT --pyonly`
+export PYTHON=`qtechng file tell $ABSPATH --tell=python`
 
-# Bereken het *project* zelf
-export PROJECT=`qtechng source project $PYSCRIPT`
+# Bereken het *project* van de script
+export PROJECT=`qtechng file tell $ABSPATH --tell=project`
 
-# Het complete project wordt geschreven in $WORKDIR
-cd "$WORKDIR"
-qtechng project co "$PROJECT" --version=$VERSION –tree
-
-# Bereken de *relpath* van de script
-export RPYSCRIPT=`qtechng file relpath $PYSCRIPT` 
 
 # Let op dat versie en project worden meegeven als parameter:
 # Het is aan de script om daar iets mee te doen.
@@ -57,7 +65,7 @@ export RPYSCRIPT=`qtechng file relpath $PYSCRIPT`
 # QPATH__ -> PYSCRIPT
 
 cd "$WORKDIR"
-$PYTHON -c "VERSION__='$VERSION'; PROJECT__='$PROJECT'; QPATH__='$PYSCRIPT'; exec(open('$RPYSCRIPT').read())"
+$PYTHON -c "VERSION__='$VERSION'; PROJECT__='$PROJECT'; QPATH__='$PYSCRIPT'; exec(open('$ABSPATH').read())"
 ```
 
 

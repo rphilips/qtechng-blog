@@ -39,7 +39,7 @@ Elke installatie begint met een verzameling van sources.
 Deze sources zijn qpaths naar bestanden in het repository: bij een complete installatie van een release zijn dit simpelweg alle bestanden uit het repository. In het vervolg verwijzen we naar deze verzameling als de sourceset. Het moet steeds expliciet worden meegegeven aan het installatieproces of we te maken hebben met een complete of partiële installatie.">
 <meta itemprop="datePublished" content="2020-10-08T13:54:21&#43;02:00" />
 <meta itemprop="dateModified" content="2020-10-08T13:54:21&#43;02:00" />
-<meta itemprop="wordCount" content="1188">
+<meta itemprop="wordCount" content="1233">
 
 
 
@@ -150,22 +150,30 @@ qtechng <span style="color:#cb4b16">source</span> py <span style="color:#268bd2"
 <span style="color:#93a1a1;font-style:italic"># Maak een tijdelijke directory aan</span>
 <span style="color:#cb4b16">export</span> <span style="color:#268bd2">WORKDIR</span>=<span style="color:#2aa198">`</span>qtechng tempdir get --prefix=qtechng.<span style="color:#2aa198">`</span>
 
+
+<span style="color:#93a1a1;font-style:italic"># Het complete project wordt uit het repository van de huidige productieserver</span>
+<span style="color:#93a1a1;font-style:italic"># gehaald en geschreven in $WORKDIR</span>
+<span style="color:#93a1a1;font-style:italic"># Het uitvoeren van een python script kan immers destructief werken</span>
+<span style="color:#93a1a1;font-style:italic"># Op zijn minst worden er bestanden geplaatst die niet thuis horen in het</span>
+<span style="color:#93a1a1;font-style:italic"># repository (vb. *.pyc bestanden)</span>
+<span style="color:#cb4b16">cd</span> <span style="color:#2aa198">&#34;</span><span style="color:#268bd2">$WORKDIR</span><span style="color:#2aa198">&#34;</span>
+qtechng <span style="color:#cb4b16">source</span> co <span style="color:#268bd2">$PYSCRIPT</span> --neighbours --version=<span style="color:#268bd2">$VERSION</span> –-tree
+
+
+<span style="color:#93a1a1;font-style:italic"># Bereken de absolute filenaam</span>
+<span style="color:#cb4b16">export</span> <span style="color:#268bd2">ABSPATH</span>=<span style="color:#2aa198">`</span>qtechng file tell --tell=abspath --pattern=<span style="color:#268bd2">$PYSCRIPT</span> --version=<span style="color:#268bd2">$VERSION</span> --recurse<span style="color:#2aa198">`</span>
+
+
 <span style="color:#93a1a1;font-style:italic"># Bereken de passende python versie</span>
 <span style="color:#93a1a1;font-style:italic"># Een Python script kan immers met py2 of met py3 werken:</span>
 <span style="color:#93a1a1;font-style:italic"># De versie van Python wordt bepaald door</span>
 <span style="color:#93a1a1;font-style:italic"># - de configuratiefile `brocade.json`</span>
 <span style="color:#93a1a1;font-style:italic"># - het voorkomen van py2 of py3 op de eerste lijn in de script</span>
-<span style="color:#cb4b16">export</span> <span style="color:#268bd2">PYTHON</span>=<span style="color:#2aa198">`</span>qtechng <span style="color:#cb4b16">source</span> py <span style="color:#268bd2">$PYSCRIPT</span> --pyonly<span style="color:#2aa198">`</span>
+<span style="color:#cb4b16">export</span> <span style="color:#268bd2">PYTHON</span>=<span style="color:#2aa198">`</span>qtechng file tell <span style="color:#268bd2">$ABSPATH</span> --tell=python<span style="color:#2aa198">`</span>
 
-<span style="color:#93a1a1;font-style:italic"># Bereken het *project* zelf</span>
-<span style="color:#cb4b16">export</span> <span style="color:#268bd2">PROJECT</span>=<span style="color:#2aa198">`</span>qtechng <span style="color:#cb4b16">source</span> project <span style="color:#268bd2">$PYSCRIPT</span><span style="color:#2aa198">`</span>
+<span style="color:#93a1a1;font-style:italic"># Bereken het *project* van de script</span>
+<span style="color:#cb4b16">export</span> <span style="color:#268bd2">PROJECT</span>=<span style="color:#2aa198">`</span>qtechng file tell <span style="color:#268bd2">$ABSPATH</span> --tell=project<span style="color:#2aa198">`</span>
 
-<span style="color:#93a1a1;font-style:italic"># Het complete project wordt geschreven in $WORKDIR</span>
-<span style="color:#cb4b16">cd</span> <span style="color:#2aa198">&#34;</span><span style="color:#268bd2">$WORKDIR</span><span style="color:#2aa198">&#34;</span>
-qtechng project co <span style="color:#2aa198">&#34;</span><span style="color:#268bd2">$PROJECT</span><span style="color:#2aa198">&#34;</span> --version=<span style="color:#268bd2">$VERSION</span> –tree
-
-<span style="color:#93a1a1;font-style:italic"># Bereken de *relpath* van de script</span>
-<span style="color:#cb4b16">export</span> <span style="color:#268bd2">RPYSCRIPT</span>=<span style="color:#2aa198">`</span>qtechng file relpath <span style="color:#268bd2">$PYSCRIPT</span><span style="color:#2aa198">`</span> 
 
 <span style="color:#93a1a1;font-style:italic"># Let op dat versie en project worden meegeven als parameter:</span>
 <span style="color:#93a1a1;font-style:italic"># Het is aan de script om daar iets mee te doen.</span>
@@ -174,7 +182,7 @@ qtechng project co <span style="color:#2aa198">&#34;</span><span style="color:#2
 <span style="color:#93a1a1;font-style:italic"># QPATH__ -&gt; PYSCRIPT</span>
 
 <span style="color:#cb4b16">cd</span> <span style="color:#2aa198">&#34;</span><span style="color:#268bd2">$WORKDIR</span><span style="color:#2aa198">&#34;</span>
-<span style="color:#268bd2">$PYTHON</span> -c <span style="color:#2aa198">&#34;VERSION__=&#39;</span><span style="color:#268bd2">$VERSION</span><span style="color:#2aa198">&#39;; PROJECT__=&#39;</span><span style="color:#268bd2">$PROJECT</span><span style="color:#2aa198">&#39;; QPATH__=&#39;</span><span style="color:#268bd2">$PYSCRIPT</span><span style="color:#2aa198">&#39;; exec(open(&#39;</span><span style="color:#268bd2">$RPYSCRIPT</span><span style="color:#2aa198">&#39;).read())&#34;</span>
+<span style="color:#268bd2">$PYTHON</span> -c <span style="color:#2aa198">&#34;VERSION__=&#39;</span><span style="color:#268bd2">$VERSION</span><span style="color:#2aa198">&#39;; PROJECT__=&#39;</span><span style="color:#268bd2">$PROJECT</span><span style="color:#2aa198">&#39;; QPATH__=&#39;</span><span style="color:#268bd2">$PYSCRIPT</span><span style="color:#2aa198">&#39;; exec(open(&#39;</span><span style="color:#268bd2">$ABSPATH</span><span style="color:#2aa198">&#39;).read())&#34;</span>
 </code></pre></div><h2 id="sourceset--autoset--installset">sourceset / autoset / installset</h2>
 <p>De <code>sourceset</code> is de naam voor de verzameling van de te installeren bestanden:</p>
 <ul>

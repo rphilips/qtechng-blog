@@ -19,5 +19,7 @@ markup:
       noClasses: true
       style: solarized-light
       tabWidth: 4
-
+  goldmark:
+      renderer:
+          unsafe: true
 

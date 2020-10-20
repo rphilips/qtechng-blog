@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="nl-nl">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>CLI structure | QtechNG Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.69.0-DEV" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/qtechng-blog/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="CLI structure" />
+<meta property="og:description" content="Laten we even stil staan bij de werking van de QtechNG CLI.
+Een typische invocatie is:
+qtechng project co /core/python3 --version=6.00 --tree Er zijn essentieel 5 onderdelen.
+Executable De werknaam is qtechng. Dit kan echter nog veranderen.
+Het onderwerp Dit bevat het soort object waarover het commando gaat.
+Op dit ogenblik hebben we de volgende onderwerpen:
+ clipboard: acties in verband met het clipboard file: acties in verband met lokale bestanden project: acties in verband met QtechNG projecten registry: acties in verband met de registry source: acties in verband met bestanden in het repository stdin: acties in verband met stdin system: acties in verband met systeemconfiguratie tempdir: acties in verband met tijdelijke mappen version: acties in verband met de versie  QtechNG verzamelt ook eenvoudige instrumenten die het maken van scripts simpelder maken." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rphilips.github.io/qtechng-blog/post/clistructure/" />
+<meta property="article:published_time" content="2020-10-20T11:54:54+02:00" />
+<meta property="article:modified_time" content="2020-10-20T11:54:54+02:00" />
+<meta itemprop="name" content="CLI structure">
+<meta itemprop="description" content="Laten we even stil staan bij de werking van de QtechNG CLI.
+Een typische invocatie is:
+qtechng project co /core/python3 --version=6.00 --tree Er zijn essentieel 5 onderdelen.
+Executable De werknaam is qtechng. Dit kan echter nog veranderen.
+Het onderwerp Dit bevat het soort object waarover het commando gaat.
+Op dit ogenblik hebben we de volgende onderwerpen:
+ clipboard: acties in verband met het clipboard file: acties in verband met lokale bestanden project: acties in verband met QtechNG projecten registry: acties in verband met de registry source: acties in verband met bestanden in het repository stdin: acties in verband met stdin system: acties in verband met systeemconfiguratie tempdir: acties in verband met tijdelijke mappen version: acties in verband met de versie  QtechNG verzamelt ook eenvoudige instrumenten die het maken van scripts simpelder maken.">
+<meta itemprop="datePublished" content="2020-10-20T11:54:54&#43;02:00" />
+<meta itemprop="dateModified" content="2020-10-20T11:54:54&#43;02:00" />
+<meta itemprop="wordCount" content="489">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CLI structure"/>
+<meta name="twitter:description" content="Laten we even stil staan bij de werking van de QtechNG CLI.
+Een typische invocatie is:
+qtechng project co /core/python3 --version=6.00 --tree Er zijn essentieel 5 onderdelen.
+Executable De werknaam is qtechng. Dit kan echter nog veranderen.
+Het onderwerp Dit bevat het soort object waarover het commando gaat.
+Op dit ogenblik hebben we de volgende onderwerpen:
+ clipboard: acties in verband met het clipboard file: acties in verband met lokale bestanden project: acties in verband met QtechNG projecten registry: acties in verband met de registry source: acties in verband met bestanden in het repository stdin: acties in verband met stdin system: acties in verband met systeemconfiguratie tempdir: acties in verband met tijdelijke mappen version: acties in verband met de versie  QtechNG verzamelt ook eenvoudige instrumenten die het maken van scripts simpelder maken."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  
+  <header class="cover bg-top" style="background-image: url('https://rphilips.github.io/qtechng-blog/images/clistructure.svg');">
+    <div class="pb3-m pb6-l bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://rphilips.github.io/qtechng-blog/" class="f3 fw2 hover-white no-underline white-90 dib">
+      QtechNG Blog
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/qtechng-blog/post/" title="Artikelen page">
+              Artikelen
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">CLI structure</h1>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        ARTIKELEN
+      </aside>
+      
+
+
+      <h1 class="f1 athelas mt3 mb1">CLI structure</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-10-20T11:54:54&#43;02:00">October 20, 2020</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Laten we even stil staan bij de werking van de <code>QtechNG CLI</code>.</p>
+<p>Een typische invocatie is:</p>
+<div>qtechng <span style="color:blue;">project</span> <span style="color:red;">co</span> <span style="color:green;">/core/python3</span> <span style="color:brown;">--version=6.00 --tree</span></div>
+<p>Er zijn essentieel 5 onderdelen.</p>
+<h2 id="executable">Executable</h2>
+<p>De werknaam is <code>qtechng</code>. Dit kan echter nog veranderen.</p>
+<h2 id="het-onderwerp">Het onderwerp</h2>
+<p>Dit bevat het soort object waarover het commando gaat.</p>
+<p>Op dit ogenblik hebben we de volgende onderwerpen:</p>
+<ul>
+<li><code>clipboard</code>: acties in verband met het clipboard</li>
+<li><code>file</code>: acties in verband met lokale bestanden</li>
+<li><code>project</code>: acties in verband met QtechNG projecten</li>
+<li><code>registry</code>: acties in verband met de registry</li>
+<li><code>source</code>: acties in verband met bestanden in het repository</li>
+<li><code>stdin</code>: acties in verband met stdin</li>
+<li><code>system</code>: acties in verband met systeemconfiguratie</li>
+<li><code>tempdir</code>: acties in verband met tijdelijke mappen</li>
+<li><code>version</code>: acties in verband met de versie</li>
+</ul>
+<p><code>QtechNG</code> verzamelt ook eenvoudige instrumenten die het maken van scripts simpelder maken.</p>
+<p>Met <code>qtechng help</code> kan je de onderwerpen oplijsten.</p>
+<h2 id="het-werkwoord">Het werkwoord</h2>
+<p>Bij het onderwerp <code>project</code> zijn er de volgende werkwoorden gedefinieerd:</p>
+<ul>
+<li><code>co</code>: checkout van een project</li>
+<li><code>delete</code>: schrappen van een project</li>
+<li><code>info</code>: informatie over een project</li>
+<li><code>list</code>: oplijsten van de inhoud</li>
+<li><code>new</code>: aanmaak van een nieuw project</li>
+<li><code>rename</code>: hernoemen van een project</li>
+</ul>
+<p>Elk onderwerp heeft zijn eigen werkwoorden.</p>
+<p>Met <code>qtechng project help</code> kan je de werkwoorden bij <code>project</code> oplijsten.</p>
+<h2 id="de-argumenten">De argumenten</h2>
+<p>Argumenten kunnen verplicht, verbode, enkelvoudig of meervoudig zijn.</p>
+<p>Indien er argumenten zijn, zijn deze steeds van het type passend bij het onderwerp.</p>
+<h2 id="vlaggen">Vlaggen</h2>
+<p>Vlaggen dienen om de werking te verfijnen of om meer informatie te geven.</p>
+<p>Vlaggen kunnen <em>overall</em> werken:</p>
+<ul>
+<li>uid: User ID</li>
+<li>stdout: Filename containing the result</li>
+<li>cwd: Working directory</li>
+<li>unhex: Unhexify the arguments starting with <code>.</code></li>
+<li>editor: editor name (vb. vscode)</li>
+<li>jsonpath: JSONpath</li>
+<li>quiet: Silence the output</li>
+</ul>
+<p>of per <em>onderwerp</em>:</p>
+<p>vb. bij <code>system</code> bestaat de vlag <code>--remote</code></p>
+<ul>
+<li><code>qtechng system</code> vraagt informatie op van de actuele computer</li>
+<li><code>qtechng system --remote</code> vraagt informatie op van <code>dev.anet.be</code></li>
+</ul>
+<p>of per <em>werkwoord</em>:</p>
+<p>vb. bij <code>source</code> bestaan de vlaggen:</p>
+<ul>
+<li>version: Version to work with</li>
+<li>tree: Files with hierarchy intact</li>
+<li>auto: Automatic files according to the registry</li>
+<li>nature: QtechNG nature of file</li>
+<li>cuser: UID of creator</li>
+<li>muser: UID of last modifier</li>
+<li>cbefore: Created before</li>
+<li>cafter: Created after</li>
+<li>mbefore: Modified before</li>
+<li>mafter: Modified after</li>
+<li>needle: Find substring</li>
+<li>pattern: Posix glob pattern</li>
+<li>neighbours: Indicate if all files in project are selected</li>
+<li>qdir: QPath of a directory under a project</li>
+<li>perline: Searches per line</li>
+<li>recurse: Recursively walks through directory and subdirectories</li>
+<li>regexp: Searches as a regular expression</li>
+<li>tolower: Transforms to lowercase</li>
+<li>smartcaseoff: Forbids smartcase transformation</li>
+</ul>
+<h2 id="ook-nog">Ook nog</h2>
+<p>De qtechng CLI wordt relatief weinig <em>zichtbaar</em> gebruikt: hij zit verborgen in toepassingen zoals <em>Vscode</em></p>
+<p>Er zijn ook shortcuts mogelijk: gebruik de <code>alias</code> features van je geprefereerde shell.</p>
+<p><code>QtechNG</code> kan je ook informatie verschaffen omtrent je bestanden:</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+$ qtechng file tell cat.d
+{
+    <span style="color:#2aa198">&#34;host&#34;</span>: <span style="color:#2aa198">&#34;richard-xps13&#34;</span>,
+    <span style="color:#2aa198">&#34;time&#34;</span>: <span style="color:#2aa198">&#34;2020-10-20T15:43:40+02:00&#34;</span>,
+    <span style="color:#2aa198">&#34;ERROR&#34;</span>: null,
+    <span style="color:#2aa198">&#34;RESULT&#34;</span>: {
+        <span style="color:#2aa198">&#34;abspath&#34;</span>: <span style="color:#2aa198">&#34;/home/rphilips/tmp/work/catalografie/application/cat.d&#34;</span>,
+        <span style="color:#2aa198">&#34;basename&#34;</span>: <span style="color:#2aa198">&#34;cat.d&#34;</span>,
+        <span style="color:#2aa198">&#34;dirname&#34;</span>: <span style="color:#2aa198">&#34;/home/rphilips/tmp/work/catalografie/application&#34;</span>,
+        <span style="color:#2aa198">&#34;ext&#34;</span>: <span style="color:#2aa198">&#34;.d&#34;</span>,
+        <span style="color:#2aa198">&#34;project&#34;</span>: <span style="color:#2aa198">&#34;/catalografie/application&#34;</span>,
+        <span style="color:#2aa198">&#34;python&#34;</span>: <span style="color:#2aa198">&#34;&#34;</span>,
+        <span style="color:#2aa198">&#34;qpath&#34;</span>: <span style="color:#2aa198">&#34;/catalografie/application/cat.d&#34;</span>,
+        <span style="color:#2aa198">&#34;relpath&#34;</span>: <span style="color:#2aa198">&#34;cat.d&#34;</span>,
+        <span style="color:#2aa198">&#34;version&#34;</span>: <span style="color:#2aa198">&#34;6.00&#34;</span>
+    }
+}
+</code></pre></div><div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+$ qtechng file tell cat.d --tell=project
+/catalografie/application$ 
+
+</code></pre></div><div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+$ <span style="color:#cb4b16">export</span> <span style="color:#268bd2">PROJECT</span>=<span style="color:#2aa198">`</span>qtechng file tell cat.d --tell=project<span style="color:#2aa198">`</span>
+$ <span style="color:#cb4b16">echo</span> <span style="color:#268bd2">$PROJECT</span>
+/catalografie/application
+
+</code></pre></div><ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://rphilips.github.io/qtechng-blog/" >
+    &copy;  QtechNG Blog 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/qtechng-blog/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

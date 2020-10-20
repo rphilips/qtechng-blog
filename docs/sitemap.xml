@@ -3,12 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://rphilips.github.io/qtechng-blog/post/installation/</loc>
-    <lastmod>2020-10-08T13:54:21+02:00</lastmod>
+    <loc>https://rphilips.github.io/qtechng-blog/post/clistructure/</loc>
+    <lastmod>2020-10-20T11:54:54+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://rphilips.github.io/qtechng-blog/</loc>
+    <lastmod>2020-10-20T11:54:54+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rphilips.github.io/qtechng-blog/post/installation/</loc>
     <lastmod>2020-10-08T13:54:21+02:00</lastmod>
   </url>
   

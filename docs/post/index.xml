@@ -12,6 +12,21 @@
     
     
     <item>
+      <title>CLI structure</title>
+      <link>https://rphilips.github.io/qtechng-blog/post/clistructure/</link>
+      <pubDate>Tue, 20 Oct 2020 11:54:54 +0200</pubDate>
+      
+      <guid>https://rphilips.github.io/qtechng-blog/post/clistructure/</guid>
+      <description>Laten we even stil staan bij de werking van de QtechNG CLI.
+Een typische invocatie is:
+qtechng project co /core/python3 --version=6.00 --tree Er zijn essentieel 5 onderdelen.
+Executable De werknaam is qtechng. Dit kan echter nog veranderen.
+Het onderwerp Dit bevat het soort object waarover het commando gaat.
+Op dit ogenblik hebben we de volgende onderwerpen:
+ clipboard: acties in verband met het clipboard file: acties in verband met lokale bestanden project: acties in verband met QtechNG projecten registry: acties in verband met de registry source: acties in verband met bestanden in het repository stdin: acties in verband met stdin system: acties in verband met systeemconfiguratie tempdir: acties in verband met tijdelijke mappen version: acties in verband met de versie  QtechNG verzamelt ook eenvoudige instrumenten die het maken van scripts simpelder maken.</description>
+    </item>
+    
+    <item>
       <title>Installation</title>
       <link>https://rphilips.github.io/qtechng-blog/post/installation/</link>
       <pubDate>Thu, 08 Oct 2020 13:54:21 +0200</pubDate>
